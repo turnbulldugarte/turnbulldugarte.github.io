@@ -1,0 +1,75 @@
+{{ define "main" }}
+<article class="pa3 pa4-ns" style="max-width: 100%; width: 100%;">
+  <div class="w-100" style="max-width: 1200px; margin: 0 auto;">
+    <header class="bb b--light-gray pb3 mb4">
+      <h1 class="f2 f1-l fw7 mb2">{{ .Title }}</h1>
+      {{ if .Description }}
+      <p class="f4 gray lh-copy">{{ .Description }}</p>
+      {{ end }}
+    </header>
+
+    <main class="lh-copy f4 measure-wide-l">
+      {{ .Content }}
+    </main>
+  </div>
+</article>
+
+<style>
+article h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  color: #1a202c;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 0.5rem;
+}
+
+article h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: #2d3748;
+}
+
+article p {
+  margin-bottom: 1rem;
+  line-height: 1.7;
+  max-width: 65ch;
+}
+
+article ul {
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+  max-width: 65ch;
+}
+
+article li {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+article a {
+  color: #2563eb;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-bottom-color 0.2s;
+}
+
+article a:hover {
+  border-bottom-color: #2563eb;
+}
+
+article strong {
+  font-weight: 600;
+  color: #1a202c;
+}
+
+article hr {
+  border: none;
+  border-top: 1px solid #e2e8f0;
+  margin: 2rem 0;
+}
+</style>
+{{ end }}

@@ -1,0 +1,98 @@
+baseURL = '/'
+languageCode = 'en-us'
+title = 'Stuart J. Turnbull-Dugarte'
+theme = 'hugo-apero'
+author = 'Stuart J. Turnbull-Dugarte'
+copyright = ''
+googleAnalytics = ''
+disqusShortname = ''
+metaDataFormat = 'yaml'
+footnoteReturnLinkContents = '&#8617;'
+preserveTaxonomyNames = true
+
+[pagination]
+  pagerSize = 10
+ignoreFiles = ['\\.Rmd$', '\\.Rmarkdown$', '_cache$', '\\.knit\\.md$', '\\.utf8\\.md$']
+enableEmoji = true
+relativeURLs = true
+
+[markup]
+  defaultMarkdownHandler = 'goldmark'
+  [markup.goldmark.renderer]
+    unsafe = true
+  [markup.highlight]
+    style = 'github'
+
+[params]
+  orgName = 'Stuart J. Turnbull-Dugarte'
+  orgLocal = 'Southampton, UK'
+  description = 'Academic website of Stuart J. Turnbull-Dugarte, Associate Professor of Quantitative Political Science'
+  favicon = '/img/favicon.ico'
+  logo = '/img/logo.png'
+  mainSections = ['publication']
+  navallcaps = false
+
+  # Color theme - one of: earth / forest / grayscale / magma / paper / peach / plum / poppy / primer / sky / violet / water
+  theme = "paper"
+
+  # Font options
+  textFontFamily = 'sans-serif'
+  headingFontFamily = 'sans-serif'
+
+  customCSS = ["css/custom.css"]
+  customJS = []
+  sharing_image = '/img/avatar.jpg'
+  dateFormat = '2006-01-02'
+
+  socialInHeader = false
+  socialInFooter = false
+
+  [params.utterances]
+    use_utterances = false
+
+[[params.social]]
+  name = 'Bluesky'
+  icon = 'bluesky'
+  icon_pack = 'fab'
+  url = 'https://bsky.app/profile/turnbulldugarte.com'
+
+[[params.social]]
+  name = 'LinkedIn'
+  icon = 'linkedin'
+  icon_pack = 'fab'
+  url = 'https://www.linkedin.com/in/sturnbulldugarte/'
+
+[[params.social]]
+  name = 'Google Scholar'
+  icon = 'google-scholar'
+  icon_pack = 'fab'
+  url = 'https://scholar.google.es/citations?hl=en&pli=1&user=TBenV_8AAAAJ'
+
+[taxonomies]
+  category = 'categories'
+  tag = 'tags'
+  topic = 'topics'
+
+[[menu.header]]
+  name = 'About'
+  title = 'About'
+  url = '/'
+  weight = 1
+
+[[menu.header]]
+  name = 'Publications'
+  title = 'Publications'
+  url = '/publications/'
+  weight = 2
+
+[[menu.header]]
+  name = 'Supervision'
+  title = 'Supervision'
+  url = '/supervision/'
+  weight = 3
+
+[[menu.footer]]
+  name = 'Contact'
+  title = 'Contact'
+  url = '/contact/'
+  weight = 1

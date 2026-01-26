@@ -1,0 +1,317 @@
+# Website Editing Guide
+
+A simple guide for editing your academic website and compiling changes.
+
+---
+
+## Quick Start
+
+### 1. Running the Site Locally
+
+Open Terminal and navigate to the site directory:
+
+```bash
+cd /Users/stuart/Library/CloudStorage/OneDrive-UniversityofSouthampton/WEBSITE/site
+hugo server
+```
+
+The site will be available at: **http://localhost:1313**
+
+Press `Ctrl+C` to stop the server.
+
+---
+
+## Editing Content
+
+### Home Page
+
+**File**: `content/_index.md`
+
+Edit this file to update:
+- Your biography
+- Research interests
+- Current projects
+- Background information
+
+```markdown
+## About
+
+I am a quantitative political scientist whose research interests span...
+```
+
+### Publications
+
+**File**: `data/publications.yaml`
+
+Add or edit publications:
+
+```yaml
+lgbtq_politics:
+  title: "LGBTQ+ Politics"
+  publications:
+    - title: "Your Paper Title"
+      authors: "Author1, Author2"
+      year: 2024
+      journal: "Journal Name"
+      volume: "12"
+      issue: "3"
+      pages: "1-20"
+      doi: "10.xxxx/xxxxx"
+      abstract: "Your abstract text here..."  # optional
+      award: "Award name"  # optional
+```
+
+**Features**:
+- Papers with a `doi` will show Altmetric badges automatically
+- Click topic headers to collapse/expand sections
+- Click paper titles to show/hide abstracts
+
+**Adding new topics**:
+
+```yaml
+new_topic_key:
+  title: "Your Topic Name"
+  publications:
+    - title: "First paper..."
+```
+
+### Supervision Page
+
+**File**: `content/supervision.md`
+
+Edit this file to update:
+- Current PhD students
+- Completed supervisions
+- PhD thesis examinations
+
+```markdown
+## PhD supervision (ongoing)
+
+**Student Name**, 2024-ongoing (co-sup. with Prof. X)
+Thesis: Thesis title here
+```
+
+### Social Media Links
+
+**File**: `hugo.toml`
+
+Find the `[[params.social]]` sections and update URLs:
+
+```toml
+[[params.social]]
+  name = 'Bluesky'
+  icon = 'bluesky'
+  icon_pack = 'fab'
+  url = 'https://bsky.app/profile/yourusername'
+```
+
+---
+
+## Compiling the Site
+
+### For Local Development
+
+While `hugo server` is running, changes are automatically rebuilt and refreshed in your browser. No manual compilation needed!
+
+### Building for Deployment
+
+1. **Stop the server** (Ctrl+C)
+
+2. **Build the static site**:
+
+```bash
+cd /Users/stuart/Library/CloudStorage/OneDrive-UniversityofSouthampton/WEBSITE/site
+hugo
+```
+
+This creates a `public/` folder with all the website files.
+
+3. **Deploy to GitHub Pages**:
+
+First time setup:
+```bash
+git init
+git add .
+git commit -m "Initial commit"
+git remote add origin https://github.com/USERNAME/REPO-NAME.git
+git push -u origin main
+```
+
+Updating after changes:
+```bash
+git add .
+git commit -m "Update content"
+git push
+```
+
+GitHub Actions will automatically build and deploy your site.
+
+---
+
+## Common Editing Tasks
+
+### Adding a New Publication
+
+1. Open `data/publications.yaml`
+2. Find the appropriate topic section (or create a new one)
+3. Add your publication:
+
+```yaml
+- title: "New Paper Title"
+  authors: "You & Coauthors"
+  year: 2026
+  journal: "Journal Name"
+  doi: "10.xxxx/xxxxx"
+  abstract: "Your abstract..."
+```
+
+4. Save the file
+5. If `hugo server` is running, refresh your browser
+6. Otherwise, run `hugo server` to preview
+
+### Updating Your Bio
+
+1. Open `content/_index.md`
+2. Edit the text under `## About` or other sections
+3. Save the file
+4. Refresh browser
+
+### Adding a New Page
+
+1. Create a new file in `content/`, e.g., `content/teaching.md`
+2. Add front matter and content:
+
+```markdown
+---
+title: "Teaching"
+description: "My teaching experience"
+---
+
+## Courses
+
+- Course 1
+- Course 2
+```
+
+3. Add to navigation menu in `hugo.toml`:
+
+```toml
+[[menu.header]]
+  name = 'Teaching'
+  title = 'Teaching'
+  url = '/teaching/'
+  weight = 4
+```
+
+---
+
+## File Structure
+
+```
+site/
+├── content/               # Page content
+│   ├── _index.md         # Home page
+│   ├── supervision.md    # Supervision page
+│   └── publications/
+│       └── _index.md     # Publications page
+│
+├── data/
+│   └── publications.yaml # Publications database
+│
+├── layouts/              # Page templates
+│   ├── index.html       # Home page template
+│   └── _default/
+│       ├── baseof.html  # Base template
+│       ├── single.html  # Single page template
+│       └── publications.html
+│
+├── static/
+│   ├── css/
+│   │   └── custom.css   # Custom styles
+│   └── img/             # Images
+│
+├── hugo.toml            # Site configuration
+└── public/              # Built site (generated)
+```
+
+---
+
+## Troubleshooting
+
+### Server won't start
+
+Check Hugo is installed:
+```bash
+hugo version
+```
+
+If not installed:
+```bash
+brew install hugo
+```
+
+### Changes not showing
+
+1. **Hard refresh** your browser: `Cmd+Shift+R` (Mac) or `Ctrl+Shift+R` (Windows)
+2. Stop and restart the server:
+   ```bash
+   # Press Ctrl+C to stop
+   hugo server
+   ```
+
+### Publications not appearing
+
+- Check YAML indentation (use spaces, not tabs)
+- Ensure `doi:` field is present for Altmetric badges
+- Verify file is saved
+
+### Layout looks broken
+
+Clear the public folder and rebuild:
+```bash
+rm -rf public
+hugo
+hugo server
+```
+
+---
+
+## Tips
+
+1. **Always preview locally** before deploying (`hugo server`)
+2. **Use consistent YAML formatting** - spaces for indentation, no tabs
+3. **Commit changes regularly** to git
+4. **Test on mobile** - resize your browser window to check responsive design
+5. **Backup regularly** - commit to git or copy the entire `site/` folder
+
+---
+
+## Getting Help
+
+- **Hugo Documentation**: https://gohugo.io/documentation/
+- **Apéro Theme Docs**: https://hugo-apero-docs.netlify.app/
+- **Markdown Guide**: https://www.markdownguide.org/basic-syntax/
+
+---
+
+## Quick Reference
+
+| Task | Command |
+|------|---------|
+| Start server | `hugo server` |
+| Build site | `hugo` |
+| Stop server | `Ctrl+C` |
+| Clean build | `hugo --cleanDestinationDir` |
+| Check version | `hugo version` |
+
+---
+
+**Need to make quick edits?**
+
+1. Open the relevant file in any text editor
+2. Make your changes
+3. Save
+4. Refresh browser (if `hugo server` is running)
+5. Commit to git when happy
+
+That's it!

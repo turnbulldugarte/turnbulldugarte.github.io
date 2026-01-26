@@ -1,0 +1,217 @@
+<head>
+  {{ partial "meta.html" . }}
+  {{ template "_internal/schema.html" . }}
+  {{ template "_internal/google_analytics.html" . }}
+  {{ `<!--[if IE]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->` | safeHTML }}
+  <link rel="shortcut icon" href="{{ .Site.Params.favicon }}" type="image/x-icon">
+  <link rel="icon" href="{{ .Site.Params.favicon }}" type="image/x-icon">
+  {{ range .AlternativeOutputFormats }}
+    {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+  {{ end }}
+  {{ $styles := resources.Get "scaffold.scss" | resources.ExecuteAsTemplate "style.main.scss" . | toCSS | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}" media="screen">
+
+  <!-- Dark Mode Styles -->
+  <style>
+    :root {
+      /* Light mode colors (default) */
+      --bg-color: #ffffff;
+      --text-color: #1a202c;
+      --text-secondary: #4a5568;
+      --text-gray: #718096;
+      --border-color: #e2e8f0;
+      --header-bg: #ffffff;
+      --card-bg: #ffffff;
+      --card-hover-bg: #f7fafc;
+      --link-color: #2563eb;
+      --link-hover: #1e40af;
+      --code-bg: #f7fafc;
+      --abstract-bg: #f7fafc;
+      --abstract-border: #4299e1;
+    }
+
+    [data-theme="dark"] {
+      /* Dark mode colors */
+      --bg-color: #1a202c;
+      --text-color: #e2e8f0;
+      --text-secondary: #cbd5e0;
+      --text-gray: #a0aec0;
+      --border-color: #2d3748;
+      --header-bg: #2d3748;
+      --card-bg: #2d3748;
+      --card-hover-bg: #374151;
+      --link-color: #60a5fa;
+      --link-hover: #93c5fd;
+      --code-bg: #374151;
+      --abstract-bg: #374151;
+      --abstract-border: #60a5fa;
+    }
+
+    /* Apply theme colors */
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .site-header {
+      background-color: var(--header-bg);
+      border-bottom-color: var(--border-color);
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+
+    .site-header a {
+      color: var(--text-color);
+    }
+
+    .gray, .mid-gray {
+      color: var(--text-gray) !important;
+    }
+
+    .dark-gray {
+      color: var(--text-secondary) !important;
+    }
+
+    .ba, .bb {
+      border-color: var(--border-color) !important;
+    }
+
+    .bg-near-white {
+      background-color: var(--card-bg) !important;
+    }
+
+    .bg-light-gray, .light-gray {
+      background-color: var(--card-hover-bg) !important;
+    }
+
+    .bg-white {
+      background-color: var(--bg-color) !important;
+    }
+
+    a {
+      color: var(--link-color);
+    }
+
+    a:hover {
+      color: var(--link-hover);
+    }
+
+    .abstract-box {
+      background-color: var(--abstract-bg) !important;
+      border-left-color: var(--abstract-border) !important;
+    }
+
+    /* Dark mode specific overrides */
+    [data-theme="dark"] h1,
+    [data-theme="dark"] h2,
+    [data-theme="dark"] h3,
+    [data-theme="dark"] h4,
+    [data-theme="dark"] h5,
+    [data-theme="dark"] h6 {
+      color: var(--text-color) !important;
+    }
+
+    [data-theme="dark"] .dark-blue,
+    [data-theme="dark"] .hover-blue {
+      color: #93c5fd !important;
+    }
+
+    [data-theme="dark"] .dark-blue:hover,
+    [data-theme="dark"] .hover-blue:hover {
+      color: #bfdbfe !important;
+    }
+
+    [data-theme="dark"] a {
+      color: var(--link-color) !important;
+    }
+
+    [data-theme="dark"] a:hover {
+      color: var(--link-hover) !important;
+    }
+
+    /* Override inline styles in dark mode */
+    [data-theme="dark"] [style*="color: #2563eb"],
+    [data-theme="dark"] [style*="color:#2563eb"] {
+      color: #93c5fd !important;
+    }
+
+    [data-theme="dark"] [style*="color: #4a5568"],
+    [data-theme="dark"] [style*="color:#4a5568"] {
+      color: #cbd5e0 !important;
+    }
+
+    [data-theme="dark"] .home-page h2,
+    [data-theme="dark"] .home-page h3 {
+      color: var(--text-color) !important;
+      border-bottom-color: var(--border-color) !important;
+    }
+
+    /* Supervision page - fix student names in dark mode */
+    [data-theme="dark"] details summary strong {
+      color: var(--text-color) !important;
+    }
+
+    [data-theme="dark"] details summary {
+      color: var(--text-color) !important;
+    }
+
+    /* Dark mode toggle button */
+    .dark-mode-toggle {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: var(--card-bg);
+      border: 2px solid var(--border-color);
+      border-radius: 50%;
+      width: 3.5rem;
+      height: 3.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 1000;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+
+    .dark-mode-toggle:hover {
+      transform: scale(1.1);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+
+    .dark-mode-toggle svg {
+      width: 1.5rem;
+      height: 1.5rem;
+      fill: var(--text-color);
+      transition: fill 0.3s ease;
+    }
+
+    .sun-icon {
+      display: none;
+    }
+
+    [data-theme="dark"] .sun-icon {
+      display: block;
+    }
+
+    [data-theme="dark"] .moon-icon {
+      display: none;
+    }
+  </style>
+
+  <!-- Dark Mode Script (must run before page renders) -->
+  <script>
+    // Initialize theme before page renders to prevent flash
+    (function() {
+      const theme = localStorage.getItem('theme') || 'light';
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+
+  <!-- panelset.js -->
+  {{ $panelsetJs := resources.Get "js/panelset.js" | js.Build "panelset.js" | minify | fingerprint }}
+  <script src="{{ $panelsetJs.RelPermalink }}" type="text/javascript"></script>
+  <!-- headroom.js -->
+  {{ $mainJs := resources.Get "js/main.js" | js.Build "main.js" | minify | fingerprint }}
+  <script src="{{ $mainJs.RelPermalink }}" type="text/javascript"></script>
+</head>

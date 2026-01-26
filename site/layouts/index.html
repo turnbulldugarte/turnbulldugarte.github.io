@@ -1,0 +1,137 @@
+{{ define "main" }}
+<div class="home-page" style="max-width: 100%; width: 100%;">
+  <article class="pa3 pa4-ns" style="max-width: 100%; width: 100%;">
+    <div class="w-100" style="max-width: 1200px; margin: 0 auto;">
+      <header class="tc pb4 pb5-ns">
+        <h1 class="f2 f1-ns fw7 mb2 mt4">{{ .Title }}</h1>
+        <p class="f4 fw5 gray mb3">Associate Professor of Quantitative Political Science</p>
+        <p class="f5 gray">Expect experiments & other creative research designs</p>
+
+        {{ if .Site.Params.social }}
+        <div class="social-links mt4">
+          {{ range .Site.Params.social }}
+          {{ if .url }}
+          <a href="{{ .url }}" target="_blank" rel="noopener" class="link dim dib mr3" title="{{ .name }}">
+            <i class="{{ .icon_pack }} fa-{{ .icon }} fa-2x gray hover-dark-blue"></i>
+          </a>
+          {{ end }}
+          {{ end }}
+        </div>
+        {{ end }}
+      </header>
+
+      <main class="lh-copy f4">
+        <div class="mw7 center">
+          {{ .Content }}
+        </div>
+      </main>
+    </div>
+  </article>
+</div>
+
+<style>
+.home-page h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: #1a202c;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 0.5rem;
+}
+
+.home-page h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: #2d3748;
+}
+
+.home-page p {
+  margin-bottom: 1rem;
+  line-height: 1.7;
+}
+
+.home-page ul {
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.home-page li {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+.home-page a {
+  color: #2563eb;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-bottom-color 0.2s;
+}
+
+.home-page a:hover {
+  border-bottom-color: #2563eb;
+}
+
+.social-links a {
+  transition: transform 0.2s, color 0.2s;
+}
+
+.social-links a:hover {
+  transform: translateY(-2px);
+}
+
+/* Recent Work paper styles */
+.paper-link {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.paper-link:hover {
+  color: #1e40af;
+}
+
+.paper-meta {
+  color: #4a5568;
+  font-size: 0.9rem;
+}
+
+/* Dark mode overrides for homepage */
+[data-theme="dark"] .home-page h2 {
+  color: #e2e8f0;
+  border-bottom-color: #2d3748;
+}
+
+[data-theme="dark"] .home-page h3 {
+  color: #cbd5e0;
+}
+
+[data-theme="dark"] .home-page a,
+[data-theme="dark"] .paper-link {
+  color: #93c5fd;
+}
+
+[data-theme="dark"] .home-page a:hover,
+[data-theme="dark"] .paper-link:hover {
+  color: #bfdbfe;
+  border-bottom-color: #93c5fd;
+}
+
+[data-theme="dark"] .paper-meta {
+  color: #cbd5e0;
+}
+
+/* Button styling for dark mode */
+[data-theme="dark"] .bg-blue {
+  background-color: #3b82f6 !important;
+}
+
+[data-theme="dark"] .hover-bg-dark-blue:hover {
+  background-color: #2563eb !important;
+}
+</style>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script type="text/javascript" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script>
+{{ end }}

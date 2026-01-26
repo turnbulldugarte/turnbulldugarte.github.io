@@ -1,0 +1,120 @@
+far_right:
+  title: "Far-Right Parties & Voters"
+  publications:
+    - title: "Far Right Normalization and Centrifugal Affect. Evidence from the Dating Market"
+      authors: "Turnbull-Dugarte, S.J. & López Ortega, A."
+      year: 2025
+      journal: "Journal of Politics"
+      abstract: "Are radical right supporters penalized by a social norm against the radical right on the dating market? This paper investigates this question by leveraging diverse empirical sources, including a unique and behavioral visual conjoint experiment conducted in Britain and Spain. Theoretically, we argue that the radical right is accommodated within the dating market as a result of the affective spillovers among those on the center-right who view dating those from the opposing ideological bloc as more socially costly than dating their own in-bloc partners. Empirically, we test this by examining the behavior of center-right partisans and assessing whether they follow a polity-based norm which places a premium on ostracizing stigmatized parties, or a bloc-logic norm which incentivizes the rejection of out-bloc partisans. The results demonstrate that center-right partisans accommodate the radical right and are actively expected to do so by fellow in-group partisans. Any dating market penalty for radical right partisans is based on the composition of those on the dating market rather than any polity-level norm enforcement. An accommodating bloc-logic in dating preferences among the mainstream right has large normative implications as it suggests that affective polarization and out-bloc rejection between overarching political camps contributes to facilitating the social normalization of radical right supporters who often hold preferences incompatible with liberal democracy."
+      doi: "10.1086/736698"
+
+    - title: "Rally 'round the Barrack: Far-right Support and the Military"
+      authors: "Villamil, F., Turnbull-Dugarte, S.J. & Rama, J."
+      year: 2024
+      journal: "Journal of Politics"
+      volume: "86"
+      issue: "4"
+      pages: "1524-1540"
+      doi: "10.1086/727598"
+
+    - title: "Public support for the cordon sanitaire: Descriptive evidence from Spain"
+      authors: "Turnbull-Dugarte, S.J."
+      year: 2025
+      journal: "Party Politics"
+      volume: "31"
+      issue: "4"
+      pages: "761-769"
+      abstract: "Reactions to the rise of far-right parties that advocate democratic backsliding, and the dilution of socially liberal democratic norms present a dilemma for existing political parties. How should existing political parties respond to this challenge? A commonly adopted strategy is to apply a cordon sanitaire which excludes radical right-wing challengers from the government-forming process. Do voters support this policy? Leveraging data from Spain – where the mainstream right has accommodated the radical right-wing party, VOX, via numerous governing coalitions – I rely on individual citizens’ views on how parties should respond to rise of the far-right party, to answer this question. Empirically, the results show very low-level support for the cordon sanitaire in Spain. Indeed, the modal position of the electorate, regardless of their ideological position, is to treat the party just like any other. These results are not conditioned by the propensity of individuals to identify VOX as indeed being a “radical right” party. These descriptive findings suggest that whilst radical right-wing parties may present an inimical threat to democratic norms, citizens do not necessarily view the means of squashing this threat to be one of strategic exclusion. This likely explains why the mainstream right has been able to institutionalise VOX as a political ally: where strategic exclusion is not expected, the mainstream right need not fear violating an expectation that does not exist."
+      doi: "10.1177/13540688241246141"
+
+lgbtq_politics:
+  title: "LGBTQ+ Politics"
+  publications:
+    - title: "Do citizens stereotype Muslims as an Illiberal Bogeyman? Evidence from a double-list experiment"
+      authors: "Turnbull-Dugarte, S.J., López-Ortega, A. & Hunklinger, M."
+      year: 2025
+      journal: "British Journal of Political Science"
+      doi: "10.1017/S0007123424000437"
+
+    - title: "Allies on the streets but illiberal in the sheets? Gender and public-vs-private inclusion of sexuality"
+      authors: "Turnbull-Dugarte, S.J."
+      year: 2024
+      journal: "European Journal of Political Research"
+      doi: "10.1017/S1475676525100182"
+
+    - title: "Instrumentally Inclusive: the Political Psychology of Homonationalism"
+      authors: "Turnbull-Dugarte, S.J. & López-Ortega, A."
+      year: 2024
+      journal: "American Political Science Review"
+      volume: "118"
+      issue: "3"
+      pages: "1360-1378"
+      doi: "10.1017/S0003055423000849"
+      award: "Best Article Award (2025), APSA European Politics and Society Section"
+      abstract: "This article examines the political psychology of homonationalism, exploring how citizens can simultaneously support LGBTQ+ rights while holding exclusionary attitudes toward other minority groups. Through experimental evidence, we demonstrate that support for sexual minorities can be instrumentally motivated by broader nationalist or exclusionary political ideologies. The findings have important implications for understanding the conditional nature of liberal attitudes and the strategic use of LGBTQ+ inclusion in political discourse."
+
+    - title: "Protect the women! Trans-Exclusionary Feminist Issue-Framing and Support for Transgender Rights"
+      authors: "Turnbull-Dugarte, S.J. & McMillan, F."
+      year: 2023
+      journal: "Policy Studies Journal"
+      volume: "51"
+      issue: "3"
+      pages: "463-702"
+      doi: "10.1111/psj.12484"
+
+social_identities:
+  title: "Social & Political Identities"
+  publications:
+    - title: "Selective (il)liberalism: theory and evidence on nativist disidentification"
+      authors: "López Ortega, A. & Turnbull-Dugarte, S.J."
+      year: 2025
+      journal: "Political Science Research & Method"
+      doi: "10.1017/psrm.2025.10066"
+
+    - title: "Heroes and Villains: Motivated projection of political identities"
+      authors: "Turnbull-Dugarte, S.J. & Wagner, M."
+      year: 2026
+      journal: "Political Science Research & Method"
+      volume: "14"
+      issue: "1"
+      pages: "1-21"
+      doi: "10.1017/psrm.2025.10"
+
+    - title: "Education as identity? A meta-analysis of education-based in-group preferences in candidate choice experiments"
+      authors: "Simon, E. & Turnbull-Dugarte, S.J."
+      year: 2025
+      journal: "Journal of Politics"
+      volume: "82"
+      issue: "2"
+      pages: "807-811"
+      doi: "10.1086/730745"
+
+elections:
+  title: "Elections & Campaigns"
+  publications:
+    - title: "Negative Political Identities and Costly Political Action"
+      authors: "Lawall, K., Turnbull-Dugarte, S.J., Foos, F. & Townsley, J."
+      year: 2025
+      journal: "Journal of Politics"
+      volume: "87"
+      issue: "1"
+      pages: "291-305"
+      doi: "10.1086/730718"
+
+    - title: "Do opportunistic snap elections increase political trust? Evidence from a natural experiment"
+      authors: "Turnbull-Dugarte, S.J."
+      year: 2023
+      journal: "European Journal of Political Research"
+      volume: "62"
+      issue: "1"
+      pages: "308-325"
+      doi: "10.1111/1475-6765.12531"
+      abstract: "Snap elections called at the discretion of incumbents are often criticized as opportunistic power grabs. This study leverages a natural experiment to examine whether such elections affect citizens' political trust. Using innovative causal identification strategies, the findings suggest that opportunistic electoral timing can have significant consequences for democratic legitimacy and citizen attitudes toward political institutions."
+
+    - title: "Can parties recruit postal voters? Experimental Evidence From Britain"
+      authors: "Townsley, J. & Turnbull-Dugarte, S.J."
+      year: 2020
+      journal: "Electoral Studies"
+      volume: "64"
+      issue: "1"
+      doi: "10.1016/j.electstud.2019.02.013"

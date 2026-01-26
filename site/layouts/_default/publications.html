@@ -1,0 +1,210 @@
+{{ define "main" }}
+<article class="pa3 pa4-ns" style="max-width: 100%; width: 100%;">
+  <div class="w-100" style="max-width: 1400px; margin: 0 auto;">
+    <header class="bb b--light-gray pb3 mb4">
+      <h1 class="f2 f1-l fw7 mb2">{{ .Title }}</h1>
+      {{ .Content }}
+    </header>
+
+    <div class="publications-container">
+      {{ $topicOrder := slice "far_right" "lgbtq_politics" "social_identities" "elections" }}
+      {{ range $topicOrder }}
+      {{ $key := . }}
+      {{ $section := index $.Site.Data.publications $key }}
+      <section class="mb4">
+        <details class="ba b--moon-gray br3 mb3 shadow-hover" open>
+          <summary class="pa3 bg-near-white pointer hover-bg-light-gray br3 transition">
+            <div class="flex items-center justify-between">
+              <h2 class="f3 fw7 ma0 dark-gray">{{ $section.title }}</h2>
+              <span class="topic-arrow f5 gray">▼</span>
+            </div>
+          </summary>
+
+          <div class="pa4 publications-list bg-white">
+            {{ range $section.publications }}
+            <div class="publication-item mb4 pb4 bb b--light-gray last-child-no-border">
+              <details class="pointer">
+                <summary class="list-none">
+                  <h3 class="f4 fw6 lh-title mb2 dark-blue hover-blue pointer flex items-start">
+                    <span class="paper-arrow mr2 f5 flex-shrink-0">▸</span>
+                    <span>{{ .title }}</span>
+                  </h3>
+                  <p class="f5 lh-copy mb2 gray">
+                    {{ .authors }}
+                  </p>
+                  <p class="f6 lh-copy mb2 mid-gray">
+                    <strong><em>{{ .journal }}</em></strong>{{ if .volume }}, {{ .volume }}{{ end }}{{ if .issue }}({{ .issue }}){{ end }}{{ if .pages }}: {{ .pages }}{{ end }} ({{ .year }})
+                  </p>
+                  {{ if .award }}
+                  <p class="f6 lh-copy mb2 gold flex items-center">
+                    <span class="mr2">🏆</span>
+                    <strong>{{ .award }}</strong>
+                  </p>
+                  {{ end }}
+                  <div class="flex flex-wrap items-center mt2">
+                    {{ if .doi }}
+                    <p class="f6 lh-copy mr3 mb2">
+                      <a href="https://doi.org/{{ .doi }}" target="_blank" rel="noopener" class="link blue hover-dark-blue no-underline bb" onclick="event.stopPropagation();">
+                        DOI: {{ .doi }}
+                      </a>
+                    </p>
+                    {{ end }}
+                    {{ if .doi }}
+                    <div class="mb2">
+                      <div class="altmetric-embed"
+                           data-badge-type="donut"
+                           data-badge-details="right"
+                           data-doi="{{ .doi }}"
+                           data-badge-popover="right"
+                           data-hide-no-mentions="false">
+                      </div>
+                    </div>
+                    {{ end }}
+                  </div>
+                </summary>
+
+                <div class="mt3 pa3 bg-light-gray br2 abstract-box">
+                  {{ if .abstract }}
+                  <p class="f5 lh-copy dark-gray measure-wide">
+                    {{ .abstract }}
+                  </p>
+                  {{ else }}
+                  <p class="f5 lh-copy gray i">
+                    Abstract available at <a href="https://doi.org/{{ .doi }}" target="_blank" rel="noopener" class="link blue hover-dark-blue">DOI link</a>
+                  </p>
+                  {{ end }}
+                </div>
+              </details>
+            </div>
+            {{ end }}
+          </div>
+        </details>
+      </section>
+      {{ end }}
+    </div>
+  </div>
+</article>
+
+<style>
+/* Topic section styling */
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+details > summary {
+  list-style: none;
+  transition: background-color 0.2s ease;
+}
+
+details > summary:focus {
+  outline: none;
+}
+
+.shadow-hover:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.transition {
+  transition: all 0.2s ease;
+}
+
+/* Arrow animations */
+.topic-arrow {
+  transition: transform 0.2s ease;
+}
+
+details[open] .topic-arrow {
+  transform: rotate(0deg);
+}
+
+details:not([open]) .topic-arrow {
+  transform: rotate(-90deg);
+}
+
+.paper-arrow {
+  transition: transform 0.2s ease;
+  display: inline-block;
+  margin-top: 0.15rem;
+}
+
+.publication-item details[open] .paper-arrow {
+  transform: rotate(90deg);
+}
+
+.publication-item details:not([open]) .paper-arrow {
+  transform: rotate(0deg);
+}
+
+/* Publication item styling */
+.publication-item:last-child {
+  border-bottom: none !important;
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.abstract-box {
+  animation: slideDown 0.3s ease-out;
+  background-color: #f7fafc;
+  border-left: 3px solid #4299e1;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Link styling */
+.no-underline {
+  text-decoration: none;
+}
+
+.bb {
+  border-bottom: 1px solid currentColor;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 60em) {
+  .publications-container {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  .publication-item details summary h3 {
+    font-size: 1rem;
+  }
+}
+
+/* Color refinements */
+.dark-blue {
+  color: #2c5282;
+}
+
+.hover-blue:hover {
+  color: #2b6cb0;
+}
+
+.dark-gray {
+  color: #2d3748;
+}
+
+.mid-gray {
+  color: #4a5568;
+}
+
+.light-gray {
+  background-color: #f7fafc;
+}
+
+.bg-light-gray {
+  background-color: #edf2f7;
+}
+</style>
+
+<script type="text/javascript" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script>
+{{ end }}

@@ -1,0 +1,22 @@
+# Hugo build output
+site/public/
+site/resources/_gen/
+site/.hugo_build.lock
+
+# macOS
+.DS_Store
+
+# R/RStudio files
+.Rhistory
+.RData
+.Rproj.user
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Claude
+.claude/
