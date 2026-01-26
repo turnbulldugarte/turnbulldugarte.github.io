@@ -2,9 +2,9 @@
 
 A simple guide for editing your academic website and publishing changes.
 
-**Your live website:** https://stuartturnbulldugarte.github.io/
+**Your live website:** https://stuartjames1990.github.io/
 
-**GitHub repository:** https://github.com/stuartjames1990/stuartturnbulldugarte.github.io
+**GitHub repository:** https://github.com/stuartjames1990/stuartjames1990.github.io
 
 ---
 
@@ -132,7 +132,7 @@ This creates a `public/` folder with all the website files.
 
 3. **Publish to GitHub Pages**:
 
-Your site is published at: **https://stuartturnbulldugarte.github.io/**
+Your site is published at: **https://stuartjames1990.github.io/**
 
 After making changes, navigate to the main website folder and push your updates:
 
@@ -146,10 +146,10 @@ git push
 **What happens next:**
 - GitHub Actions automatically builds your Hugo site
 - The updated site is deployed to GitHub Pages
-- Changes appear at https://stuartturnbulldugarte.github.io/ within 1-2 minutes
+- Changes appear at https://stuartjames1990.github.io/ within 1-2 minutes
 
 **Check deployment status:**
-1. Go to https://github.com/stuartjames1990/stuartturnbulldugarte.github.io
+1. Go to https://github.com/stuartjames1990/stuartjames1990.github.io
 2. Click the **Actions** tab
 3. Look for a green checkmark ✓ (success) or red X (failed)
 
@@ -315,9 +315,9 @@ hugo server
    ```
 
 4. **Verify deployment**:
-   - Go to https://github.com/stuartjames1990/stuartturnbulldugarte.github.io/actions
+   - Go to https://github.com/stuartjames1990/stuartjames1990.github.io/actions
    - Wait for the green checkmark ✓
-   - Visit https://stuartturnbulldugarte.github.io/ to see your changes
+   - Visit https://stuartjames1990.github.io/ to see your changes
 
 **Example commit messages:**
 - `git commit -m "Add new publication to LGBTQ+ politics section"`
@@ -341,8 +341,8 @@ hugo server
 | Start local preview | `hugo server` |
 | Stop server | `Ctrl+C` |
 | Publish changes | `git add . && git commit -m "message" && git push` |
-| View live site | https://stuartturnbulldugarte.github.io/ |
-| Check deployment | https://github.com/stuartjames1990/stuartturnbulldugarte.github.io/actions |
+| View live site | https://stuartjames1990.github.io/ |
+| Check deployment | https://github.com/stuartjames1990/stuartjames1990.github.io/actions |
 | Build locally | `hugo` |
 | Check Hugo version | `hugo version` |
 
@@ -361,6 +361,6 @@ hugo server
    git commit -m "Your change description"
    git push
    ```
-6. Check https://stuartturnbulldugarte.github.io/ in a few minutes
+6. Check https://stuartjames1990.github.io/ in a few minutes
 
 That's it!
