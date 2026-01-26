@@ -1,6 +1,10 @@
 # Website Editing Guide
 
-A simple guide for editing your academic website and compiling changes.
+A simple guide for editing your academic website and publishing changes.
+
+**Your live website:** https://stuartturnbulldugarte.github.io/
+
+**GitHub repository:** https://github.com/stuartjames1990/stuartturnbulldugarte.github.io
 
 ---
 
@@ -126,25 +130,28 @@ hugo
 
 This creates a `public/` folder with all the website files.
 
-3. **Deploy to GitHub Pages**:
+3. **Publish to GitHub Pages**:
 
-First time setup:
-```bash
-git init
-git add .
-git commit -m "Initial commit"
-git remote add origin https://github.com/USERNAME/REPO-NAME.git
-git push -u origin main
-```
+Your site is published at: **https://stuartturnbulldugarte.github.io/**
 
-Updating after changes:
+After making changes, navigate to the main website folder and push your updates:
+
 ```bash
+cd /Users/stuart/Library/CloudStorage/OneDrive-UniversityofSouthampton/WEBSITE
 git add .
-git commit -m "Update content"
+git commit -m "Describe your changes here"
 git push
 ```
 
-GitHub Actions will automatically build and deploy your site.
+**What happens next:**
+- GitHub Actions automatically builds your Hugo site
+- The updated site is deployed to GitHub Pages
+- Changes appear at https://stuartturnbulldugarte.github.io/ within 1-2 minutes
+
+**Check deployment status:**
+1. Go to https://github.com/stuartjames1990/stuartturnbulldugarte.github.io
+2. Click the **Actions** tab
+3. Look for a green checkmark ✓ (success) or red X (failed)
 
 ---
 
@@ -280,9 +287,42 @@ hugo server
 
 1. **Always preview locally** before deploying (`hugo server`)
 2. **Use consistent YAML formatting** - spaces for indentation, no tabs
-3. **Commit changes regularly** to git
+3. **Commit and push changes regularly** to keep your live site updated
 4. **Test on mobile** - resize your browser window to check responsive design
-5. **Backup regularly** - commit to git or copy the entire `site/` folder
+5. **Wait for deployment** - after pushing, check the Actions tab on GitHub to ensure successful deployment
+
+## Complete Workflow for Making Updates
+
+**Step-by-step process for updating your live website:**
+
+1. **Make your edits** in any text editor (VSCode, TextEdit, etc.)
+   - Edit files in `content/`, `data/`, etc.
+
+2. **Preview locally** (optional but recommended):
+   ```bash
+   cd /Users/stuart/Library/CloudStorage/OneDrive-UniversityofSouthampton/WEBSITE/site
+   hugo server
+   ```
+   - View at http://localhost:1313
+   - Press Ctrl+C when done
+
+3. **Publish to GitHub**:
+   ```bash
+   cd /Users/stuart/Library/CloudStorage/OneDrive-UniversityofSouthampton/WEBSITE
+   git add .
+   git commit -m "Brief description of what you changed"
+   git push
+   ```
+
+4. **Verify deployment**:
+   - Go to https://github.com/stuartjames1990/stuartturnbulldugarte.github.io/actions
+   - Wait for the green checkmark ✓
+   - Visit https://stuartturnbulldugarte.github.io/ to see your changes
+
+**Example commit messages:**
+- `git commit -m "Add new publication to LGBTQ+ politics section"`
+- `git commit -m "Update bio with new research interests"`
+- `git commit -m "Add completed PhD supervision"`
 
 ---
 
@@ -298,11 +338,13 @@ hugo server
 
 | Task | Command |
 |------|---------|
-| Start server | `hugo server` |
-| Build site | `hugo` |
+| Start local preview | `hugo server` |
 | Stop server | `Ctrl+C` |
-| Clean build | `hugo --cleanDestinationDir` |
-| Check version | `hugo version` |
+| Publish changes | `git add . && git commit -m "message" && git push` |
+| View live site | https://stuartturnbulldugarte.github.io/ |
+| Check deployment | https://github.com/stuartjames1990/stuartturnbulldugarte.github.io/actions |
+| Build locally | `hugo` |
+| Check Hugo version | `hugo version` |
 
 ---
 
@@ -311,7 +353,14 @@ hugo server
 1. Open the relevant file in any text editor
 2. Make your changes
 3. Save
-4. Refresh browser (if `hugo server` is running)
-5. Commit to git when happy
+4. Preview locally with `hugo server` (optional)
+5. Publish with:
+   ```bash
+   cd /Users/stuart/Library/CloudStorage/OneDrive-UniversityofSouthampton/WEBSITE
+   git add .
+   git commit -m "Your change description"
+   git push
+   ```
+6. Check https://stuartturnbulldugarte.github.io/ in a few minutes
 
 That's it!

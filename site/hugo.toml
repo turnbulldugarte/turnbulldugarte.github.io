@@ -1,4 +1,4 @@
-baseURL = '/'
+baseURL = '/stuartturnbulldugarte.github.io/'
 languageCode = 'en-us'
 title = 'Stuart J. Turnbull-Dugarte'
 theme = 'hugo-apero'
