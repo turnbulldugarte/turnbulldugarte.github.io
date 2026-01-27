@@ -34,7 +34,7 @@ My research has been published in leading journals including the *American Polit
       <span class="paper-meta">Turnbull-Dugarte, S.J. & Wagner, M.</span><br>
       <span class="paper-meta"><em>Political Science Research & Methods</em> (2026)</span>
     </div>
-    <div class="altmetric-embed" data-badge-type="donut" data-badge-details="right" data-doi="10.1017/psrm.2025.10" data-hide-no-mentions="false"></div>
+    <div class="altmetric-embed" data-badge-type="donut" data-doi="10.1017/psrm.2025.10" data-hide-no-mentions="false" data-link-target="_blank"></div>
   </div>
 
   <div style="display: flex; align-items: center; gap: 1rem;">
@@ -43,7 +43,7 @@ My research has been published in leading journals including the *American Polit
       <span class="paper-meta">Turnbull-Dugarte, S.J. & López Ortega, A.</span><br>
       <span class="paper-meta"><em>Journal of Politics</em> (2025)</span>
     </div>
-    <div class="altmetric-embed" data-badge-type="donut" data-badge-details="right" data-doi="10.1086/736698" data-hide-no-mentions="false"></div>
+    <div class="altmetric-embed" data-badge-type="donut" data-doi="10.1086/736698" data-hide-no-mentions="false" data-link-target="_blank"></div>
   </div>
 </div>
 
