@@ -3,6 +3,10 @@
   <article class="pa3 pa4-ns" style="max-width: 100%; width: 100%;">
     <div class="w-100" style="max-width: 1200px; margin: 0 auto;">
       <header class="tc pb4 pb5-ns">
+        <div class="profile-image-container mt4 mb3">
+          <img src="/img/avatar.jpg" alt="Stuart" class="profile-image br-100 dib" style="width: 150px; height: 150px; object-fit: cover;">
+          <p class="f5 gray mt2 mb0">Stuart (he/him)</p>
+        </div>
         <h1 class="f2 f1-ns fw7 mb2 mt4">{{ .Title }}</h1>
         <p class="f4 fw5 gray mb3 typewriter-container">
           <span class="typewriter" id="typewriter-text"></span>
@@ -169,7 +173,7 @@
 <script>
 // Typewriter effect
 (function() {
-  const text = "Associate Professor of Quantitative Political Science\nExpect experiments & other creative research designs";
+  const text = "Associate Professor of Quantitative Political Science\nExpect experiments, research on identity politics, and probably some gay stuff";
   const lines = text.split('\n');
   const typewriterElement = document.getElementById('typewriter-text');
   let lineIndex = 0;
