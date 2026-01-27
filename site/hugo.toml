@@ -86,10 +86,16 @@ relativeURLs = true
   weight = 2
 
 [[menu.header]]
+  name = 'Ongoing projects'
+  title = 'Ongoing projects'
+  url = '/projects/'
+  weight = 3
+
+[[menu.header]]
   name = 'Supervision'
   title = 'Supervision'
   url = '/supervision/'
-  weight = 3
+  weight = 4
 
 [[menu.footer]]
   name = 'Contact'

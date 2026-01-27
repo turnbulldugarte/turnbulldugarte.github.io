@@ -1,0 +1,41 @@
+far_right:
+  title: "Far-right politics"
+  projects:
+    - title: "Reactions to US liberal backsliding"
+      authors: "with Joe Noonan, Michal Grahn and Rebecka Knudsen"
+      status: "revise & resubmit"
+
+    - title: "Facts against femonationalism: how to stop far-right normalisation"
+      authors: "with Katharina Lawall, Michal Grahn and Sophie Mainz"
+      status: "APSA 2025 conference paper"
+
+    - title: "Does femonationalism influence support for anti-immigrant governments? No"
+      authors: "with Katharina Lawall, Michal Grahn and Sophie Mainz"
+      status: "EPSA 2025 conference paper"
+
+    - title: "Small men. How emasculated men reject liberal norms"
+      authors: "with Đorđe Milosav, Emma Renström, Hanna Bäck and Michal Grahn"
+      status: "experiment in the field"
+
+political_identities:
+  title: "Political identities"
+  projects:
+    - title: "Partisan responsiveness in real time"
+      authors: "with Luca Versteegen, Dan Devine, and Owen Winter"
+      status: "under review"
+
+    - title: "Education as identity? Group-based affect between graduates and non-graduates: multi-study evidence from the Britain"
+      authors: "with Elizabeth Simon"
+      status: "EPSA 2023 conference paper"
+
+    - title: "Class and symbolic representation"
+      authors: "with Dan Devine"
+      status: "under review"
+
+lgbtq_politics:
+  title: "LGBTQ+ politics"
+  intro: "My primary focus in this area at the moment is a book manuscript on LGBTQ+ political behaviour. Other projects include:"
+  projects:
+    - title: "The electoral costs of transphobia. Evidence from Britain"
+      authors: "with Konstantin Bogatyrev"
+      status: "early research project"
