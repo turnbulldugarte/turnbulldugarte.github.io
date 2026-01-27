@@ -10,12 +10,8 @@ cascade:
 
 I am a quantitative political scientist whose research interests span **political sociology**, **comparative politics**, and **behavioural science**. My work focuses on LGBTQ+ politics, social and political identities, far-right parties and voters, and elections and campaigns.
 
-As a **first-generation student**, I am committed to mentoring and supporting researchers from similar backgrounds. I am also an advocate for **mental health awareness in academia**.
+I am very proudly a **first gen student** and I dedicate part of my time to mentoring other first gen students in their journey through university life. I am also very keen on normalising transparency on issues related to poor mental health in academia & talk about my own struggle with depression ([#ihadablackdog](https://www.youtube.com/watch?v=XiCrniLQGYc)), anxiety, and the [*Velvet Rage*](https://www.theguardian.com/society/2011/feb/20/gay-men-depression-the-velvet-rage) openly. If you are in need of support, I am readily available to talk.
 
-
----
-
-## Current Research
 
 My forthcoming book, **[The Rainbow Vote](https://press.princeton.edu/)**, is under contract with Princeton University Press and is supported by Leverhulme Trust funding. The project examines the political behavior and attitudes of LGBTQ+ voters across multiple countries.
 
@@ -23,9 +19,7 @@ My forthcoming book, **[The Rainbow Vote](https://press.princeton.edu/)**, is un
 
 ## Research Highlights
 
-My research has been published in leading journals including the *American Political Science Review*, *British Journal of Political Science*, *Journal of Politics*, *European Journal of Political Research*, and *Political Science Research & Methods*.
-
-### Recent Work
+My research has been published in leading journals including the *American Political Science Review*, *British Journal of Political Science*, *Journal of Politics*, *European Journal of Political Research*, and *Political Science Research & Methods*. Some of my research has been enjoyed coverage on BBC News, the *Financial Times*, the *New York Times* and the *Guardian*. 
 
 <div style="margin-bottom: 1.5rem;">
   <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
