@@ -273,3 +273,13 @@ h5 a.anchor,
 h6 a.anchor {
   display: none !important;
 }
+
+/* Hexagon shape for header logo and profile images */
+header img[src*="logo"],
+.logo-hex {
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  width: auto;
+  height: 3rem;
+  object-fit: cover;
+}

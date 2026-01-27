@@ -4,7 +4,7 @@
     <div class="w-100" style="max-width: 1200px; margin: 0 auto;">
       <header class="tc pb4 pb5-ns">
         <div class="profile-image-container mt4 mb3">
-          <img src="/img/avatar.jpg" alt="Stuart" class="profile-image br-100 dib" style="width: 150px; height: 150px; object-fit: cover;">
+          <img src="/img/logo.png" alt="Stuart" class="profile-image-hex dib" style="width: 280px; height: 320px; object-fit: contain; object-position: center center;">
           <p class="f5 gray mt2 mb0">Stuart (he/him)</p>
         </div>
         <h1 class="f2 f1-ns fw7 mb2 mt4">{{ .Title }}</h1>
@@ -155,6 +155,12 @@
 @keyframes blink {
   0%, 50% { opacity: 1; }
   51%, 100% { opacity: 0; }
+}
+
+/* Hexagon shape for profile images */
+.profile-image-hex {
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
 }
 
 /* Fix button text color */

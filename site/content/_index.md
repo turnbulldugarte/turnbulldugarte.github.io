@@ -10,7 +10,7 @@ cascade:
 
 I am a quantitative political scientist whose research interests span **political sociology**, **comparative politics**, and **behavioural science**. My work focuses on LGBTQ+ politics, social and political identities, far-right parties and voters, and elections and campaigns.
 
-I received my PhD in Political Science in 2020 from the ([Department of Political Economy] (https://sites.google.com/view/kingsqpe/home)) at King's College London.
+I received my PhD in Political Science in 2020 from the [Department of Political Economy](https://sites.google.com/view/kingsqpe/home) at King's College London.
 
 I am very proudly a **first gen student** and I dedicate part of my time to mentoring other first gen students in their journey through university life. I am also very keen on normalising transparency on issues related to poor mental health in academia & talk about my own struggle with depression ([#ihadablackdog](https://www.youtube.com/watch?v=XiCrniLQGYc)), anxiety, and the [*Velvet Rage*](https://www.theguardian.com/society/2011/feb/20/gay-men-depression-the-velvet-rage) openly. If you are in need of support, I am readily available to talk.
 
