@@ -97,6 +97,12 @@ relativeURLs = true
   url = '/supervision/'
   weight = 4
 
+[[menu.header]]
+  name = 'Peer review data'
+  title = 'Peer review data'
+  url = '/peer-review/'
+  weight = 5
+
 [[menu.footer]]
   name = 'Contact'
   title = 'Contact'
