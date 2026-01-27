@@ -4,5 +4,5 @@ description: "Peer-reviewed publications"
 layout: "publications"
 ---
 
-## Publications
+## Selected collection of peer-reviewd publications
 

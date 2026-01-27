@@ -4,8 +4,10 @@
     <div class="w-100" style="max-width: 1200px; margin: 0 auto;">
       <header class="tc pb4 pb5-ns">
         <h1 class="f2 f1-ns fw7 mb2 mt4">{{ .Title }}</h1>
-        <p class="f4 fw5 gray mb3">Associate Professor of Quantitative Political Science</p>
-        <p class="f5 gray">Expect experiments & other creative research designs</p>
+        <p class="f4 fw5 gray mb3 typewriter-container">
+          <span class="typewriter" id="typewriter-text"></span>
+          <span class="typewriter-cursor">|</span>
+        </p>
 
         {{ if .Site.Params.social }}
         <div class="social-links mt4">
@@ -130,8 +132,71 @@
 [data-theme="dark"] .hover-bg-dark-blue:hover {
   background-color: #2563eb !important;
 }
+
+/* Typewriter effect styling */
+.typewriter-container {
+  font-family: 'Courier New', Courier, monospace;
+  min-height: 1.5em;
+}
+
+.typewriter {
+  display: inline;
+}
+
+.typewriter-cursor {
+  display: inline;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* Fix button text color */
+.bg-blue {
+  color: white !important;
+}
+
+[data-theme="dark"] .bg-blue {
+  color: white !important;
+}
 </style>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <script type="text/javascript" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script>
+
+<script>
+// Typewriter effect
+(function() {
+  const text = "Associate Professor of Quantitative Political Science\nExpect experiments & other creative research designs";
+  const lines = text.split('\n');
+  const typewriterElement = document.getElementById('typewriter-text');
+  let lineIndex = 0;
+  let charIndex = 0;
+
+  function typeWriter() {
+    if (lineIndex < lines.length) {
+      if (charIndex < lines[lineIndex].length) {
+        typewriterElement.innerHTML += lines[lineIndex].charAt(charIndex);
+        charIndex++;
+        setTimeout(typeWriter, 50); // typing speed in milliseconds
+      } else {
+        // Move to next line
+        lineIndex++;
+        charIndex = 0;
+        if (lineIndex < lines.length) {
+          typewriterElement.innerHTML += '<br>';
+          setTimeout(typeWriter, 200); // pause between lines
+        }
+      }
+    }
+  }
+
+  // Start typing when page loads
+  window.addEventListener('load', function() {
+    setTimeout(typeWriter, 500); // initial delay
+  });
+})();
+</script>
 {{ end }}

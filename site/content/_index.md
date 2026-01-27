@@ -52,7 +52,7 @@ My research has been published in leading journals including the *American Polit
 ---
 
 <div class="tc mt4">
-  <a href="/publications/" class="f5 no-underline br-pill ph4 pv3 mb2 dib white bg-blue hover-bg-dark-blue" style="background-color: #2563eb;">
+  <a href="/publications/" class="f5 no-underline br-pill ph4 pv3 mb2 dib white bg-blue hover-bg-dark-blue" style="background-color: #2563eb; color: white !important;">
     View Publications →
   </a>
 </div>
