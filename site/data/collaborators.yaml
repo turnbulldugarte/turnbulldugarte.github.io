@@ -2,72 +2,72 @@
 # Format: First name, last name (for matching), URL
 # The template matches on last name in the authors field
 
-- first: Michal
-  last: Grahn
-  url: https://www.michalgrahn.com
-- first: Katharina
-  last: Lawall
-  url: https://katharinalawall.com
 - first: Alberto
   last: López Ortega
   url: https://aloport.github.io
-- first: Joe
-  last: Noonan
-  url: https://joenoonan.se
 - first: Daniel
   last: Devine
   url: https://djdevine.org
-- first: Luca
-  last: Versteegen
-  url: https://lucaversteegen.com
-- first: Owen
-  last: Winter
-  url: https://owenwinter.co.uk/about/
-- first: Sophie
-  last: Mainz
-  url: https://sophiemainz.github.io
-- first: Đorđe
-  last: Milosav
-  url: https://www.djordjemilosav.com/
-- first: Konstantin
-  last: Bogatyrev
-  url: https://sites.google.com/view/konstantin-bogatyrev/about
-- first: Florian
-  last: Foos
-  url: http://www.florianfoos.net
-- first: Josh
-  last: Townsley
-  url: https://www.lse.ac.uk/people/joshua-townsley
-- first: Lizzie
-  last: Simon
-  url: https://experts.exeter.ac.uk/45141-lizzie-simon
-- first: Fraser
-  last: McMillan
-  url: https://frasmcm.scot
-- first: Markus
-  last: Wagner
-  url: https://www.wagnermarkus.net
-- first: Fran
-  last: Villamil
-  url: https://franvillamil.github.io
-- first: Michael
-  last: Hunklinger
-  url: https://michaelhunklinger.com
 - first: Denis
   last: Cohen
   url: https://denis-cohen.github.io
-- first: Werner
-  last: Krause
-  url: https://krausewe.github.io
-- first: Rebeca
-  last: Antuña
-  url: https://www.uni-potsdam.de/en/vergleichende-politikwissenschaft/team/rebeca-g-antuna
-- first: Hanna
-  last: Bäck
-  url: https://www.svet.lu.se/en/hanna-back
+- first: Đorđe
+  last: Milosav
+  url: https://www.djordjemilosav.com/
 - first: Emma
   last: Renström
   url: https://researchportal.hkr.se/en/persons/emma-a-renström/
+- first: Florian
+  last: Foos
+  url: http://www.florianfoos.net
+- first: Fran
+  last: Villamil
+  url: https://franvillamil.github.io
+- first: Fraser
+  last: McMillan
+  url: https://frasmcm.scot
+- first: Hanna
+  last: Bäck
+  url: https://www.svet.lu.se/en/hanna-back
+- first: Joe
+  last: Noonan
+  url: https://joenoonan.se
 - first: José
   last: Rama
   url: https://scholar.google.es/citations?user=4ykHReEAAAAJ&hl=en
+- first: Josh
+  last: Townsley
+  url: https://www.lse.ac.uk/people/joshua-townsley
+- first: Katharina
+  last: Lawall
+  url: https://katharinalawall.com
+- first: Konstantin
+  last: Bogatyrev
+  url: https://sites.google.com/view/konstantin-bogatyrev/about
+- first: Lizzie
+  last: Simon
+  url: https://experts.exeter.ac.uk/45141-lizzie-simon
+- first: Luca
+  last: Versteegen
+  url: https://lucaversteegen.com
+- first: Markus
+  last: Wagner
+  url: https://www.wagnermarkus.net
+- first: Michael
+  last: Hunklinger
+  url: https://michaelhunklinger.com
+- first: Michal
+  last: Grahn
+  url: https://www.michalgrahn.com
+- first: Owen
+  last: Winter
+  url: https://owenwinter.co.uk/about/
+- first: Rebeca
+  last: Antuña
+  url: https://www.uni-potsdam.de/en/vergleichende-politikwissenschaft/team/rebeca-g-antuna
+- first: Sophie
+  last: Mainz
+  url: https://sophiemainz.github.io
+- first: Werner
+  last: Krause
+  url: https://krausewe.github.io
