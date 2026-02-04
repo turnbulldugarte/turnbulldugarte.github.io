@@ -27,6 +27,28 @@
 
             {{ range $section.projects }}
             <div class="project-item mb4 pb4 bb b--light-gray last-child-no-border">
+              {{ if .abstract }}
+              <details class="pointer">
+                <summary class="list-none">
+                  <h3 class="f4 fw6 lh-title mb2 dark-blue hover-blue pointer flex items-start">
+                    <span class="project-arrow mr2 f5 flex-shrink-0">▸</span>
+                    <span>{{ .title }}</span>
+                  </h3>
+                  <p class="f5 lh-copy mb2 gray">
+                    {{ .authors }}
+                  </p>
+                  <p class="f6 lh-copy mb2 mid-gray">
+                    <em>{{ .status }}</em>
+                  </p>
+                </summary>
+
+                <div class="mt3 pa3 bg-light-gray br2 abstract-box">
+                  <p class="f5 lh-copy dark-gray measure-wide">
+                    {{ .abstract }}
+                  </p>
+                </div>
+              </details>
+              {{ else }}
               <h3 class="f4 fw6 lh-title mb2 dark-blue">
                 {{ .title }}
               </h3>
@@ -36,6 +58,7 @@
               <p class="f6 lh-copy mb2 mid-gray">
                 <em>{{ .status }}</em>
               </p>
+              {{ end }}
             </div>
             {{ end }}
           </div>
@@ -82,11 +105,48 @@ details:not([open]) .topic-arrow {
   transform: rotate(-90deg);
 }
 
+/* Project arrow animations */
+.project-arrow {
+  transition: transform 0.2s ease;
+  display: inline-block;
+  margin-top: 0.15rem;
+}
+
+.project-item details[open] .project-arrow {
+  transform: rotate(90deg);
+}
+
+.project-item details:not([open]) .project-arrow {
+  transform: rotate(0deg);
+}
+
 /* Project item styling */
 .project-item:last-child {
   border-bottom: none !important;
   padding-bottom: 0 !important;
   margin-bottom: 0 !important;
+}
+
+.abstract-box {
+  animation: slideDown 0.3s ease-out;
+  background-color: #f7fafc;
+  border-left: 3px solid #4299e1;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Link styling */
+.hover-blue:hover {
+  color: #2b6cb0;
 }
 
 /* Responsive adjustments */

@@ -4,10 +4,12 @@ far_right:
     - title: "Reactions to US liberal backsliding"
       authors: "with Joe Noonan, Michal Grahn and Rebecka Knudsen"
       status: "revise & resubmit"
+      abstract: "The United States, long regarded as a stable liberal democracy, is undergoing rapid democratic backsliding that increasingly targets liberal civil and social rights. How do citizens in other liberal democracies respond to such developments? We address this question using two causal strategies. First, drawing on a quasi-experiment with individual-level data from thirty-five countries (N = 32,080), we show that exposure to attacks on women's rights significantly undermines the United States' democratic standing among European publics. Second, a pre-registered vignette experiment in Britain (N = 2,993) demonstrates that news about attacks on liberal civil and social rights -- specifically the right to protest and LGBTQ+ rights -- reduces perceptions of the United States as a democracy and lowers public willingness to cooperate with it. These effects are driven by updated beliefs about the United States' adherence to shared liberal values rather than fears of democratic backsliding at home. Our findings demonstrate that liberal backsliding in the United States carries substantial cross-national costs, weakening its democratic reputation and eroding public support for international cooperation among citizens in allied democratic nations."
 
     - title: "Facts against femonationalism: how to stop far-right normalisation"
       authors: "with Katharina Lawall, Michal Grahn and Sophie Mainz"
       status: "APSA 2025 conference paper"
+      abstract: "How can liberal democratic actors counter radical right normalisation? While much research documents how radical right ideology and anti-immigration positions have moved into the mainstream in many Western democracies, we know a lot less about what counter-strategies could be effective against the normalisation of exclusionary policy agendas. In this study, we test different types of counterspeech to a prominent radical right normalisation strategy: femonationalism -- presenting an anti-immigration position through the more normatively acceptable frame of gender equality. Drawing on a pre-registered audio-video vignette experiment with a quota-representative sample of 3,994 German adults, we test whether different forms of counterspeech can reduce agreement with anti-immigration positions and perceptions of their social acceptability. Respondents were exposed to anti-immigration rhetoric with a gender equality justification in a short, news-style video, followed by one of three rebuttals: (1) a factual correction debunking the link between immigration and violence against women; (2) a symbolic critique highlighting low female representation in these parties; or (3) a substantive critique of their conservative gender policy agendas. We find that only the factual correction consistently reduces support for femonationalist views and anti-immigrant discourse. Symbolic and substantive critiques, while normatively salient, show limited or inconsistent effects. These findings underscore the potential of fact-based counterspeech to contest gendered nativism."
 
     - title: "Does femonationalism influence support for anti-immigrant governments? No"
       authors: "with Katharina Lawall, Michal Grahn and Sophie Mainz"
@@ -15,27 +17,33 @@ far_right:
 
     - title: "Small men. How emasculated men reject liberal norms"
       authors: "with Đorđe Milosav, Emma Renström, Hanna Bäck and Michal Grahn"
-      status: "experiment in the field"
+      status: "Paper abstract submitted to APSA 2026"
 
 political_identities:
-  title: "Political identities"
+  title: "Social & Political identities"
   projects:
     - title: "Partisan responsiveness in real time"
       authors: "with Luca Versteegen, Dan Devine, and Owen Winter"
       status: "under review"
+      abstract: "Elite cues signal citizens how to interpret political events through a partisan lens. Do these effects occur in real time? We exploit US president Trump’s unexpected announcement of US military strikes against Iran--made during the fieldwork of a nationally representative survey--to estimate the causal effect of elite cues on opinion formation. Leveraging the temporal discontinuity (in minutes) in exposure to the event, we find that partisan divergence unfolds minutes after the announcement: support for military intervention surges among Republicans but drops among Democrats. These effects are immediate, large, and robust across more than 28,000 alternative model specifications. Our evidence demonstrates the immediacy and power with which elites cues have consequences. Our findings imply a threat to democratic accountability, such that a single post suffices to polarize US public opinion and make Republican voters tolerate a policy u-turn by their president. "
+
+    - title: "Class and symbolic representation"
+      authors: "with Dan Devine"
+      status: "under review"
+      abstract: "Does working-class descriptive representation enhance perceptions of system legitimacy, or `symbolic representation`? In the context of the widespread marginalisation of working-class people in legislatures across the democratic world, we provide novel experimental tests linking class-based descriptive representation to symbolic representation. We empirically demonstrate that descriptive representation among both candidates and institutions in the aggregate is strongly associated with symbolic representation. Our causal findings show that this effect is driven by class identity: individuals who identify as working class believe that working-class legislators -- and legislatures with a higher number of working-class legislators -- represent them better, increasing trust in decision-making. This relationship is strongest among those with a deeper psychological attachment to their class-based identity. Simultaneously, this leads to greater rejection of more privileged candidates and legislatures. We find little moderating effect of (the strength of) middle-class identity. Our results highlight how the well-documented and near-complete absence of class diversity in legislatures contributes to dissatisfaction with political actors and institutions."
+
+    - title: "Are voters fatphobic?"
+      authors: ""
+      status: "work in progress"
 
     - title: "Education as identity? Group-based affect between graduates and non-graduates: multi-study evidence from the Britain"
       authors: "with Elizabeth Simon"
       status: "EPSA 2023 conference paper"
 
-    - title: "Class and symbolic representation"
-      authors: "with Dan Devine"
-      status: "under review"
-
 lgbtq_politics:
   title: "LGBTQ+ politics"
-  intro: "My primary focus in this area at the moment is a book manuscript on LGBTQ+ political behaviour. Other projects include:"
+  intro: "My primary focus in this area at the moment is a book manuscript on LGBTQ+ political behaviour which is under contract with Princeton University Press. Other projects include:"
   projects:
     - title: "The electoral costs of transphobia. Evidence from Britain"
       authors: "with Konstantin Bogatyrev"
-      status: "early research project"
+      status: "Paper to be presented at EPSS 2026"
