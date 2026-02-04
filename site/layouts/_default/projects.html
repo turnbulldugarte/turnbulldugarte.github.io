@@ -42,7 +42,13 @@
                   {{- else }} status-default
                   {{- end }}">{{ .status }}</span>
                 {{ if .abstract }}
-                <button class="abstract-btn" onclick="this.parentElement.nextElementSibling.classList.toggle('dn')">Abstract</button>
+                <button class="abstract-btn" onclick="this.closest('.project-item').querySelector('.abstract-box').classList.toggle('dn')">Abstract</button>
+                {{ end }}
+                {{ $authors := .authors }}
+                {{ range $.Site.Data.collaborators }}
+                {{ if findRE .last $authors }}
+                <a href="{{ .url }}" target="_blank" rel="noopener" class="collab-btn">{{ .first }}'s webpage</a>
+                {{ end }}
                 {{ end }}
               </div>
               {{ if .abstract }}
@@ -157,6 +163,28 @@ details:not([open]) .topic-arrow {
   background-color: #2b6cb0;
   color: white;
   border-color: #2b6cb0;
+}
+
+/* Collaborator webpage button styling */
+.collab-btn {
+  display: inline-block;
+  font-size: 0.9em;
+  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: 4px;
+  background-color: white;
+  color: #718096;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  vertical-align: middle;
+  text-decoration: none;
+}
+
+.collab-btn:hover {
+  background-color: #718096;
+  color: white;
+  border-color: #718096;
 }
 
 /* Display none utility */

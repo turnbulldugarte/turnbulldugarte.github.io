@@ -23,58 +23,61 @@
           <div class="pa4 publications-list bg-white">
             {{ range $section.publications }}
             <div class="publication-item mb4 pb4 bb b--light-gray last-child-no-border">
-              <details class="pointer">
-                <summary class="list-none">
-                  <h3 class="f4 fw6 lh-title mb2 dark-blue hover-blue pointer flex items-start">
-                    <span class="paper-arrow mr2 f5 flex-shrink-0">▸</span>
-                    <span>{{ .title }}</span>
-                  </h3>
-                  <p class="f5 lh-copy mb2 gray">
-                    {{ .authors }}
-                  </p>
-                  <p class="f6 lh-copy mb2 mid-gray">
-                    <strong><em>{{ .journal }}</em></strong>{{ if .volume }}, {{ .volume }}{{ end }}{{ if .issue }}({{ .issue }}){{ end }}{{ if .pages }}: {{ .pages }}{{ end }} ({{ .year }})
-                  </p>
-                  {{ if .award }}
-                  <p class="f6 lh-copy mb2 gold flex items-center">
-                    <span class="mr2">🏆</span>
-                    <strong>{{ .award }}</strong>
-                  </p>
-                  {{ end }}
-                  <div class="flex flex-wrap items-center mt2">
-                    {{ if .doi }}
-                    <p class="f6 lh-copy mr3 mb2">
-                      <a href="https://doi.org/{{ .doi }}" target="_blank" rel="noopener" class="link blue hover-dark-blue no-underline bb" onclick="event.stopPropagation();">
-                        DOI: {{ .doi }}
-                      </a>
-                    </p>
-                    {{ end }}
-                    {{ if .doi }}
-                    <div class="mb2">
-                      <div class="altmetric-embed"
-                           data-badge-type="donut"
-                           data-badge-details="right"
-                           data-doi="{{ .doi }}"
-                           data-badge-popover="right"
-                           data-hide-no-mentions="false">
-                      </div>
-                    </div>
-                    {{ end }}
-                  </div>
-                </summary>
-
-                <div class="mt3 pa3 bg-light-gray br2 abstract-box">
-                  {{ if .abstract }}
-                  <p class="f5 lh-copy dark-gray measure-wide">
-                    {{ .abstract }}
-                  </p>
-                  {{ else }}
-                  <p class="f5 lh-copy gray i">
-                    Abstract available at <a href="https://doi.org/{{ .doi }}" target="_blank" rel="noopener" class="link blue hover-dark-blue">DOI link</a>
-                  </p>
-                  {{ end }}
+              <h3 class="f4 fw6 lh-title mb2 dark-blue">
+                {{ .title }}
+              </h3>
+              <p class="f5 lh-copy mb2 gray">
+                {{ .authors }}
+              </p>
+              <p class="f6 lh-copy mb2 mid-gray">
+                <strong><em>{{ .journal }}</em></strong>{{ if .volume }}, {{ .volume }}{{ end }}{{ if .issue }}({{ .issue }}){{ end }}{{ if .pages }}: {{ .pages }}{{ end }} ({{ .year }})
+              </p>
+              {{ if .award }}
+              <p class="f6 lh-copy mb2 gold flex items-center">
+                <span class="mr2">🏆</span>
+                <strong>{{ .award }}</strong>
+              </p>
+              {{ end }}
+              <div class="flex flex-wrap items-center gap2 mt2 mb2">
+                {{ if .doi }}
+                <a href="https://doi.org/{{ .doi }}" target="_blank" rel="noopener" class="link blue hover-dark-blue no-underline bb f6">
+                  DOI: {{ .doi }}
+                </a>
+                {{ end }}
+                {{ if .doi }}
+                <div class="altmetric-embed"
+                     data-badge-type="donut"
+                     data-badge-details="right"
+                     data-doi="{{ .doi }}"
+                     data-badge-popover="right"
+                     data-hide-no-mentions="false">
                 </div>
-              </details>
+                {{ end }}
+              </div>
+              <div class="flex flex-wrap items-center gap2 mt2 mb2">
+                {{ if or .abstract .doi }}
+                <button class="abstract-btn" onclick="this.closest('.publication-item').querySelector('.abstract-box').classList.toggle('dn')">Abstract</button>
+                {{ end }}
+                {{ $authors := .authors }}
+                {{ range $.Site.Data.collaborators }}
+                {{ if findRE .last $authors }}
+                <a href="{{ .url }}" target="_blank" rel="noopener" class="collab-btn">{{ .first }}'s webpage</a>
+                {{ end }}
+                {{ end }}
+              </div>
+              {{ if or .abstract .doi }}
+              <div class="abstract-box dn mt2 pa3 br2">
+                {{ if .abstract }}
+                <p class="f5 lh-copy dark-gray measure-wide">
+                  {{ .abstract }}
+                </p>
+                {{ else }}
+                <p class="f5 lh-copy gray i">
+                  Abstract available at <a href="https://doi.org/{{ .doi }}" target="_blank" rel="noopener" class="link blue hover-dark-blue">DOI link</a>
+                </p>
+                {{ end }}
+              </div>
+              {{ end }}
             </div>
             {{ end }}
           </div>
@@ -121,18 +124,57 @@ details:not([open]) .topic-arrow {
   transform: rotate(-90deg);
 }
 
-.paper-arrow {
-  transition: transform 0.2s ease;
+/* Abstract button styling */
+.abstract-btn {
   display: inline-block;
-  margin-top: 0.15rem;
+  font-size: 0.9em;
+  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: 4px;
+  background-color: white;
+  color: #2b6cb0;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  vertical-align: middle;
 }
 
-.publication-item details[open] .paper-arrow {
-  transform: rotate(90deg);
+.abstract-btn:hover {
+  background-color: #2b6cb0;
+  color: white;
+  border-color: #2b6cb0;
 }
 
-.publication-item details:not([open]) .paper-arrow {
-  transform: rotate(0deg);
+/* Collaborator webpage button styling */
+.collab-btn {
+  display: inline-block;
+  font-size: 0.9em;
+  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: 4px;
+  background-color: white;
+  color: #718096;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  vertical-align: middle;
+  text-decoration: none;
+}
+
+.collab-btn:hover {
+  background-color: #718096;
+  color: white;
+  border-color: #718096;
+}
+
+/* Display none utility */
+.dn {
+  display: none;
+}
+
+/* Gap utility */
+.gap2 {
+  gap: 0.5rem;
 }
 
 /* Publication item styling */
@@ -175,7 +217,7 @@ details:not([open]) .topic-arrow {
     padding-right: 0.5rem;
   }
 
-  .publication-item details summary h3 {
+  .publication-item h3 {
     font-size: 1rem;
   }
 }

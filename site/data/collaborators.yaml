@@ -1,0 +1,55 @@
+# Collaborator website URLs
+# Format: First name, last name (for matching), URL
+# The template matches on last name in the authors field
+
+- first: Michal
+  last: Grahn
+  url: https://www.michalgrahn.com
+- first: Katharina
+  last: Lawall
+  url: https://katharinalawall.com
+- first: Alberto
+  last: López Ortega
+  url: https://aloport.github.io
+- first: Joe
+  last: Noonan
+  url: https://joenoonan.se
+- first: Daniel
+  last: Devine
+  url: https://djdevine.org
+- first: Luca
+  last: Versteegen
+  url: https://lucaversteegen.com
+- first: Owen
+  last: Winter
+  url: https://owenwinter.co.uk/about/
+- first: Sophie
+  last: Mainz
+  url: https://sophiemainz.github.io
+- first: Đorđe
+  last: Milosav
+  url: https://www.djordjemilosav.com/
+- first: Konstantin
+  last: Bogatyrev
+  url: https://sites.google.com/view/konstantin-bogatyrev/about
+- first: Florian
+  last: Foos
+  url: http://www.florianfoos.net
+- first: Josh
+  last: Townsley
+  url: https://www.lse.ac.uk/people/joshua-townsley
+- first: Lizzie
+  last: Simon
+  url: https://experts.exeter.ac.uk/45141-lizzie-simon
+- first: Fraser
+  last: McMillan
+  url: https://frasmcm.scot
+- first: Markus
+  last: Wagner
+  url: https://www.wagnermarkus.net
+- first: Fran
+  last: Villamil
+  url: https://franvillamil.github.io
+- first: Michael
+  last: Hunklinger
+  url: https://michaelhunklinger.com

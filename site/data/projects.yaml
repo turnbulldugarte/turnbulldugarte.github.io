@@ -23,12 +23,12 @@ political_identities:
   title: "Social & Political identities"
   projects:
     - title: "Partisan responsiveness in real time"
-      authors: "with Luca Versteegen, Dan Devine, and Owen Winter"
+      authors: "with Luca Versteegen, Daniel Devine, and Owen Winter"
       status: "under review"
       abstract: "Elite cues signal citizens how to interpret political events through a partisan lens. Do these effects occur in real time? We exploit US president Trump’s unexpected announcement of US military strikes against Iran--made during the fieldwork of a nationally representative survey--to estimate the causal effect of elite cues on opinion formation. Leveraging the temporal discontinuity (in minutes) in exposure to the event, we find that partisan divergence unfolds minutes after the announcement: support for military intervention surges among Republicans but drops among Democrats. These effects are immediate, large, and robust across more than 28,000 alternative model specifications. Our evidence demonstrates the immediacy and power with which elites cues have consequences. Our findings imply a threat to democratic accountability, such that a single post suffices to polarize US public opinion and make Republican voters tolerate a policy u-turn by their president. "
 
     - title: "Class and symbolic representation"
-      authors: "with Dan Devine"
+      authors: "with Daniel Devine"
       status: "under review"
       abstract: "Does working-class descriptive representation enhance perceptions of system legitimacy, or `symbolic representation`? In the context of the widespread marginalisation of working-class people in legislatures across the democratic world, we provide novel experimental tests linking class-based descriptive representation to symbolic representation. We empirically demonstrate that descriptive representation among both candidates and institutions in the aggregate is strongly associated with symbolic representation. Our causal findings show that this effect is driven by class identity: individuals who identify as working class believe that working-class legislators -- and legislatures with a higher number of working-class legislators -- represent them better, increasing trust in decision-making. This relationship is strongest among those with a deeper psychological attachment to their class-based identity. Simultaneously, this leads to greater rejection of more privileged candidates and legislatures. We find little moderating effect of (the strength of) middle-class identity. Our results highlight how the well-documented and near-complete absence of class diversity in legislatures contributes to dissatisfaction with political actors and institutions."
 
