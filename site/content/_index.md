@@ -28,7 +28,8 @@ My research has been published in leading journals including the *American Polit
     <div style="flex: 1;">
       <strong><a href="https://doi.org/10.1017/psrm.2025.10" target="_blank" rel="noopener" class="paper-link">Heroes and Villains: Motivated projection of political identities</a></strong><br>
       <span class="paper-meta">Turnbull-Dugarte, S.J. & Wagner, M.</span><br>
-      <span class="paper-meta"><em>Political Science Research & Methods</em> (2026)</span>
+      <span class="paper-meta"><em>Political Science Research & Methods</em> (2026)</span><br>
+      <a href="/heroes-playground/" target="_blank" rel="noopener" style="display: inline-block; font-size: 0.75em; padding: 0.2em 0.6em; background-color: #8b5cf6; color: white; border-radius: 3px; text-decoration: none; margin-top: 0.3rem;">Playground</a>
     </div>
     <div class="altmetric-embed" data-badge-type="donut" data-doi="10.1017/psrm.2025.10" data-hide-no-mentions="false" data-link-target="_blank"></div>
   </div>
