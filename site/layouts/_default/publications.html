@@ -58,6 +58,9 @@
                 {{ if or .abstract .doi }}
                 <button class="abstract-btn" onclick="this.closest('.publication-item').querySelector('.abstract-box').classList.toggle('dn')">Abstract</button>
                 {{ end }}
+                {{ if .playground }}
+                <a href="{{ .playground }}" target="_blank" rel="noopener" class="playground-btn">Playground</a>
+                {{ end }}
                 {{ $authors := .authors }}
                 {{ range $.Site.Data.collaborators }}
                 {{ if findRE .last $authors }}
@@ -165,6 +168,28 @@ details:not([open]) .topic-arrow {
   background-color: #2b6cb0;
   color: white;
   border-color: #2b6cb0;
+}
+
+/* Playground button styling */
+.playground-btn {
+  display: inline-block;
+  font-size: 0.9em;
+  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: 4px;
+  background-color: white;
+  color: #7c3aed;
+  border: 1px solid #7c3aed;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  vertical-align: middle;
+  text-decoration: none;
+}
+
+.playground-btn:hover {
+  background-color: #7c3aed;
+  color: white;
+  border-color: #7c3aed;
 }
 
 /* Collaborator webpage button styling */

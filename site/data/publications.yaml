@@ -31,6 +31,12 @@ far_right:
 lgbtq_politics:
   title: "LGBTQ+ Politics"
   publications:
+    - title: "Rallied by thy neighbor: how minority spatial concentration increases voter turnout"
+      authors: "Ahlskog, R., Grahn, M. & Turnbull-Dugarte, S.J."
+      year: 2026
+      journal: "Journal of Politics"
+      abstract: "Spatial concentration is often thought to increase political engagement among minority groups by fostering intragroup contact and strengthening political group consciousness. This study evaluates this relationship with a focus on lesbians, gays, and bisexuals (LGB), extending existing research beyond ethnoracial minorities. Using Swedish population-wide register data, we identify over 20,000 LGB individuals and nearly 8 million comparable heterosexual peers and track their validated voter turnout across four parliamentary elections (1994–2022). To estimate the causal effect of neighborhood LGB concentration on turnout, we apply a triple-difference design leveraging fine-grained geolocation data. We find that increases in local LGB concentration are associated with higher turnout among LGB individuals relative to heterosexual neighbors experiencing the same neighborhood changes. The results provide rare causal evidence that minority spatial concentration can mobilize electoral participation, contributing to research on political geography, urban politics, and minority political behavior"
+
     - title: "Do citizens stereotype Muslims as an Illiberal Bogeyman? Evidence from a double-list experiment"
       authors: "Turnbull-Dugarte, S.J., López Ortega, A. & Hunklinger, M."
       year: 2025
@@ -41,7 +47,7 @@ lgbtq_politics:
     - title: "Allies on the streets but illiberal in the sheets? Gender and public-vs-private inclusion of sexuality"
       authors: "Turnbull-Dugarte, S.J."
       abstract: "Traditional sexualities are in decline. Across the world, individuals in liberal democracies are increasingly identifying with sexual identities that challenge the heteronormative status quo. Today, an average of one in five young people identify with a sexually inclusive identity. How do members of the sexual majority group in liberal democracies respond to this change? Women are far more likely to express public support for sexual minorities, but does this public support translate into private behaviour? Do women accommodate potential partners with gender-inclusive dating preferences more than men? Relying on three novel pre-registered experiments – a double-list experiment, a visual conjoint, and a vignette study – I demonstrate that: i) the sexual majority group penalises sexually inclusive individuals on the dating market, and ii) women in the sexual majority group are far more likely to reject gender-inclusive and sexually inclusive partners compared to men. Empirically, I show that the sizeable difference in the penalty exhibited against sexually inclusive men, an empirical expectation equally anticipated by men and women, can be explained by women perceiving sexually inclusive men as deviating from traditional gender norms. These findings reveal a critical disconnect between public support for LGBTQ+ inclusion and actual behaviour in intimate contexts. They highlight how entrenched expectations of gender-congruent behaviour continue to shape interpersonal dynamics, even in ostensibly liberal societies. As a result, sexually inclusive men face distinct and intensified pressures to conform, which may help explain patterns of identity suppression among young men."
-      year: 2024
+      year: 2025
       journal: "European Journal of Political Research"
       doi: "10.1017/S1475676525100182"
 
@@ -85,6 +91,7 @@ social_identities:
       issue: "1"
       pages: "1-21"
       doi: "10.1017/psrm.2025.10"
+      playground: "/heroes-playground/"
 
     - title: "Education as identity? A meta-analysis of education-based in-group preferences in candidate choice experiments"
       authors: "Simon, E. & Turnbull-Dugarte, S.J."
