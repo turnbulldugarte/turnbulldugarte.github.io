@@ -1,0 +1,282 @@
+{{ define "main" }}
+<article class="pa3 pa4-ns" style="max-width: 100%; width: 100%;">
+  <div class="w-100" style="max-width: 1400px; margin: 0 auto;">
+    <header class="bb b--light-gray pb3 mb4">
+      <h1 class="f2 f1-l fw7 mb2">{{ .Title }}</h1>
+      {{ .Content }}
+    </header>
+
+    <div class="fullworks-container">
+      <!-- Journal Articles -->
+      {{ with $.Site.Data.fullworks.journal_articles }}
+      <section class="mb4">
+        <details class="ba b--moon-gray br3 mb3 shadow-hover" open>
+          <summary class="pa3 bg-near-white pointer hover-bg-light-gray br3 transition">
+            <div class="flex items-center justify-between">
+              <h2 class="f3 fw7 ma0 dark-gray">Journal Articles ({{ len . }})</h2>
+              <span class="topic-arrow f5 gray">▼</span>
+            </div>
+          </summary>
+
+          <div class="pa4 publications-list bg-white">
+            {{ range . }}
+            <div class="publication-item mb4 pb4 bb b--light-gray last-child-no-border">
+              <h3 class="f4 fw6 lh-title mb2 dark-blue">
+                {{ .title }}
+              </h3>
+              <p class="f5 lh-copy mb2 gray">
+                {{ .authors }}
+              </p>
+              <p class="f6 lh-copy mb2 mid-gray">
+                <strong><em>{{ .journal }}</em></strong>{{ if .volume }}, {{ .volume }}{{ end }}{{ if .issue }}({{ .issue }}){{ end }}{{ if .pages }}: {{ .pages }}{{ end }}{{ if .year }} ({{ .year }}){{ end }}
+              </p>
+              {{ if .notes }}
+              <p class="f6 lh-copy mb2 gold flex items-center">
+                <span class="mr2">🏆</span>
+                <strong>{{ .notes }}</strong>
+              </p>
+              {{ end }}
+              <div class="flex flex-wrap items-center gap2 mt2 mb2">
+                {{ if .doi }}
+                <a href="https://doi.org/{{ .doi }}" target="_blank" rel="noopener" class="doi-btn">DOI</a>
+                <div class="altmetric-embed"
+                     data-badge-type="donut"
+                     data-badge-details="right"
+                     data-doi="{{ .doi }}"
+                     data-badge-popover="right"
+                     data-hide-no-mentions="false">
+                </div>
+                {{ end }}
+              </div>
+            </div>
+            {{ end }}
+          </div>
+        </details>
+      </section>
+      {{ end }}
+
+      <!-- Books -->
+      {{ with $.Site.Data.fullworks.books }}
+      <section class="mb4">
+        <details class="ba b--moon-gray br3 mb3 shadow-hover" open>
+          <summary class="pa3 bg-near-white pointer hover-bg-light-gray br3 transition">
+            <div class="flex items-center justify-between">
+              <h2 class="f3 fw7 ma0 dark-gray">Books ({{ len . }})</h2>
+              <span class="topic-arrow f5 gray">▼</span>
+            </div>
+          </summary>
+
+          <div class="pa4 publications-list bg-white">
+            {{ range . }}
+            <div class="publication-item mb4 pb4 bb b--light-gray last-child-no-border">
+              <h3 class="f4 fw6 lh-title mb2 dark-blue">
+                {{ .title }}
+              </h3>
+              <p class="f5 lh-copy mb2 gray">
+                {{ .authors }}
+              </p>
+              <p class="f6 lh-copy mb2 mid-gray">
+                <strong>{{ .publisher }}</strong>{{ if .location }}, {{ .location }}{{ end }}{{ if .year }} ({{ .year }}){{ end }}
+                {{ if .status }}<span class="status-badge status-wip ml2">{{ .status }}</span>{{ end }}
+              </p>
+              {{ if .doi }}
+              <div class="flex flex-wrap items-center gap2 mt2 mb2">
+                <a href="https://doi.org/{{ .doi }}" target="_blank" rel="noopener" class="doi-btn">DOI</a>
+                <div class="altmetric-embed"
+                     data-badge-type="donut"
+                     data-badge-details="right"
+                     data-doi="{{ .doi }}"
+                     data-badge-popover="right"
+                     data-hide-no-mentions="false">
+                </div>
+              </div>
+              {{ end }}
+            </div>
+            {{ end }}
+          </div>
+        </details>
+      </section>
+      {{ end }}
+
+      <!-- Volume Chapters -->
+      {{ with $.Site.Data.fullworks.volume_chapters }}
+      <section class="mb4">
+        <details class="ba b--moon-gray br3 mb3 shadow-hover" open>
+          <summary class="pa3 bg-near-white pointer hover-bg-light-gray br3 transition">
+            <div class="flex items-center justify-between">
+              <h2 class="f3 fw7 ma0 dark-gray">Book Chapters ({{ len . }})</h2>
+              <span class="topic-arrow f5 gray">▼</span>
+            </div>
+          </summary>
+
+          <div class="pa4 publications-list bg-white">
+            {{ range . }}
+            <div class="publication-item mb4 pb4 bb b--light-gray last-child-no-border">
+              <h3 class="f4 fw6 lh-title mb2 dark-blue">
+                {{ .chapter_title }}
+              </h3>
+              <p class="f5 lh-copy mb2 gray">
+                {{ .authors }}
+              </p>
+              <p class="f6 lh-copy mb2 mid-gray">
+                In: <strong><em>{{ .book_title }}</em></strong>{{ if .editors }}, eds. {{ .editors }}{{ end }}. {{ .publisher }}{{ if .location }}, {{ .location }}{{ end }}{{ if .year }} ({{ .year }}){{ end }}
+              </p>
+              {{ if .doi }}
+              <div class="flex flex-wrap items-center gap2 mt2 mb2">
+                <a href="https://doi.org/{{ .doi }}" target="_blank" rel="noopener" class="doi-btn">DOI</a>
+                <div class="altmetric-embed"
+                     data-badge-type="donut"
+                     data-badge-details="right"
+                     data-doi="{{ .doi }}"
+                     data-badge-popover="right"
+                     data-hide-no-mentions="false">
+                </div>
+              </div>
+              {{ end }}
+            </div>
+            {{ end }}
+          </div>
+        </details>
+      </section>
+      {{ end }}
+
+    </div>
+  </div>
+</article>
+
+<style>
+/* Topic section styling */
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+details > summary {
+  list-style: none;
+  transition: background-color 0.2s ease;
+}
+
+details > summary:focus {
+  outline: none;
+}
+
+.shadow-hover:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.transition {
+  transition: all 0.2s ease;
+}
+
+/* Arrow animations */
+.topic-arrow {
+  transition: transform 0.2s ease;
+}
+
+details[open] .topic-arrow {
+  transform: rotate(0deg);
+}
+
+details:not([open]) .topic-arrow {
+  transform: rotate(-90deg);
+}
+
+/* DOI button styling */
+.doi-btn {
+  display: inline-block;
+  font-size: 0.9em;
+  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: 4px;
+  background-color: white;
+  color: #2b6cb0;
+  border: 1px solid #2b6cb0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  vertical-align: middle;
+  text-decoration: none;
+}
+
+.doi-btn:hover {
+  background-color: #2b6cb0;
+  color: white;
+  border-color: #2b6cb0;
+}
+
+/* Status badge styling */
+.status-badge {
+  display: inline-block;
+  font-size: 0.85em;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 4px;
+  vertical-align: middle;
+}
+
+.status-wip {
+  background-color: #fef3c7;
+  color: #92400e;
+  border: 1px solid #fbbf24;
+}
+
+/* Display none utility */
+.dn {
+  display: none;
+}
+
+/* Gap utility */
+.gap2 {
+  gap: 0.5rem;
+}
+
+/* Publication item styling */
+.publication-item:last-child {
+  border-bottom: none !important;
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* Link styling */
+.no-underline {
+  text-decoration: none;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 60em) {
+  .fullworks-container {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  .publication-item h3 {
+    font-size: 1rem;
+  }
+}
+
+/* Color refinements */
+.dark-blue {
+  color: #2c5282;
+}
+
+.hover-blue:hover {
+  color: #2b6cb0;
+}
+
+.dark-gray {
+  color: #2d3748;
+}
+
+.mid-gray {
+  color: #4a5568;
+}
+
+.light-gray {
+  background-color: #f7fafc;
+}
+
+.bg-light-gray {
+  background-color: #edf2f7;
+}
+</style>
+
+<script type="text/javascript" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script>
+{{ end }}

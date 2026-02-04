@@ -6,7 +6,9 @@ layout: "publications"
 
 ## Selected collection of peer-reviewed publications
 
+<a href="/publications/fullworks/" class="fulllist-btn">Full list of all published work</a>
+
 **[View replication materials on Harvard Dataverse →](https://dataverse.harvard.edu/dataverse/turnbull-dugarte)**
 
-If, for whatever reason, you are unable to access a particular paper then pleasee drop me an email and I will happily provide you a copy of an ungated version. 
+*If you are unable to access a particular paper then please drop me an email and I will happily provide you a copy of an ungated version.*
 
