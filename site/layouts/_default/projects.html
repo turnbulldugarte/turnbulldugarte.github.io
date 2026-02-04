@@ -27,28 +27,6 @@
 
             {{ range $section.projects }}
             <div class="project-item mb4 pb4 bb b--light-gray last-child-no-border">
-              {{ if .abstract }}
-              <details class="pointer">
-                <summary class="list-none">
-                  <h3 class="f4 fw6 lh-title mb2 dark-blue hover-blue pointer flex items-start">
-                    <span class="project-arrow mr2 f5 flex-shrink-0">▸</span>
-                    <span>{{ .title }}</span>
-                  </h3>
-                  <p class="f5 lh-copy mb2 gray">
-                    {{ .authors }}
-                  </p>
-                  <p class="f6 lh-copy mb2 mid-gray">
-                    <em>{{ .status }}</em>
-                  </p>
-                </summary>
-
-                <div class="mt3 pa3 bg-light-gray br2 abstract-box">
-                  <p class="f5 lh-copy dark-gray measure-wide">
-                    {{ .abstract }}
-                  </p>
-                </div>
-              </details>
-              {{ else }}
               <h3 class="f4 fw6 lh-title mb2 dark-blue">
                 {{ .title }}
               </h3>
@@ -58,6 +36,17 @@
               <p class="f6 lh-copy mb2 mid-gray">
                 <em>{{ .status }}</em>
               </p>
+              {{ if .abstract }}
+              <details class="abstract-details mt2">
+                <summary class="abstract-tab f6 fw5 pointer">
+                  <span class="abstract-arrow">▸</span> Abstract
+                </summary>
+                <div class="mt2 pa3 bg-light-gray br2 abstract-box">
+                  <p class="f5 lh-copy dark-gray measure-wide">
+                    {{ .abstract }}
+                  </p>
+                </div>
+              </details>
               {{ end }}
             </div>
             {{ end }}
@@ -105,19 +94,38 @@ details:not([open]) .topic-arrow {
   transform: rotate(-90deg);
 }
 
-/* Project arrow animations */
-.project-arrow {
-  transition: transform 0.2s ease;
-  display: inline-block;
-  margin-top: 0.15rem;
+/* Abstract tab styling */
+.abstract-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: #2b6cb0;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
 }
 
-.project-item details[open] .project-arrow {
+.abstract-tab:hover {
+  background-color: #ebf8ff;
+  color: #2c5282;
+}
+
+.abstract-arrow {
+  display: inline-block;
+  transition: transform 0.2s ease;
+  font-size: 0.75rem;
+}
+
+.abstract-details[open] .abstract-arrow {
   transform: rotate(90deg);
 }
 
-.project-item details:not([open]) .project-arrow {
-  transform: rotate(0deg);
+.abstract-details summary {
+  list-style: none;
+}
+
+.abstract-details summary::-webkit-details-marker {
+  display: none;
 }
 
 /* Project item styling */
