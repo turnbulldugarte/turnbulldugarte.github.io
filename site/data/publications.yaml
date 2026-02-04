@@ -14,6 +14,7 @@ far_right:
       journal: "Journal of Politics"
       volume: "86"
       issue: "4"
+      abstract: "Despite the importance of authoritarian and nationalist values in military culture, we know little about the link between the military and the far right. In this article we argue that there is an ideological affinity between the military and far-right parties, strengthened by occupational socialization. Moreover, the presence of military institutions also helps mobilizing far-right support among the surrounding population. We test this argument using data from Spain. We show both that military personnel are substantially more likely than civilians to support the far right and that the location of military facilities in Spain is linked to higher far-right support. We also discuss the generalizability of the results and provide tentative evidence that a similar link is likely to be observed in countries where the armed forces have been historically focused on controlling internal dissent and where national sovereignty has been threatened by either internal or external challengers."
       pages: "1524-1540"
       doi: "10.1086/727598"
 
@@ -34,10 +35,12 @@ lgbtq_politics:
       authors: "Turnbull-Dugarte, S.J., López-Ortega, A. & Hunklinger, M."
       year: 2025
       journal: "British Journal of Political Science"
+      abstract: "Illiberal actors in Western democracies increasingly exploit the superficial defence of liberal values like gender equality and LGBTQ+ rights to demonize ethnic out-groups, portraying Muslims as inherently opposed to Western values. This paper investigates whether this stereotype reflects widespread public beliefs and asks: is the stereotypical view of the Muslim community as an illiberal ‘bogeyman’ endorsed by citizens? Leveraging an original double-list experiment design that minimizes sensitivity bias, we identify population-level estimates of this stereotype in Britain, Germany, the Netherlands, and the USA. Our cross-national results reveal a pervasive and ubiquitous stereotype of Muslims as a threat to LGBTQ+ communities across Western democracies. The implications of these findings are concerning as they signal that societal tolerance of ethnic out-groups across liberal democracies remains tainted by prejudicial stereotypes. The results also underscore the alarming electoral potential of far-right parties that exploit homonationalist and femonationalist stereotype-based threat perceptions to their political advantage."
       doi: "10.1017/S0007123424000437"
 
     - title: "Allies on the streets but illiberal in the sheets? Gender and public-vs-private inclusion of sexuality"
       authors: "Turnbull-Dugarte, S.J."
+      abstract: "Traditional sexualities are in decline. Across the world, individuals in liberal democracies are increasingly identifying with sexual identities that challenge the heteronormative status quo. Today, an average of one in five young people identify with a sexually inclusive identity. How do members of the sexual majority group in liberal democracies respond to this change? Women are far more likely to express public support for sexual minorities, but does this public support translate into private behaviour? Do women accommodate potential partners with gender-inclusive dating preferences more than men? Relying on three novel pre-registered experiments – a double-list experiment, a visual conjoint, and a vignette study – I demonstrate that: i) the sexual majority group penalises sexually inclusive individuals on the dating market, and ii) women in the sexual majority group are far more likely to reject gender-inclusive and sexually inclusive partners compared to men. Empirically, I show that the sizeable difference in the penalty exhibited against sexually inclusive men, an empirical expectation equally anticipated by men and women, can be explained by women perceiving sexually inclusive men as deviating from traditional gender norms. These findings reveal a critical disconnect between public support for LGBTQ+ inclusion and actual behaviour in intimate contexts. They highlight how entrenched expectations of gender-congruent behaviour continue to shape interpersonal dynamics, even in ostensibly liberal societies. As a result, sexually inclusive men face distinct and intensified pressures to conform, which may help explain patterns of identity suppression among young men."
       year: 2024
       journal: "European Journal of Political Research"
       doi: "10.1017/S1475676525100182"
@@ -57,6 +60,7 @@ lgbtq_politics:
       authors: "Turnbull-Dugarte, S.J. & McMillan, F."
       year: 2023
       journal: "Policy Studies Journal"
+      abstract: "An increasingly salient policy innovation pursued by LGBT+ rights groups and socially liberal policy entrepreneurs is the right of trans people to bring their legally recorded sex in line with their lived gender by way of self-identification. In response to these moves toward trans inclusion, a unique coalition of trans-exclusionary (gender critical) feminists and traditionalist conservatives has emerged to challenge these reforms. This coalition of policy opponents, mirroring historical issue frames that present homosexuals as predatory sexual deviants, campaign on a salient issue frame that presents transgender individuals and the expansion of trans rights as an inimical threat to the security, safety, and welfare of (cisgender) women, particularly in single-sex spaces. In this paper, we address two questions. First, we ask: do trans-exclusionary “protect women” issue frames over the alleged threat of trans persons to (cis) women shape mass public opinion? Second, we ask: in a relatively LGBT+ friendly policy environment, who supports the right to self-identification for trans individuals? We answer these questions via an original pre-registered survey experiment embedded within the 2021 Scottish Election Study. We find that trans-exclusionary issue frames appealing to (cis) women's safety significantly depress support for trans rights, particularly among women respondents. Highlighting these concerns is an effective means of increasing already robust opposition to reforms designed to improve the welfare of transgender individuals, which should be of concern for proponents of self-identification policies."
       volume: "51"
       issue: "3"
       pages: "463-702"
@@ -69,6 +73,7 @@ social_identities:
       authors: "López Ortega, A. & Turnbull-Dugarte, S.J."
       year: 2025
       journal: "Political Science Research & Method"
+      abstract: "Does group-based tribal thinking against ethnic out-groups condition support for both liberal and illiberal policies? Our thesis is that, irrespective of the direction of the policy (progressive or conservative), nativists express selective support for policies based on different signals of group-identity: descriptive markers, group-based substantive representation, in- and out-group norms, and group-based reasoning. We test this theoretical expectation using a novel AI-powered visual conjoint experiment in the Netherlands and Germany that asked individuals to select between hypothetical educational reform proposals presented by civic actors during a public consultation. Empirically, our results demonstrate that citizens, on average, are indeed selectively (il)liberal and that this instrumental policy support is greater among those with higher levels of underlying nativism. Specifically, we show that—among our multidimensional markers of group-based identities, norms, and reasoning—group-based substantive representation and in-group norms are the strongest determinants of support for diverse reform proposals. These findings have key implications on the malleable nature of citizens’ support for the backsliding of the liberal tenets of democracy as well as the persuasive power of out-group disidentification."
       doi: "10.1017/psrm.2025.10066"
 
     - title: "Heroes and Villains: Motivated projection of political identities"
@@ -76,6 +81,7 @@ social_identities:
       year: 2026
       journal: "Political Science Research & Method"
       volume: "14"
+      abstract: "Most research on political identities studies how individuals react to knowing others political allegiances. However, in most contexts, political views and identities are hidden and only inferred, so that projected beliefs and identities may matter as much as actual ones. We argue that individuals engage in motivated political projection the identities people project onto target individuals are strongly conditional on the valence of that target. We test this theoretical proposition in two pre-registered experimental studies. In Study 1, we rely on a unique visual conjoint experiment in Britain and the USA that asks participants to assign partisanship and political ideology to heroes and villains from film and fiction. In Study 2, we present British voters with a vignette that manipulates a subjects valence and solicits (false) recall information related to the subjects political identity. We find strong support for motivated political projection in both studies, especially among strong identifiers. This is largely driven by negative out-group counter-projection rather than positive in-group projection. As political projection can lead to the solidification of antagonistic political identities, our findings are relevant for understanding dynamics in group-based animosity and affective polarization."
       issue: "1"
       pages: "1-21"
       doi: "10.1017/psrm.2025.10"
@@ -84,6 +90,7 @@ social_identities:
       authors: "Simon, E. & Turnbull-Dugarte, S.J."
       year: 2025
       journal: "Journal of Politics"
+      abstract: "In a climate where education stratifies electorates, does a university degree universally pay dividends at the polls or is there an education homophily premium, whereby graduates disproportionately select “their own”? Via a meta-analysis and original subgroup heterogeneity test of 20 candidate choice conjoint experiments from 12 affluent democracies, we demonstrate university-educated candidates boast a 5 percentage-point preferability bump over their less educated counterparts. We also find evidence of education-based identity biases, observing significant in-group preferability among degree holders. Graduates are more inclined to place a premium on candidates’ membership of their educational in-group and penalize those from the out-group vis-à-vis nongraduates. These results clearly highlight the importance of education in the candidate favorability calculus and demonstrate that education’s biasing effect in shaping preferences will likely ensure the continued dominance of university-educated representatives in affluent democracies, particularly as university enrolment rates continue to rise"
       volume: "82"
       issue: "2"
       pages: "807-811"
@@ -96,6 +103,7 @@ elections:
       authors: "Lawall, K., Turnbull-Dugarte, S.J., Foos, F. & Townsley, J."
       year: 2025
       journal: "Journal of Politics"
+      abstract: "Elite and mass level politics in many Western democracies is increasingly characterized by the expression of negative feelings toward political out-groups. Although the existence of these feelings is well-documented, there is little evidence on the consequences of activating political identities during election campaigns. We test whether fundraising emails containing negative or positive political identity cues lead party supporters to donate money via a large preregistered digital field experiment conducted in collaboration with a British political party. We find that emails containing negative as opposed to positive identity cues lead to a higher number and frequency of donations. We also find that negative identity cues were only effective when paired with an issue identity rather than a traditional party identity cue, resulting in a 15% increase in the probability of donating over the untreated control. Our results provide novel experimental evidence on the behavioral effects of activating identities in real-world political campaigns."
       volume: "87"
       issue: "1"
       pages: "291-305"
@@ -115,6 +123,7 @@ elections:
       authors: "Townsley, J. & Turnbull-Dugarte, S.J."
       year: 2020
       journal: "Electoral Studies"
+      abstract: "While easily-accessible postal voting is on the rise in many countries, the implications for electoral campaigns are largely under-researched. Indeed, parties actively try to sign supporters up to postal votes to make it easier for them to turn out. But how effective are these efforts to recruit supporters on to postal votes? We present an original, pre-registered postal voter recruitment experiment – the first conducted outside the US – completed during the May 2018 UK elections. We test the effect of a common recruitment tactic – letters and application forms sent to supporters. Despite being widely used by parties, we find that these efforts are ineffective at both recruiting and mobilising supporters. While the rewards of successfully signing supporters up to postal voting are potentially substantial, our results suggest that parties should consider the most effective ways of doing so."
       volume: "64"
       issue: "1"
       doi: "10.1016/j.electstud.2019.02.013"

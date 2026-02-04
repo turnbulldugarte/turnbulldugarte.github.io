@@ -44,6 +44,11 @@ lgbtq_politics:
   title: "LGBTQ+ politics"
   intro: "My primary focus in this area at the moment is a book manuscript on LGBTQ+ political behaviour which is under contract with Princeton University Press. Other projects include:"
   projects:
+  
+    - title: "Still instrumentally inclusive: a re-analysis of Turnbull-Dugarte & López Ortega (2024) with evidence from 540 alternative specifications"
+      authors: "with Alberto López Ortega"
+      status: "under review"
+
     - title: "The electoral costs of transphobia. Evidence from Britain"
       authors: "with Konstantin Bogatyrev"
       status: "Paper to be presented at EPSS 2026"
