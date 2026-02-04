@@ -33,20 +33,24 @@
               <p class="f5 lh-copy mb2 gray">
                 {{ .authors }}
               </p>
-              <p class="f6 lh-copy mb2 mid-gray">
-                <em>{{ .status }}</em>
-              </p>
+              <div class="flex flex-wrap items-center gap2 mt2 mb2">
+                <span class="status-badge
+                  {{- if in .status "under review" }} status-review
+                  {{- else if in .status "revise" }} status-rr
+                  {{- else if in .status "conference" }} status-conference
+                  {{- else if in .status "work in progress" }} status-wip
+                  {{- else }} status-default
+                  {{- end }}">{{ .status }}</span>
+                {{ if .abstract }}
+                <button class="abstract-btn" onclick="this.parentElement.nextElementSibling.classList.toggle('dn')">Abstract</button>
+                {{ end }}
+              </div>
               {{ if .abstract }}
-              <details class="abstract-details mt2">
-                <summary class="abstract-tab f6 fw5 pointer">
-                  <span class="abstract-arrow">▸</span> Abstract
-                </summary>
-                <div class="mt2 pa3 bg-light-gray br2 abstract-box">
-                  <p class="f5 lh-copy dark-gray measure-wide">
-                    {{ .abstract }}
-                  </p>
-                </div>
-              </details>
+              <div class="abstract-box dn mt2 pa3 br2">
+                <p class="f5 lh-copy dark-gray measure-wide">
+                  {{ .abstract }}
+                </p>
+              </div>
               {{ end }}
             </div>
             {{ end }}
@@ -94,38 +98,75 @@ details:not([open]) .topic-arrow {
   transform: rotate(-90deg);
 }
 
-/* Abstract tab styling */
-.abstract-tab {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.25rem;
-  color: #2b6cb0;
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
-  transition: all 0.2s ease;
-}
-
-.abstract-tab:hover {
-  background-color: #ebf8ff;
-  color: #2c5282;
-}
-
-.abstract-arrow {
+/* Status badge styling */
+.status-badge {
   display: inline-block;
-  transition: transform 0.2s ease;
-  font-size: 0.75rem;
+  font-size: 0.85em;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 4px;
+  vertical-align: middle;
 }
 
-.abstract-details[open] .abstract-arrow {
-  transform: rotate(90deg);
+.status-review {
+  background-color: #fef3c7;
+  color: #92400e;
+  border: 1px solid #fbbf24;
 }
 
-.abstract-details summary {
-  list-style: none;
+.status-rr {
+  background-color: #d1fae5;
+  color: #065f46;
+  border: 1px solid #34d399;
 }
 
-.abstract-details summary::-webkit-details-marker {
+.status-conference {
+  background-color: #ede9fe;
+  color: #5b21b6;
+  border: 1px solid #a78bfa;
+}
+
+.status-wip {
+  background-color: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #f87171;
+}
+
+.status-default {
+  background-color: #f3f4f6;
+  color: #374151;
+  border: 1px solid #d1d5db;
+}
+
+/* Abstract button styling */
+.abstract-btn {
+  display: inline-block;
+  font-size: 0.9em;
+  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: 4px;
+  background-color: white;
+  color: #2b6cb0;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  vertical-align: middle;
+}
+
+.abstract-btn:hover {
+  background-color: #2b6cb0;
+  color: white;
+  border-color: #2b6cb0;
+}
+
+/* Display none utility */
+.dn {
   display: none;
+}
+
+/* Gap utility */
+.gap2 {
+  gap: 0.5rem;
 }
 
 /* Project item styling */
