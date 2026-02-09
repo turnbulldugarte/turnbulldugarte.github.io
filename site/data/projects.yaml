@@ -1,11 +1,20 @@
 far_right:
   title: "Far-right politics"
   projects:
+   
     - title: "Reactions to US liberal backsliding"
       authors: "with Joe Noonan, Michal Grahn and Rebecka Knudsen"
       status: "revise & resubmit"
       abstract: "The United States, long regarded as a stable liberal democracy, is undergoing rapid democratic backsliding that increasingly targets liberal civil and social rights. How do citizens in other liberal democracies respond to such developments? We address this question using two causal strategies. First, drawing on a quasi-experiment with individual-level data from thirty-five countries (N = 32,080), we show that exposure to attacks on women's rights significantly undermines the United States' democratic standing among European publics. Second, a pre-registered vignette experiment in Britain (N = 2,993) demonstrates that news about attacks on liberal civil and social rights -- specifically the right to protest and LGBTQ+ rights -- reduces perceptions of the United States as a democracy and lowers public willingness to cooperate with it. These effects are driven by updated beliefs about the United States' adherence to shared liberal values rather than fears of democratic backsliding at home. Our findings demonstrate that liberal backsliding in the United States carries substantial cross-national costs, weakening its democratic reputation and eroding public support for international cooperation among citizens in allied democratic nations."
+    
+    - title: "  Does Radical Right Accommodation Help Social Democratic Parties? No."
+      authors: "with Jack Bailley, Daniel Devine, Zach Dickson, Sara B. Hobolt, Will Jennings, Rob Johns and Katharina Lawall"
+      status: "revise & resubmit"
 
+    - title: "Rejecting the Radical Right: Defending Democratic Norms Pays Electoral Dividends for Centre-Right Parties"
+      authors: "with Denis Cohen, Rebeca Antuña and Werner Krause"
+      status: "work in progress"
+   
     - title: "Facts against femonationalism: how to stop far-right normalisation"
       authors: "with Katharina Lawall, Michal Grahn and Sophie Mainz"
       status: "APSA 2025 conference paper"
@@ -19,9 +28,7 @@ far_right:
       authors: "with Đorđe Milosav, Emma Renström, Hanna Bäck and Michal Grahn"
       status: "APSA 2026 conference paper"
       
-    - title: "Rejecting the Radical Right: Defending Democratic Norms Pays Electoral Dividends for Centre-Right Parties"
-      authors: "with Denis Cohen, Rebeca Antuña and Werner Krause"
-      status: "work in progress"
+   
 
 political_identities:
   title: "Social & Political identities"
