@@ -35,6 +35,7 @@ lgbtq_politics:
       authors: "Ahlskog, R., Grahn, M. & Turnbull-Dugarte, S.J."
       year: 2026
       journal: "Journal of Politics"
+      doi: "10.1086/740816"
       abstract: "Spatial concentration is often thought to increase political engagement among minority groups by fostering intragroup contact and strengthening political group consciousness. This study evaluates this relationship with a focus on lesbians, gays, and bisexuals (LGB), extending existing research beyond ethnoracial minorities. Using Swedish population-wide register data, we identify over 20,000 LGB individuals and nearly 8 million comparable heterosexual peers and track their validated voter turnout across four parliamentary elections (1994–2022). To estimate the causal effect of neighborhood LGB concentration on turnout, we apply a triple-difference design leveraging fine-grained geolocation data. We find that increases in local LGB concentration are associated with higher turnout among LGB individuals relative to heterosexual neighbors experiencing the same neighborhood changes. The results provide rare causal evidence that minority spatial concentration can mobilize electoral participation, contributing to research on political geography, urban politics, and minority political behavior"
 
     - title: "Do citizens stereotype Muslims as an Illiberal Bogeyman? Evidence from a double-list experiment"
