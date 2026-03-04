@@ -15,13 +15,13 @@ I received my PhD in Political Science in 2020 from the [Department of Political
 I am very proudly a **first gen student** and I dedicate part of my time to mentoring other first gen students in their journey through university life. I am also very keen on normalising transparency on issues related to poor mental health in academia & talk about my own struggle with depression ([#ihadablackdog](https://www.youtube.com/watch?v=XiCrniLQGYc)), anxiety, and the [*Velvet Rage*](https://www.theguardian.com/society/2011/feb/20/gay-men-depression-the-velvet-rage) openly. If you are in need of support, I am readily available to talk.
 
 
-My forthcoming book, **[The Rainbow Vote](https://press.princeton.edu/)**, is under contract with Princeton University Press and is supported by Leverhulme Trust funding. The project examines the political behavior and attitudes of LGBTQ+ voters across multiple countries.
+My forthcoming book, **[The Rainbow Vote](https://press.princeton.edu/)**, is now in production with Princeton University Press (publication date yet to be confirmed). Supported by generous funding of the Leverhulme Trust, the project examines the political behavior and attitudes of LGBTQ+ voters across multiple countries in Western Europe using diverse experiments. 
 
 ---
 
 ## Research Highlights
 
-My research has been published in leading journals including the *American Political Science Review*, *British Journal of Political Science*, *Journal of Politics*, *European Journal of Political Research*, and *Political Science Research & Methods*. Some of my research has been enjoyed coverage on BBC News, the *Financial Times*, the *New York Times* and the *Guardian*. 
+My research has been published in leading journals including the *American Political Science Review*, *British Journal of Political Science*, *Journal of Politics*, *European Journal of Political Research*, and *Political Science Research & Methods*. Some of my research has been enjoyed coverage on BBC News, the *Economist*, the *Financial Times*, the *New York Times* and the *Guardian*. 
 
 <div style="margin-bottom: 1.5rem;">
   <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
