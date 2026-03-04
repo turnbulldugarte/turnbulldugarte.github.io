@@ -1,9 +1,17 @@
 journal_articles:
+  - id: "A42"
+    authors: "Ayoub, P.M. & Turnbull-Dugarte, S.J."
+    year: 2026
+    title: "Contesting LGBTQI Inclusion: Expansion, Contraction, and New Dilemmas"
+    journal: "Annual Review of Political Science"
+    doi: "10.1146/annurev-polisci-040924-091859"
+
   - id: "A41"
     authors: "Ahlskog, R., Grahn, M., & Turnbull-Dugarte, S.J."
     year: 2026
     title: "Rallied by thy neighbor: how minority spatial concentration increases voter turnout"
     journal: "Journal of Politics"
+    doi: "10.1086/740816"
 
   - id: "A40"
     authors: "López Ortega, A. & Turnbull-Dugarte, S.J."
@@ -396,7 +404,7 @@ books:
     title: "The Rainbow Vote"
     publisher: "Princeton University Press"
     location: "Princeton, New Jersey"
-    status: "under contract"
+    status: "accepted and in production"
 
   - id: "B1"
     authors: "Rama, J., Zanotti, L., Turnbull-Dugarte, S.J. & Santana, A."
