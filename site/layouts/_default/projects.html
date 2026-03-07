@@ -37,7 +37,7 @@
                 <span class="status-badge
                   {{- if in .status "under review" }} status-review
                   {{- else if in .status "revise" }} status-rr
-                  {{- else if in .status "conference" }} status-conference
+                  {{- else if or (in .status "present") (in .status "presented") }} status-conference
                   {{- else if in .status "work in progress" }} status-wip
                   {{- else }} status-default
                   {{- end }}">{{ .status }}</span>
