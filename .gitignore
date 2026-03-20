@@ -20,3 +20,6 @@ site/.hugo_build.lock
 
 # Claude
 .claude/
+
+# Local helper files
+*.rtf
