@@ -11,7 +11,7 @@ far_right:
       authors: "with Jack Bailey, Daniel Devine, Zach Dickson, Sara B. Hobolt, Will Jennings, Rob Johns and Katharina Lawall"
       status: "revise & resubmit"
 
-    - title: "Rejecting the Radical Right: Defending Democratic Norms Pays Electoral Dividends for Centre-Right Parties"
+    - title: "Coalition Negotiation Breakdown and Electoral Returns. Who Benefits When the Center-Right Refuses the Far Right?s"
       authors: "with Denis Cohen, Rebeca Antuña and Werner Krause"
       status: "work in progress"
    
@@ -37,11 +37,7 @@ far_right:
 political_identities:
   title: "Social & Political identities"
   projects:
-    - title: "Partisan responsiveness in real time"
-      authors: "with Luca Versteegen, Daniel Devine, and Owen Winter"
-      status: "under review"
-      abstract: "Elite cues signal citizens how to interpret political events through a partisan lens. Do these effects occur in real time? We exploit US president Trump’s unexpected announcement of US military strikes against Iran--made during the fieldwork of a nationally representative survey--to estimate the causal effect of elite cues on opinion formation. Leveraging the temporal discontinuity (in minutes) in exposure to the event, we find that partisan divergence unfolds minutes after the announcement: support for military intervention surges among Republicans but drops among Democrats. These effects are immediate, large, and robust across more than 28,000 alternative model specifications. Our evidence demonstrates the immediacy and power with which elites cues have consequences. Our findings imply a threat to democratic accountability, such that a single post suffices to polarize US public opinion and make Republican voters tolerate a policy u-turn by their president. "
-
+    
     - title: "Class and symbolic representation"
       authors: "with Daniel Devine"
       status: "under review"
