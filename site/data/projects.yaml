@@ -42,7 +42,12 @@ political_identities:
       authors: "with Daniel Devine"
       status: "under review"
       abstract: "Does working-class descriptive representation enhance perceptions of system legitimacy, or `symbolic representation`? In the context of the widespread marginalisation of working-class people in legislatures across the democratic world, we provide novel experimental tests linking class-based descriptive representation to symbolic representation. We empirically demonstrate that descriptive representation among both candidates and institutions in the aggregate is strongly associated with symbolic representation. Our causal findings show that this effect is driven by class identity: individuals who identify as working class believe that working-class legislators -- and legislatures with a higher number of working-class legislators -- represent them better, increasing trust in decision-making. This relationship is strongest among those with a deeper psychological attachment to their class-based identity. Simultaneously, this leads to greater rejection of more privileged candidates and legislatures. We find little moderating effect of (the strength of) middle-class identity. Our results highlight how the well-documented and near-complete absence of class diversity in legislatures contributes to dissatisfaction with political actors and institutions."
-
+    
+    - title: "Partisan responsiveness in real time: Causal evidence from Trump's military attack on Iran"
+      authors: "with Daniel Devine, Luca Versteegen and Owen Winter"
+      status: "under review"
+      abstract: "Elite cues signal citizens how to interpret political events through a partisan lens. Do these effects occur in real time? We exploit US president Trump’s unexpected announcement of US military strikes against Iran--made during the fieldwork of a nationally representative survey--to estimate the causal effect of elite cues on opinion formation. Leveraging the temporal discontinuity (in minutes) in exposure to the event, we find that partisan divergence unfolds minutes after the announcement: support for military intervention surges among Republicans but drops among Democrats. These effects are immediate, large, and robust across more than 28,000 alternative model specifications. Our evidence provides the first quasi-experimental demonstration that elite cues produce immediate partisan divergence in a naturalistic setting, isolated from the media framing and social diffusion that confound longer-interval designs. Our findings suggest that elite signals can polarize US public opinion along partisan lines within minutes of exposure, even before media framing and partisan commentary have had time to diffuse, with implications for democratic accountability in a high-polarization environment."
+    
     - title: "Are voters fatphobic?"
       authors: ""
       status: "work in progress"
@@ -56,9 +61,9 @@ lgbtq_politics:
   intro: "My primary focus in this area at the moment is a book manuscript on LGBTQ+ political behaviour which is now in production with Princeton University Press. Other projects include:"
   projects:
   
-    - title: "Still instrumentally inclusive: a re-analysis of Turnbull-Dugarte & López Ortega (2024) with evidence from 540 alternative specifications"
+    - title: "Still instrumentally inclusive: a re-analysis of Turnbull-Dugarte & López Ortega (2024)"
       authors: "with Alberto López Ortega"
-      status: "under review"
+      status: "revise & resubmit"
 
     - title: "The electoral costs of transphobia. Evidence from Britain"
       authors: "with Konstantin Bogatyrev"

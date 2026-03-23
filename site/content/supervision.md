@@ -42,5 +42,6 @@ Dr. Nate Roundy, 2023 (University of Cambridge, UK)
 Dr. M. Belén Abdala, 2025 (University of Vienna, Austria)  
 Dr. Álvaro Sánchez García, 2025 (University of Salamanca, Spain)  
 Dr. José Miguel Rojo Martínez, 2025 (University of Murcia, Spain)  
-Dr. Nik Linders, 2025 (Radboud University, Netherlands)
+Dr. Nik Linders, 2025 (Radboud University, Netherlands)   
 Dr. Daniela Tomayo Álvarez, 2026 (Autonomous University of Madrid, Spain)
+
