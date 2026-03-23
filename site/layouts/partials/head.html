@@ -208,6 +208,12 @@
     })();
   </script>
 
+  <!-- GoatCounter Analytics (only in production builds) -->
+  {{ if and .Site.Params.goatcounterCode (not hugo.IsServer) }}
+  <script data-goatcounter="https://{{ .Site.Params.goatcounterCode }}.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
+  {{ end }}
+
   <!-- panelset.js -->
   {{ $panelsetJs := resources.Get "js/panelset.js" | js.Build "panelset.js" | minify | fingerprint }}
   <script src="{{ $panelsetJs.RelPermalink }}" type="text/javascript"></script>

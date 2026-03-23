@@ -4,7 +4,7 @@ title = 'Stuart J. Turnbull-Dugarte'
 theme = 'hugo-apero'
 author = 'Stuart J. Turnbull-Dugarte'
 copyright = ''
-googleAnalytics = ''
+googleAnalytics = '' # Add your GA4 Measurement ID here, e.g. G-XXXXXXXXXX
 disqusShortname = ''
 metaDataFormat = 'yaml'
 footnoteReturnLinkContents = '&#8617;'
@@ -15,6 +15,12 @@ preserveTaxonomyNames = true
 ignoreFiles = ['\\.Rmd$', '\\.Rmarkdown$', '_cache$', '\\.knit\\.md$', '\\.utf8\\.md$']
 enableEmoji = true
 relativeURLs = true
+
+[privacy]
+  [privacy.googleAnalytics]
+    disable = false
+    anonymizeIP = true
+    respectDoNotTrack = true
 
 [markup]
   defaultMarkdownHandler = 'goldmark'
@@ -41,6 +47,7 @@ relativeURLs = true
 
   customCSS = ["css/custom.css"]
   customJS = []
+  goatcounterCode = 'turnbulldugarte'
   sharing_image = '/img/avatar.jpg'
   dateFormat = '2006-01-02'
 
