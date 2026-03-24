@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Peer Review Data — Stuart J. Turnbull-Dugarte</title>
+  <link rel="stylesheet" href="../css/site.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <script>(function(){const t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);})();</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="nav-inner">
+    <a class="nav-brand" href="../index.html">
+      <img src="../img/avatar.jpg" alt="Stuart Turnbull-Dugarte">
+      Stuart J. Turnbull-Dugarte
+    </a>
+    <nav class="nav-links">
+      <a href="../index.html">About</a>
+      <a href="../publications/index.html">Publications</a>
+      <a href="../projects/index.html">Projects</a>
+      <a href="../supervision/index.html">Supervision</a>
+      <a href="index.html" class="active">Peer Review</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-wrap">
+  <div class="page-header">
+    <h1>Peer Review Data</h1>
+    <p>Interactive visualisations of peer review activities and statistics.</p>
+  </div>
+
+  <iframe
+    src="reviewgraphs.html"
+    style="width:100%;min-height:80vh;border:1px solid var(--border);border-radius:0.5rem;"
+    title="Peer review data visualisations">
+  </iframe>
+</div>
+
+<footer>
+  <p>&copy; 2026 Stuart J. Turnbull-Dugarte · University of Southampton · s.turnbull-dugarte[at]soton.ac.uk</p>
+</footer>
+
+<button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">
+  <svg class="moon-icon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  <svg class="sun-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+
+<script>
+document.getElementById('darkModeToggle').addEventListener('click', function() {
+  const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
+});
+</script>
+</body>
+</html>

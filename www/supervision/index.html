@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<!--
+  ╔══════════════════════════════════════════════════════════════════╗
+  ║  SUPERVISION PAGE  —  www/supervision/index.html                ║
+  ╠══════════════════════════════════════════════════════════════════╣
+  ║  HOW TO EDIT                                                     ║
+  ║                                                                  ║
+  ║  Ongoing PhD students: add/edit <div class="sup-card"> blocks   ║
+  ║    inside the first <div class="supervision-grid">.             ║
+  ║                                                                  ║
+  ║  Completed PhDs: add <div class="sup-card complete"> blocks     ║
+  ║    (note the extra "complete" class) in the second grid.        ║
+  ║                                                                  ║
+  ║  Examined theses: edit the plain text in                        ║
+  ║    <div class="examined-list">. One line per thesis.            ║
+  ║                                                                  ║
+  ║  Stylesheet: ../css/site.css  (shared across all pages)         ║
+  ╚══════════════════════════════════════════════════════════════════╝
+-->
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Supervision — Stuart J. Turnbull-Dugarte</title>
+  <link rel="stylesheet" href="../css/site.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <script>(function(){const t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);})();</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="nav-inner">
+    <a class="nav-brand" href="../index.html">
+      <img src="../img/avatar.jpg" alt="Stuart Turnbull-Dugarte">
+      Stuart J. Turnbull-Dugarte
+    </a>
+    <nav class="nav-links">
+      <a href="../index.html">About</a>
+      <a href="../publications/index.html">Publications</a>
+      <a href="../projects/index.html">Projects</a>
+      <a href="index.html" class="active">Supervision</a>
+      <a href="../peer-review/index.html">Peer Review</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-wrap">
+  <div class="page-header">
+    <h1>Supervision</h1>
+    <p>PhD supervision and examination.</p>
+  </div>
+
+  <h2 style="font-size:1.05rem;font-weight:700;color:var(--navy);margin-bottom:0.75rem;">PhD supervision (ongoing)</h2>
+  <div class="supervision-grid" style="margin-bottom:2rem;">
+
+    <div class="sup-card">
+      <div class="sup-status">Ongoing</div>
+      <div class="sup-name"><a href="https://www.southampton.ac.uk/people/5ywhrh/mr-george-bolton" target="_blank" rel="noopener">George Bolton</a></div>
+      <div class="sup-years">2021 – ongoing</div>
+      <div class="sup-thesis">Economic inequality and political trust: multi-method evidence from the United Kingdom</div>
+      <div class="sup-cosups">Co-supervisors: Prof. Will Jennings &amp; Dr. Will Allen</div>
+    </div>
+
+    <div class="sup-card">
+      <div class="sup-status">Ongoing</div>
+      <div class="sup-name"><a href="https://www.southampton.ac.uk/people/6655c8/miss-mollie-ruler" target="_blank" rel="noopener">Mollie Ruler</a></div>
+      <div class="sup-years">2024 – ongoing</div>
+      <div class="sup-thesis">Socio-Political Trust and Anxiety as Drivers of the Politicisation of Criminal Justice Policy and the Rise of Mass Incarceration in England &amp; Wales</div>
+      <div class="sup-cosups">Co-supervisors: Prof. Will Jennings &amp; Prof. Harry Annison</div>
+    </div>
+
+  </div>
+
+  <hr>
+
+  <h2 style="font-size:1.05rem;font-weight:700;color:var(--navy);margin:1.5rem 0 0.75rem;">PhD supervision (complete)</h2>
+  <div class="supervision-grid" style="margin-bottom:2rem;">
+
+    <div class="sup-card complete">
+      <div class="sup-status">Completed · 2024</div>
+      <div class="sup-name"><a href="https://carolinevleicht.weebly.com" target="_blank" rel="noopener">Dr. Caroline Leicht</a></div>
+      <div class="sup-years">2021 – 2024</div>
+      <div class="sup-thesis">"Eight More Years of Kate McKinnon" — How Satire and Caricature Affect Political Discourse and Political Communications Strategies in US Presidential Elections</div>
+      <div class="sup-cosups">Co-supervisors: Prof. Will Jennings &amp; Dr. Jessica Smith</div>
+    </div>
+
+  </div>
+
+  <hr>
+
+  <h2 style="font-size:1.05rem;font-weight:700;color:var(--navy);margin:1.5rem 0 0.75rem;">PhD thesis examined</h2>
+  <div class="examined-list">
+    Dr. Nate Roundy, 2023 (University of Cambridge, UK)<br>
+    Dr. M. Belén Abdala, 2025 (University of Vienna, Austria)<br>
+    Dr. Álvaro Sánchez García, 2025 (University of Salamanca, Spain)<br>
+    Dr. José Miguel Rojo Martínez, 2025 (University of Murcia, Spain)<br>
+    Dr. Nik Linders, 2025 (Radboud University, Netherlands)<br>
+    Dr. Daniela Tomayo Álvarez, 2026 (Autonomous University of Madrid, Spain)
+  </div>
+
+</div>
+
+<footer>
+  <p>&copy; 2026 Stuart J. Turnbull-Dugarte · University of Southampton · s.turnbull-dugarte[at]soton.ac.uk</p>
+</footer>
+
+<button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">
+  <svg class="moon-icon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  <svg class="sun-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+
+<script>
+document.getElementById('darkModeToggle').addEventListener('click', function() {
+  const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
+});
+</script>
+</body>
+</html>

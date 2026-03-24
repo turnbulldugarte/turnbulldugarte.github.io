@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<!--
+  ╔══════════════════════════════════════════════════════════════════╗
+  ║  PROJECTS PAGE  —  www/projects/index.html                      ║
+  ╠══════════════════════════════════════════════════════════════════╣
+  ║  HOW TO EDIT                                                     ║
+  ║                                                                  ║
+  ║  Each project is a <div class="project-card"> block. To add:    ║
+  ║  1. Copy an existing project-card block                         ║
+  ║  2. Update the status badge class and label (see below)         ║
+  ║  3. Update title, authors, and abstract (if you have one)       ║
+  ║  4. Add/remove btn-collab links for co-authors as needed        ║
+  ║  5. If no abstract, omit the btn-abstract button entirely       ║
+  ║                                                                  ║
+  ║  STATUS BADGE CLASSES:                                           ║
+  ║    class="status-badge status-rr"   → Revise & Resubmit (green) ║
+  ║    class="status-badge status-ur"   → Under Review (amber)      ║
+  ║    class="status-badge status-conf" → Conference (purple)       ║
+  ║    class="status-badge status-wip"  → Work in Progress (red)    ║
+  ║                                                                  ║
+  ║  Projects are grouped by topic inside <details class="topic-block">
+  ║  sections. To move a project to a different section, cut the    ║
+  ║  entire project-card div and paste it into the target section.  ║
+  ║                                                                  ║
+  ║  Once a project is published, move the card to publications/    ║
+  ║  index.html as a pub-card and delete it from here.              ║
+  ║                                                                  ║
+  ║  Stylesheet: ../css/site.css  (shared across all pages)         ║
+  ╚══════════════════════════════════════════════════════════════════╝
+-->
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ongoing Projects — Stuart J. Turnbull-Dugarte</title>
+  <link rel="stylesheet" href="../css/site.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <script>(function(){const t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);})();</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="nav-inner">
+    <a class="nav-brand" href="../index.html">
+      <img src="../img/avatar.jpg" alt="Stuart Turnbull-Dugarte">
+      Stuart J. Turnbull-Dugarte
+    </a>
+    <nav class="nav-links">
+      <a href="../index.html">About</a>
+      <a href="../publications/index.html">Publications</a>
+      <a href="index.html" class="active">Projects</a>
+      <a href="../supervision/index.html">Supervision</a>
+      <a href="../peer-review/index.html">Peer Review</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-wrap">
+  <div class="page-header">
+    <h1>Ongoing Projects</h1>
+    <p>Current research projects across all research programmes.</p>
+  </div>
+
+  <!-- ── FAR RIGHT ─────────────────────────────────────── -->
+  <div class="topic-section">
+    <details class="topic-block" open>
+      <summary>
+        <h2>Far-right politics</h2>
+        <span class="topic-arrow">▼</span>
+      </summary>
+      <div>
+        <div class="project-cards-grid">
+
+          <div class="project-card">
+            <span class="status-badge status-rr">Revise &amp; Resubmit</span>
+            <div class="project-title">Reactions to US liberal backsliding</div>
+            <div class="project-authors">with Joe Noonan, Michal Grahn and Rebecka Knudsen</div>
+            <div class="project-actions">
+              <button class="btn-abstract" onclick="toggleAbstract(this)">Abstract</button>
+              <a href="https://joenoonan.se" target="_blank" rel="noopener" class="btn-collab">Joe's webpage</a>
+              <a href="https://www.michalgrahn.com" target="_blank" rel="noopener" class="btn-collab">Michal's webpage</a>
+            </div>
+            <div class="abstract-box dn">Drawing on a quasi-experiment with individual-level data from thirty-five countries (N = 32,080), exposure to attacks on women's rights significantly undermines the United States' democratic standing among European publics. A pre-registered vignette experiment in Britain (N = 2,993) demonstrates that news about attacks on liberal civil and social rights reduces perceptions of the US as a democracy and lowers public willingness to cooperate with it.</div>
+          </div>
+
+          <div class="project-card">
+            <span class="status-badge status-rr">Revise &amp; Resubmit</span>
+            <div class="project-title">Does Radical Right Accommodation Help Social Democratic Parties? No.</div>
+            <div class="project-authors">with Jack Bailey, Daniel Devine, Zach Dickson, Sara B. Hobolt, Will Jennings, Rob Johns and Katharina Lawall</div>
+            <div class="project-actions">
+              <a href="https://jack-bailey.co.uk/about.html" target="_blank" rel="noopener" class="btn-collab">Jack's webpage</a>
+              <a href="https://djdevine.org" target="_blank" rel="noopener" class="btn-collab">Daniel's webpage</a>
+              <a href="https://z-dickson.github.io/" target="_blank" rel="noopener" class="btn-collab">Zach's webpage</a>
+              <a href="https://hobolt.com" target="_blank" rel="noopener" class="btn-collab">Sara's webpage</a>
+              <a href="https://www.southampton.ac.uk/people/65brpg/professor-robert-johns#about" target="_blank" rel="noopener" class="btn-collab">Rob's webpage</a>
+              <a href="https://katharinalawall.com" target="_blank" rel="noopener" class="btn-collab">Katharina's webpage</a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <span class="status-badge status-conf">APSA 2025 (Vancouver)</span>
+            <div class="project-title">Facts against femonationalism: how to stop far-right normalisation</div>
+            <div class="project-authors">with Katharina Lawall, Michal Grahn and Sophie Mainz</div>
+            <div class="project-actions">
+              <button class="btn-abstract" onclick="toggleAbstract(this)">Abstract</button>
+              <a href="https://katharinalawall.com" target="_blank" rel="noopener" class="btn-collab">Katharina's webpage</a>
+              <a href="https://www.michalgrahn.com" target="_blank" rel="noopener" class="btn-collab">Michal's webpage</a>
+              <a href="https://sophiemainz.github.io" target="_blank" rel="noopener" class="btn-collab">Sophie's webpage</a>
+            </div>
+            <div class="abstract-box dn">A pre-registered audio-video vignette experiment with a quota-representative sample of 3,994 German adults tests different forms of counterspeech against femonationalism. Only factual correction consistently reduces support for femonationalist views and anti-immigrant discourse; symbolic and substantive critiques show limited effects.</div>
+          </div>
+
+          <div class="project-card">
+            <span class="status-badge status-wip">Work in Progress</span>
+            <div class="project-title">Coalition Negotiation Breakdown and Electoral Returns. Who Benefits When the Center-Right Refuses the Far Right?</div>
+            <div class="project-authors">with Denis Cohen, Rebeca Antuña and Werner Krause</div>
+            <div class="project-actions">
+              <a href="https://denis-cohen.github.io" target="_blank" rel="noopener" class="btn-collab">Denis's webpage</a>
+              <a href="https://www.uni-potsdam.de/en/vergleichende-politikwissenschaft/team/rebeca-g-antuna" target="_blank" rel="noopener" class="btn-collab">Rebeca's webpage</a>
+              <a href="https://krausewe.github.io" target="_blank" rel="noopener" class="btn-collab">Werner's webpage</a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <span class="status-badge status-conf">APSA 2026 (upcoming)</span>
+            <div class="project-title">Little Men</div>
+            <div class="project-authors">with Đorđe Milosav, Emma Renström, Hanna Bäck and Michal Grahn</div>
+            <div class="project-actions">
+              <a href="https://www.djordjemilosav.com/" target="_blank" rel="noopener" class="btn-collab">Đorđe's webpage</a>
+              <a href="https://researchportal.hkr.se/en/persons/emma-a-renström/" target="_blank" rel="noopener" class="btn-collab">Emma's webpage</a>
+              <a href="https://www.svet.lu.se/en/hanna-back" target="_blank" rel="noopener" class="btn-collab">Hanna's webpage</a>
+              <a href="https://www.michalgrahn.com" target="_blank" rel="noopener" class="btn-collab">Michal's webpage</a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <span class="status-badge status-conf">EPSS 2026 (upcoming)</span>
+            <div class="project-title">Can selectively liberal frames increase support for anti-immigrant governments? No, but liberal policies can.</div>
+            <div class="project-authors">with Katharina Lawall, Michal Grahn and Sophie Mainz</div>
+            <div class="project-actions">
+              <a href="https://katharinalawall.com" target="_blank" rel="noopener" class="btn-collab">Katharina's webpage</a>
+              <a href="https://www.michalgrahn.com" target="_blank" rel="noopener" class="btn-collab">Michal's webpage</a>
+              <a href="https://sophiemainz.github.io" target="_blank" rel="noopener" class="btn-collab">Sophie's webpage</a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <span class="status-badge status-conf">EPSS 2026 (upcoming)</span>
+            <div class="project-title">Do women make the far-right more electable? Evidence from the United States</div>
+            <div class="project-authors">with Michal Grahn</div>
+            <div class="project-actions"></div>
+            <a href="https://www.michalgrahn.com" target="_blank" rel="noopener" class="btn-collab">Michal's webpage</a>
+          </div>
+
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <!-- ── SOCIAL & POLITICAL IDENTITIES ─────────────────── -->
+  <div class="topic-section">
+    <details class="topic-block" open>
+      <summary>
+        <h2>Social &amp; Political Identities</h2>
+        <span class="topic-arrow">▼</span>
+      </summary>
+      <div>
+        <div class="project-cards-grid">
+
+          <div class="project-card">
+            <span class="status-badge status-ur">Under Review</span>
+            <div class="project-title">Class and symbolic representation</div>
+            <div class="project-authors">with Daniel Devine</div>
+            <div class="project-actions">
+              <button class="btn-abstract" onclick="toggleAbstract(this)">Abstract</button>
+              <a href="https://djdevine.org" target="_blank" rel="noopener" class="btn-collab">Daniel's webpage</a>
+            </div>
+            <div class="abstract-box dn">Novel experimental tests linking class-based descriptive representation to symbolic representation. Individuals who identify as working class believe that working-class legislators represent them better, increasing trust in decision-making. This relationship is strongest among those with a deeper psychological attachment to their class-based identity.</div>
+          </div>
+
+          <div class="project-card">
+            <span class="status-badge status-ur">Under Review</span>
+            <div class="project-title">Partisan responsiveness in real time: Causal evidence from Trump's military attack on Iran</div>
+            <div class="project-authors">with Daniel Devine, Luca Versteegen and Owen Winter</div>
+            <div class="project-actions">
+              <button class="btn-abstract" onclick="toggleAbstract(this)">Abstract</button>
+              <a href="https://djdevine.org" target="_blank" rel="noopener" class="btn-collab">Daniel's webpage</a>
+              <a href="https://lucaversteegen.com" target="_blank" rel="noopener" class="btn-collab">Luca's webpage</a>
+              <a href="https://owenwinter.co.uk/about/" target="_blank" rel="noopener" class="btn-collab">Owen's webpage</a>
+            </div>
+            <div class="abstract-box dn">Exploiting Trump's unexpected announcement of US military strikes against Iran — made during the fieldwork of a nationally representative survey — we find partisan divergence in opinion unfolds within minutes: support for military intervention surges among Republicans but drops among Democrats. Robust across more than 28,000 alternative model specifications.</div>
+          </div>
+
+          <div class="project-card">
+            <span class="status-badge status-wip">Work in Progress</span>
+            <div class="project-title">Are voters fatphobic?</div>
+            <div class="project-actions"></div>
+          </div>
+
+          <div class="project-card">
+            <span class="status-badge status-conf">EPSA 2023 (Glasgow)</span>
+            <div class="project-title">Education as identity? Group-based affect between graduates and non-graduates: multi-study evidence from Britain</div>
+            <div class="project-authors">with Elizabeth Simon</div>
+            <div class="project-actions">
+              <a href="https://experts.exeter.ac.uk/45141-lizzie-simon" target="_blank" rel="noopener" class="btn-collab">Lizzie's webpage</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <!-- ── LGBTQ+ ──────────────────────────────────────────── -->
+  <div class="topic-section">
+    <details class="topic-block" open>
+      <summary>
+        <h2>LGBTQ+ Politics</h2>
+        <span class="topic-arrow">▼</span>
+      </summary>
+      <div>
+        <p style="font-size:0.88rem;color:var(--text-2);font-style:italic;margin-bottom:1rem;">My primary focus in this area at the moment is a book manuscript on LGBTQ+ political behaviour which is now in production with Princeton University Press. Other projects include:</p>
+        <div class="project-cards-grid">
+
+          <div class="project-card">
+            <span class="status-badge status-rr">Revise &amp; Resubmit</span>
+            <div class="project-title">Still instrumentally inclusive: a re-analysis of Turnbull-Dugarte &amp; López Ortega (2024)</div>
+            <div class="project-authors">with Alberto López Ortega</div>
+            <div class="project-actions">
+              <a href="https://aloport.github.io" target="_blank" rel="noopener" class="btn-collab">Alberto's webpage</a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <span class="status-badge status-conf">EPSS 2026 (upcoming)</span>
+            <div class="project-title">The electoral costs of transphobia. Evidence from Britain</div>
+            <div class="project-authors">with Konstantin Bogatyrev</div>
+            <div class="project-actions">
+              <a href="https://sites.google.com/view/konstantin-bogatyrev/about" target="_blank" rel="noopener" class="btn-collab">Konstantin's webpage</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </details>
+  </div>
+
+</div>
+
+<footer>
+  <p>&copy; 2026 Stuart J. Turnbull-Dugarte · University of Southampton · s.turnbull-dugarte[at]soton.ac.uk</p>
+</footer>
+
+<button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">
+  <svg class="moon-icon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  <svg class="sun-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+
+<script>
+document.getElementById('darkModeToggle').addEventListener('click', function() {
+  const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
+});
+function toggleAbstract(btn) {
+  const box = btn.closest('.project-card').querySelector('.abstract-box');
+  box.classList.toggle('dn');
+  btn.textContent = box.classList.contains('dn') ? 'Abstract' : 'Hide';
+}
+</script>
+</body>
+</html>

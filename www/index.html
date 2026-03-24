@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<!--
+  ╔══════════════════════════════════════════════════════════════════╗
+  ║  HOMEPAGE  —  www/index.html                                    ║
+  ╠══════════════════════════════════════════════════════════════════╣
+  ║  SITE STRUCTURE (all files live under www/)                     ║
+  ║    index.html                 ← this file (homepage)            ║
+  ║    css/site.css               ← ALL styles (edit colours here)  ║
+  ║    publications/index.html    ← highlighted publications        ║
+  ║    publications/full-list.html← full publication list           ║
+  ║    projects/index.html        ← ongoing projects                ║
+  ║    supervision/index.html     ← PhD supervision                 ║
+  ║    peer-review/index.html     ← peer review stats (iframe)      ║
+  ║    peer-review/reviewgraphs.html ← the actual charts            ║
+  ║    heroes-playground/index.html  ← interactive playground       ║
+  ║                                                                  ║
+  ║  HOW TO EDIT THIS PAGE                                          ║
+  ║  • Bio text: edit the <p> tags inside <div class="bio-body">    ║
+  ║  • Stat chips (JOP ×6 etc): edit <div class="profile-stats">    ║
+  ║  • Research highlight cards: edit <div class="highlight-cards"> ║
+  ║  • Impact strip (bottom bar): edit <div class="impact-strip">   ║
+  ║  • Typewriter lines: edit the `lines` array in the <script>     ║
+  ║                                                                  ║
+  ║  TO PUSH TO GITHUB PAGES:                                       ║
+  ║    git add www/                                                  ║
+  ║    git commit -m "Update website"                               ║
+  ║    git push                                                      ║
+  ║                                                                  ║
+  ║  Stylesheet: css/site.css  (shared across all pages)            ║
+  ╚══════════════════════════════════════════════════════════════════╝
+-->
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stuart J. Turnbull-Dugarte</title>
+  <meta name="description" content="Associate Professor of Quantitative Political Science — University of Southampton">
+  <link rel="stylesheet" href="css/site.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <script>(function(){const t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);})();</script>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="site-header">
+  <div class="nav-inner">
+    <a class="nav-brand" href="index.html">
+      <img src="img/avatar.jpg" alt="Stuart Turnbull-Dugarte">
+      Stuart J. Turnbull-Dugarte
+    </a>
+    <nav class="nav-links">
+      <a href="index.html" class="active">About</a>
+      <a href="publications/index.html">Publications</a>
+      <a href="projects/index.html">Projects</a>
+      <a href="supervision/index.html">Supervision</a>
+      <a href="peer-review/index.html">Peer Review</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<div style="max-width:1200px;margin:0 auto;padding:0 1.5rem;">
+  <div class="home-hero">
+
+    <!-- Left: profile -->
+    <aside class="home-profile">
+      <div class="profile-hex-wrap">
+        <img src="img/logo.png" alt="Stuart" class="profile-hex">
+      </div>
+      <p class="profile-pronouns">Stuart (he/him)</p>
+
+      <div class="social-row">
+        <a href="https://bsky.app/profile/turnbulldugarte.com" target="_blank" rel="noopener" title="Bluesky">
+          <i class="fab fa-bluesky"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/sturnbulldugarte/" target="_blank" rel="noopener" title="LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://scholar.google.es/citations?hl=en&user=TBenV_8AAAAJ" target="_blank" rel="noopener" title="Google Scholar">
+          <i class="fas fa-graduation-cap"></i>
+        </a>
+        <a href="https://dataverse.harvard.edu/dataverse/turnbull-dugarte" target="_blank" rel="noopener" title="Harvard Dataverse">
+          <i class="fas fa-database"></i>
+        </a>
+      </div>
+
+      <div class="profile-stats">
+        <div class="stat-chip"><span class="stat-label">JOP</span><span class="stat-value">×5</span></div>
+        <div class="stat-chip"><span class="stat-label">JEPP</span><span class="stat-value">×5</span></div>
+        <div class="stat-chip"><span class="stat-label">Books</span><span class="stat-value">×2</span></div>
+        <div class="stat-chip"><span class="stat-label">Peer-reviewed articles</span><span class="stat-value">40+</span></div>
+        <div class="stat-chip"><span class="stat-label">PhD students</span><span class="stat-value">3</span></div>
+      </div>
+    </aside>
+
+    <!-- Right: bio -->
+    <main class="home-bio">
+      <h1 class="hero-accent">Stuart J. Turnbull-Dugarte</h1>
+      <div class="typewriter-wrap hero-accent">
+        <span id="typewriter-text"></span><span class="typewriter-cursor">|</span>
+      </div>
+
+      <div class="bio-body">
+        <h2>About</h2>
+        <p>
+          I am a quantitative political scientist whose research interests span <strong>political sociology</strong>,
+          <strong>comparative politics</strong>, and <strong>behavioural science</strong>. My work focuses on LGBTQ+ politics,
+          social and political identities, far-right parties and voters, and elections and campaigns.
+        </p>
+        <p>
+          I received my PhD in Political Science in 2020 from the
+          <a href="https://sites.google.com/view/kingsqpe/home" target="_blank" rel="noopener">Department of Political Economy</a>
+          at King's College London. In addition to my researching and teaching roles, I also currently serve as an Associate Editor at <em>Public Opinion Quarterly</em>,
+          the <em>European Journal of Politics & Gender</em>, and <em>Research & Politics</em>.
+        </p>
+        <p>
+          I am very proudly a <strong>first gen student</strong> and I dedicate part of my time to mentoring other first gen
+          students in their journey through university life. I am also very keen on normalising transparency on issues related to
+          poor mental health in academia &amp; talk openly about my own struggle with depression
+          (<a href="https://www.youtube.com/watch?v=XiCrniLQGYc" target="_blank" rel="noopener">#ihadablackdog</a>),
+          anxiety, and the <a href="https://www.theguardian.com/society/2011/feb/20/gay-men-depression-the-velvet-rage" target="_blank" rel="noopener"><em>Velvet Rage</em></a>.
+          If you are in need of support, I am readily available to talk.
+        </p>
+
+        <div class="book-callout">
+          <div class="bi">📖</div>
+          <div>
+            <h3>The Rainbow Vote — forthcoming with Princeton University Press</h3>
+            <p>Supported by the generous funding from the Leverhulme Trust, this book examines the political behaviour and attitudes of LGBTQ+ voters across multiple Western European countries using diverse experiments.</p>
+            <a href="https://press.princeton.edu/" target="_blank" rel="noopener" class="btn-pup">Princeton University Press →</a>
+          </div>
+        </div>
+
+        <h2>Research Highlights</h2>
+        <p>Published in leading journals including the <em>American Political Science Review</em>, <em>British Journal of Political Science</em>, <em>Journal of Politics</em>, <em>European Journal of Political Research</em>, and <em>Political Science Research &amp; Methods</em>. Some of my research has received coverage on BBC News, the <em>Economist</em>, the <em>Financial Times</em>, the <em>New York Times</em> and the <em>Guardian</em>.</p>
+
+        <div class="highlight-cards">
+          <div class="highlight-card">
+            <div>
+              <div class="highlight-journal">Political Science Research &amp; Methods · 2026</div>
+              <div class="highlight-title"><a href="https://doi.org/10.1017/psrm.2025.10" target="_blank" rel="noopener">Heroes and Villains: Motivated projection of political identities</a></div>
+              <div class="highlight-authors">Turnbull-Dugarte, S.J. &amp; Wagner, M.</div>
+            </div>
+            <div class="highlight-footer">
+              <div class="altmetric-embed" data-badge-type="donut" data-doi="10.1017/psrm.2025.10" data-hide-no-mentions="false" data-link-target="_blank"></div>
+              <a href="heroes-playground/index.html" class="playground-btn-sm">Playground ↗</a>
+            </div>
+          </div>
+
+          <div class="highlight-card">
+            <div>
+              <div class="highlight-journal">Journal of Politics · 2025</div>
+              <div class="highlight-title"><a href="https://doi.org/10.1086/736698" target="_blank" rel="noopener">Far Right Normalization and Centrifugal Affect: Evidence from the Dating Market</a></div>
+              <div class="highlight-authors">Turnbull-Dugarte, S.J. &amp; López Ortega, A.</div>
+            </div>
+            <div class="highlight-footer">
+              <div class="altmetric-embed" data-badge-type="donut" data-doi="10.1086/736698" data-hide-no-mentions="false" data-link-target="_blank"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+  </div>
+</div>
+
+<div style="text-align:center;padding:0.5rem 1.5rem 2rem;">
+  <a href="publications/index.html" class="pubs-cta">View Publications →</a>
+</div>
+
+<!-- IMPACT STRIP -->
+<div class="impact-strip" style="margin-top:2.5rem;">
+  <div class="impact-inner">
+    <div>
+      <div class="impact-num">APSR · BJPS · JOP · PSRM </div>
+      <div class="impact-label">Top journals published in</div>
+    </div>
+    <div>
+      <div class="impact-num">🏆 APSA Best Article Award (2025)</div>
+      <div class="impact-label">European Politics &amp; Society Section</div>
+    </div>
+    <div>
+      <div class="impact-num">🌟 Rising Star Award (2023)</div>
+      <div class="impact-label">European Consortium of Political Research</div>
+    </div>
+    <div>
+      <div class="impact-num"><a href="https://press.princeton.edu/" target="_blank" rel="noopener">📖 Princeton University Press</a></div>
+      <div class="impact-label">Forthcoming book<br><small>The Rainbow Vote</small></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>&copy; 2026 Stuart J. Turnbull-Dugarte · Madrid · s.turnbull-dugarte[at]soton.ac.uk</p>
+</footer>
+
+<!-- Dark mode toggle -->
+<button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">
+  <svg class="moon-icon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  <svg class="sun-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+
+<script type="text/javascript" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script>
+<script>
+// Dark mode
+document.getElementById('darkModeToggle').addEventListener('click', function() {
+  const cur = document.documentElement.getAttribute('data-theme');
+  const next = cur === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
+});
+
+// Typewriter
+(function() {
+  const lines = [
+    "Associate Professor of Quantitative Political Science",
+    "Expect experiments, research on identity politics, and probably some gay stuff"
+  ];
+  const el = document.getElementById('typewriter-text');
+  let li = 0, ci = 0;
+  function type() {
+    if (li < lines.length) {
+      if (ci < lines[li].length) {
+        el.innerHTML += lines[li].charAt(ci++);
+        setTimeout(type, 45);
+      } else {
+        li++; ci = 0;
+        if (li < lines.length) { el.innerHTML += '<br>'; setTimeout(type, 220); }
+      }
+    }
+  }
+  window.addEventListener('load', function() { setTimeout(type, 400); });
+})();
+</script>
+</body>
+</html>
