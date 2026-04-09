@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<!--
+  ╔══════════════════════════════════════════════════════════════════╗
+  ║  EVENTS & TALKS  —  www/talks/index.html                        ║
+  ╠══════════════════════════════════════════════════════════════════╣
+  ║  HOW TO EDIT                                                     ║
+  ║                                                                  ║
+  ║  Events are stored in the TALKS array in the <script> block     ║
+  ║  near the bottom of this file. Each entry has:                  ║
+  ║    year        – integer                                         ║
+  ║    type        – "conference_presentation" | "invited_talk"      ║
+  ║                  | "workshop"                                    ║
+  ║    title       – talk title (string, leave "" if unknown)        ║
+  ║    venue       – conference / seminar name                       ║
+  ║    institution – host university / organisation                  ║
+  ║    city        – city (optional)                                 ║
+  ║    country     – country (optional)                              ║
+  ║    topic       – research topic tag (optional)                   ║
+  ║    future      – true if the event is upcoming, else false       ║
+  ║                                                                  ║
+  ║  Stylesheet: ../css/site.css  (shared across all pages)         ║
+  ╚══════════════════════════════════════════════════════════════════╝
+-->
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events &amp; Talks — Stuart J. Turnbull-Dugarte</title>
+  <link rel="stylesheet" href="../css/site.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <script>(function(){const t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);})();</script>
+  <script data-goatcounter="https://turnbulldugarte.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+  <style>
+    /* ── Stats bar ──────────────────────────────────────────── */
+    .stats-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.75rem;
+    }
+    .stat-pill {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 0.6rem 1.2rem;
+      min-width: 130px;
+    }
+    .stat-num  { font-size: 1.6rem; font-weight: 700; color: var(--blue); line-height: 1.1; }
+    .stat-lbl  { font-size: 0.7rem; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.05em; white-space: nowrap; }
+
+    /* ── Search ─────────────────────────────────────────────── */
+    .search-box {
+      width: 100%;
+      padding: 0.6rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-size: 0.95rem;
+      background: var(--card-bg);
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      margin-bottom: 1rem;
+    }
+    .search-box:focus { border-color: var(--blue-lt); box-shadow: 0 0 0 3px rgba(26,90,143,0.15); }
+
+    /* ── Filter row ─────────────────────────────────────────── */
+    .filter-bar { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.25rem; align-items: flex-end; }
+    .filter-group { display: flex; flex-direction: column; gap: 0.3rem; }
+    .filter-lbl { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-3); }
+
+    .btn-group { display: flex; gap: 0.3rem; flex-wrap: wrap; }
+    .flt-btn {
+      padding: 0.3rem 0.8rem;
+      font-size: 0.82rem;
+      font-weight: 500;
+      border: 1px solid var(--border);
+      border-radius: 0.3rem;
+      background: var(--card-bg);
+      color: var(--text-2);
+      cursor: pointer;
+      transition: all 0.15s;
+      white-space: nowrap;
+    }
+    .flt-btn:hover  { border-color: var(--blue-lt); color: var(--blue); }
+    .flt-btn.active { background: var(--blue); border-color: var(--blue); color: #fff; }
+
+    .flt-select {
+      padding: 0.3rem 0.7rem;
+      font-size: 0.82rem;
+      border: 1px solid var(--border);
+      border-radius: 0.3rem;
+      background: var(--card-bg);
+      color: var(--text-2);
+      cursor: pointer;
+      outline: none;
+      min-width: 130px;
+    }
+    .flt-select:focus { border-color: var(--blue-lt); }
+
+    .reset-btn {
+      padding: 0.3rem 0.8rem;
+      font-size: 0.82rem;
+      font-weight: 500;
+      border: 1px solid #fca5a5;
+      border-radius: 0.3rem;
+      background: var(--card-bg);
+      color: #b91c1c;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .reset-btn:hover { background: #b91c1c; color: #fff; border-color: #b91c1c; }
+
+    /* ── Results meta ───────────────────────────────────────── */
+    .results-meta { font-size: 0.82rem; color: var(--text-3); margin-bottom: 1rem; }
+
+    /* ── Year group ─────────────────────────────────────────── */
+    .year-group   { margin-bottom: 1.75rem; }
+    .year-heading {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text);
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 0.35rem;
+      margin-bottom: 0.6rem;
+    }
+
+    /* ── Talk card ──────────────────────────────────────────── */
+    .talk-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--card-bg);
+      margin-bottom: 0.45rem;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .talk-card:hover { box-shadow: var(--shadow-md); transform: translateY(-1px); }
+
+    .talk-badge {
+      flex-shrink: 0;
+      font-size: 0.62rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 0.22rem 0.55rem;
+      border-radius: 999px;
+      white-space: nowrap;
+      margin-top: 0.1rem;
+    }
+    .badge-conf     { background: #f5dde6; color: #801650; border: 1px solid #d4a0b5; }
+    .badge-invited  { background: #f5dde6; color: #801650; border: 1px solid #d4a0b5; }
+    .badge-workshop { background: #f5dde6; color: #801650; border: 1px solid #d4a0b5; }
+    .badge-future   { background: #801650; color: #ffffff; border: 1px solid #801650; }
+    [data-theme="dark"] .badge-conf     { background:#4a0d2e; color:#f0a0bf; border-color:#801650; }
+    [data-theme="dark"] .badge-invited  { background:#4a0d2e; color:#f0a0bf; border-color:#801650; }
+    [data-theme="dark"] .badge-workshop { background:#4a0d2e; color:#f0a0bf; border-color:#801650; }
+    [data-theme="dark"] .badge-future   { background:#f0a0bf; color:#4a0d2e; border-color:#f0a0bf; }
+
+    .talk-body  { flex: 1; min-width: 0; }
+    .talk-title { font-size: 0.88rem; font-weight: 600; color: var(--blue); margin: 0 0 0.2rem; line-height: 1.4; }
+    .talk-title-empty { font-size: 0.88rem; font-style: italic; color: var(--text-3); margin: 0 0 0.2rem; }
+    .talk-meta  { font-size: 0.8rem; color: var(--text-2); line-height: 1.5; }
+    .talk-venue { font-weight: 600; }
+    .talk-loc   { color: var(--text-3); }
+    .talk-topic {
+      display: inline-block;
+      font-size: 0.62rem;
+      padding: 0.12rem 0.45rem;
+      border-radius: 999px;
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      color: var(--text-3);
+      margin-top: 0.2rem;
+    }
+
+    /* ── No results ─────────────────────────────────────────── */
+    .no-results { text-align: center; padding: 3rem 0; color: var(--text-3); font-size: 1rem; }
+
+    @media (max-width: 600px) {
+      .talk-card  { flex-direction: column; gap: 0.35rem; }
+      .stat-pill  { min-width: 100px; }
+      .filter-bar { gap: 0.6rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="nav-inner">
+    <a class="nav-brand" href="../index.html">
+      <img src="../img/avatar.jpg" alt="Stuart Turnbull-Dugarte">
+      Stuart J. Turnbull-Dugarte
+    </a>
+    <nav class="nav-links">
+      <a href="../index.html">About</a>
+      <a href="../publications/index.html">Publications</a>
+      <a href="../projects/index.html">Projects</a>
+      <a href="../supervision/index.html">Supervision</a>
+      <a href="../peer-review/index.html">Peer Review</a>
+      <a href="index.html" class="active">Events &amp; Talks</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-wrap">
+  <div class="page-header">
+    <h1>Upcoming events</h1>
+    <p>List of upcoming (and past) talks and presentations</p>
+  </div>
+
+  <!-- Stats bar -->
+  <div class="stats-bar">
+    <div class="stat-pill"><span class="stat-num" id="stat-total">–</span><span class="stat-lbl">Total events</span></div>
+    <div class="stat-pill"><span class="stat-num" id="stat-conf">–</span><span class="stat-lbl">Conference presentations</span></div>
+    <div class="stat-pill"><span class="stat-num" id="stat-invited">–</span><span class="stat-lbl">Invited talks</span></div>
+  </div>
+
+  <!-- Search -->
+  <input id="search-input" type="text" class="search-box"
+    placeholder="Search by title, venue, institution, or country…" autocomplete="off">
+
+  <!-- Filters -->
+  <div class="filter-bar">
+
+    <div class="filter-group">
+      <span class="filter-lbl">Type</span>
+      <div class="btn-group" id="type-filter">
+        <button class="flt-btn active" data-value="all">All</button>
+        <button class="flt-btn" data-value="conference_presentation">Conference</button>
+        <button class="flt-btn" data-value="invited_talk">Invited talk</button>
+        <button class="flt-btn" data-value="workshop">Workshop</button>
+      </div>
+    </div>
+
+    <div class="filter-group">
+      <span class="filter-lbl">Time</span>
+      <div class="btn-group" id="time-filter">
+        <button class="flt-btn" data-value="all">All</button>
+        <button class="flt-btn" data-value="past">Past</button>
+        <button class="flt-btn active" data-value="future">Upcoming</button>
+      </div>
+    </div>
+
+    <div class="filter-group">
+      <span class="filter-lbl">Year</span>
+      <select id="year-filter" class="flt-select">
+        <option value="all">All years</option>
+      </select>
+    </div>
+
+    <div class="filter-group">
+      <button id="reset-btn" class="reset-btn">Reset filters</button>
+    </div>
+
+  </div>
+
+  <p class="results-meta" id="results-meta"></p>
+
+  <div id="talks-list"></div>
+  <div id="no-results" class="no-results dn">No events match your current filters.</div>
+
+</div>
+
+<footer>
+  <p>&copy; 2026 Stuart J. Turnbull-Dugarte · University of Southampton · s.turnbull-dugarte[at]soton.ac.uk</p>
+</footer>
+
+<button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">
+  <svg class="moon-icon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  <svg class="sun-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+
+<script>
+document.getElementById('darkModeToggle').addEventListener('click', function() {
+  const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
+});
+</script>
+
+<script>
+// ── Event data ─────────────────────────────────────────────────────────────
+// To add an event: copy one object, update the fields, set future:true if upcoming.
+const TALKS = [
+
+  // ── Upcoming ─────────────────────────────────────────────────────────────
+  { year:2026, type:"workshop",                title:"Are voters fatphobic?", venue:"Public Opinion Research Southampton",       institution:"University of Southampton", city:"Southampton", country:"UK", topic:"", date:"5 May 2026", future:true },
+  { year:2026, type:"invited_talk",            title:"Little Men",            venue:"MZES Research Seminar",                    institution:"",                       city:"Mannheim", country:"Germany", topic:"", date:"12 May 2026", future:true },
+  { year:2026, type:"invited_talk",            title:"Coalition Negotiation Breakdown and Electoral Returns. Who Benefits When the Center-Right Refuse the Far Right",            venue:"CEPC Seminar",                    institution:"Centro de Estudios Políticos y Constitucionales",  city:"Madrid", country:"Spain", topic:"", date:"4 June 2026", future:true },
+  { year:2026, type:"conference_presentation", title:"Can selectively liberal frames increase support for anti-immigrant governments? No, but liberal policies can.", venue:"EPSS Annual Conference",  institution:"", city:"Belfast", country:"", topic:"", date:"June 2026", future:true  },
+  { year:2026, type:"conference_presentation", title:"Little Men", venue:"APSA Annual Conference",  institution:"", city:"Boston", country:"", topic:"", date:"September 2026", future:true  },
+
+  // ── WORKSHOPS ────────────────────────────────────────────
+
+  { year:2025, type:"workshop", title:"Coalition Negotiation Breakdown and Electoral Returns. Who Benefits When the Center-Right Refuse the Far Right", venue:"Political Inequality Workshop",            institution:"Uppsala Universitet", city:"", country:"Sweden", topic:"" },
+  { year:2025, type:"workshop", title:"Coalition Negotiation Breakdown and Electoral Returns. Who Benefits When the Center-Right Refuse the Far Right", venue:"LSE-BI Political Economy Workshop",            institution:"London School of Economics", city:"", country:"UK", topic:"" },
+  { year:2025, type:"workshop", title:"The Political Costs of Transphobia", venue:"PPRNet Annual Meeting",            institution:"Humboldt-Universität zu Berlin", city:"", country:"Berlin", topic:"" },
+
+  // ── Conference Presentations ────────────────────────────────────────────
+  { year:2025, type:"conference_presentation", title:"Facts against femonationalism: how to stop far-right normalisation", venue:"APSA Annual Conference",  institution:"", city:"Vancouver", country:"", topic:"" },
+  { year:2025, type:"conference_presentation", title:"Voting like their rights depended on it? Why more LGBTQ+ citizens are also voters", venue:"APSA Annual Conference",  institution:"", city:"Vancouver", country:"", topic:"" },
+  { year:2025, type:"conference_presentation", title:"Contagious hate? Partisans cues and attitudes to minority rights", venue:"EPSA Annual Conference",  institution:"", city:"Madrid", country:"", topic:"" },
+  { year:2025, type:"conference_presentation", title:"Reactions to US liberal backsliding", venue:"EPSA Annual Conference",            institution:"", city:"Madrid", country:"", topic:"" },
+  { year:2024, type:"conference_presentation", title:"Swiping on left & right: a visual conjoint experiment on the consequences of political projection in the social world", venue:"EPSA Annual Conference",            institution:"", city:"Köln", country:"", topic:"" },
+  { year:2024, type:"conference_presentation", title:"Allies in the streets and illiberal in the sheets? Women in the dating market punish gender incongruent sexual behaviour more", venue:"EPSA Annual Conference",            institution:"", city:"Köln", country:"", topic:"" },
+  { year:2024, type:"conference_presentation", title:"Allies in the streets and illiberal in the sheets? Women in the dating market punish gender incongruent sexual behaviour more", venue:"ECPG",                             institution:"", city:"", country:"", topic:"" },
+  { year:2024, type:"conference_presentation", title:"", venue:"ECPG",                             institution:"", city:"", country:"", topic:"" },
+  { year:2024, type:"conference_presentation", title:"Swiping on left & right: a visual conjoint experiment on the consequences of political projection in the social world", venue:"ECPR Annual Conference",          institution:"", city:"Dublin", country:"", topic:"" },
+  { year:2023, type:"conference_presentation", title:"Education as identity? Group-based affect between graduates and non-graduates: multi-study evidence from Britain", venue:"EPSA Annual Conference",            institution:"", city:"Strathclyde", country:"", topic:"" },
+  { year:2023, type:"conference_presentation", title:"Heroes and villains: motivated projection of political identities", venue:"EPSA Annual Conference",            institution:"", city:"Strathclyde", country:"", topic:"" },
+  { year:2023, type:"conference_presentation", title:"The Fragility of (Il)liberal Values. Social identity markers and value movers", venue:"EPOP Annual Conference",            institution:"", city:"Southampton", country:"UK", topic:"" },
+  { year:2022, type:"conference_presentation", title:"Instrumentally inclusive: the political psychology of homonationalism", venue:"EPOP Annual Conference",            institution:"", city:"Newcastle", country:"UK", topic:"" },
+  { year:2022, type:"conference_presentation", title:"Rally ’Round the Barrack: Far-Right Support and the Military", venue:"EPOP Annual Conference",            institution:"", city:"Newcastle", country:"UK", topic:"" },
+  { year:2021, type:"conference_presentation", title:"Rally ’Round the Barrack: Far-Right Support and the Military", venue:"AECPA",                            institution:"", city:"", country:"Spain", topic:"" },
+  { year:2021, type:"conference_presentation", title:"", venue:"UK Political Psychology Conference", institution:"", city:"", country:"UK", topic:"" },
+  { year:2019, type:"conference_presentation", title:"Gay and (politically) active: homosexuality and its affects on electoral turnout in Europe", venue:"EPOP Annual Conference",            institution:"", city:"Strathclyde", country:"UK", topic:"" },
+  { year:2019, type:"conference_presentation", title:"Why vote when you cannot choose? EU intervention and political participation in times of constraint", venue:"EPOP Annual Conference",            institution:"", city:"Strathclyde", country:"UK", topic:"" },
+  { year:2017, type:"conference_presentation", title:"The impact of EU economic intervention on political parties’ politicisation of Europe following the financial crisis", venue:"ECPR Political Parties Summer School", institution:"", city:"Nottingham", country:"", topic:"" },
+
+  // ── Invited Talks ───────────────────────────────────────────────────────
+  { year:2026, type:"invited_talk", title:"Does Accommodating Radical Right Positions Help Social Democratic Parties?", venue:"Centre on Migration, Policy and Society (COMPAS) Seminar",               institution:"University of Oxford",                  city:"", country:"UK", topic:"" },
+  { year:2026, type:"invited_talk", title:"The Rainbow Vote (book talk)", venue:"REPRESENT Seminar",               institution:"University of Nottingham",                  city:"", country:"UK", topic:"" },
+  { year:2025, type:"invited_talk", title:"The Rainbow Vote (book talk)", venue:"Comparative Politics Seminar",               institution:"University of Reading",                  city:"", country:"UK", topic:"" },
+  { year:2025, type:"invited_talk", title:"Keynote: What to do (and not to do) about a problem like the far right", venue:"Madrid Empirical Social Science (MESS) Conference", institution:"", city:"Madrid", country:"Spain", topic:"" },
+  { year:2025, type:"invited_talk", title:"The Rainbow Vote (book talk)", venue:"Research Seminar",                           institution:"Zentrum Marc Bloch",                     city:"Berlin", country:"Germany", topic:"" },
+  { year:2025, type:"invited_talk", title:"The Rainbow Vote (book talk)", venue:"Dept. of Government Seminar",                institution:"University of Essex",                    city:"", country:"UK", topic:"" },
+  { year:2025, type:"invited_talk", title:"The Rainbow Vote (book talk)", venue:"Comparative Politics Seminar",               institution:"University of Bath",                     city:"", country:"UK", topic:"" },
+  { year:2025, type:"invited_talk", title:"The Rainbow Vote (book talk)", venue:"EPOP Seminar, Dept. of Politics & IR",       institution:"University of Edinburgh",                city:"", country:"UK", topic:"" },
+  { year:2025, type:"invited_talk", title:"The Rainbow Vote (book talk)", venue:"Institute for Public Goods & Policies",      institution:"CSIC",                                   city:"", country:"Spain", topic:"" },
+  { year:2025, type:"invited_talk", title:"The Rainbow Vote (book talk)", venue:"Democracy, Elections and Citizenship",       institution:"Universitat Autònoma de Barcelona",       city:"Barcelona", country:"Spain", topic:"" },
+  { year:2024, type:"invited_talk", title:"Far Right Normalization & Centrifugal Affect. Evidence from the Dating Market", venue:"Swiss Chair Seminar",                        institution:"European University Institute",           city:"Florence", country:"Italy", topic:"" },
+  { year:2024, type:"invited_talk", title:"Allies on the streets but illiberal in the sheets? Gender and the private-vs-public inclusion of sexual minorities", venue:"Dept. of Political Science Seminar",         institution:"University College London",              city:"London", country:"UK", topic:"" },
+  { year:2024, type:"invited_talk", title:"Far Right Normalization & Centrifugal Affect. Evidence from the Dating Market", venue:"Comparative Politics Research Group Seminar",institution:"Lunds Universitet",                      city:"Lund", country:"Sweden", topic:"" },
+  { year:2024, type:"invited_talk", title:"Heroes and villains: motivated projection of political identities", venue:"Dept. of Political Science High Research Seminar", institution:"Stockholms Universitet",          city:"Stockholm", country:"Sweden", topic:"" },
+  { year:2024, type:"invited_talk", title:"LGBTQ+ Political Behaviour", venue:"Gender & Politics Summer School",            institution:"Università di Verona",                   city:"Verona", country:"Italy", topic:"" },
+  { year:2024, type:"invited_talk", title:"Heroes and villains: motivated projection of political identities", venue:"Nuffield Political Science Seminar",         institution:"University of Oxford",                   city:"Oxford", country:"UK", topic:"" },
+  { year:2024, type:"invited_talk", title:"Far Right Normalization & Centrifugal Affect. Evidence from the Dating Market.", venue:"Dept. of Government High Seminar",           institution:"Uppsala Universitet",                    city:"Uppsala", country:"Sweden", topic:"" },
+  { year:2024, type:"invited_talk", title:"Allies on the streets but illiberal in the sheets? Gender and the private-vs-public inclusion of sexual minorities", venue:"Gender Seminar",                             institution:"Swedish Institute for Social Research",  city:"Stockholm", country:"Sweden", topic:"" },
+  { year:2023, type:"invited_talk", title:"Heroes and villains: motivated projection of political identities", venue:"Democracy & Elections Seminar",              institution:"University of Manchester",               city:"Manchester", country:"UK", topic:"" },
+  { year:2023, type:"invited_talk", title:"Heroes and villains: motivated projection of political identities", venue:"Government & Public Policy Seminar",         institution:"University of Strathclyde",              city:"Glasgow", country:"UK", topic:"" },
+  { year:2023, type:"invited_talk", title:"Instrumentally inclusive: the political psychology of homonationalism", venue:"UPPGAP Seminar",                             institution:"Uppsala Universitet",                    city:"Uppsala", country:"Sweden", topic:"" },
+  { year:2022, type:"invited_talk", title:"Heroes and villains: motivated projection of political identities", venue:"Dept. of Communication",                     institution:"Vrije Universiteit Amsterdam",            city:"Amsterdam", country:"Netherlands", topic:"" },
+  { year:2022, type:"invited_talk", title:"Heroes and villains: motivated projection of political identities", venue:"Democracy & Elections Centre",               institution:"Royal Holloway University",              city:"London", country:"UK", topic:"" },
+  { year:2022, type:"invited_talk", title:"VOX: The Rise of Spanish Populist Radical Right", venue:"Association for the Study of Ethnicity and Nationalism", institution:"", city:"", country:"UK", topic:"" },
+  { year:2022, type:"invited_talk", title:"Fine for Adam & Eve but not Adam & Steve? Homonegativity bias, parasocial contact, and public support for surrogacy.} ", venue:"Dept. of Politics & International Relations", institution:"University of Reading",                  city:"Reading", country:"UK", topic:"" },
+  { year:2021, type:"invited_talk", title:"Far from the (Conservative) tree? Sexuality and intergenerational partisan preferences.", venue:"Queer Politics Webinar",                     institution:"",                   city:"", country:"USA", topic:"" },
+  { year:2020, type:"invited_talk", title:"Can EU judicial intervention increase polity scepticism? Quasi-experimental evidence from Spain", venue:"Chair of Electoral Democracy",               institution:"University of Montréal",                 city:"Montréal", country:"Canada", topic:"" },
+  { year:2020, type:"invited_talk", title:"Can EU judicial intervention increase polity scepticism? Quasi-experimental evidence from Spain", venue:"Quantitative Political Economy Seminar",     institution:"King's College London",                  city:"London", country:"UK", topic:"" },
+  { year:2019, type:"invited_talk", title:"Why vote when you cannot choose? EU intervention and political participation in times of constraint", venue:"Institute of Human Studies",                 institution:"George Mason University",                city:"Fairfax", country:"USA", topic:"" },
+  { year:2019, type:"invited_talk", title:"Why vote when you cannot choose? EU intervention and political participation in times of constraint", venue:"Juan March Institute",                       institution:"Universidad Carlos III",                 city:"Madrid", country:"Spain", topic:"" },
+  { year:2018, type:"invited_talk", title:"The impact of EU economic intervention on political parties’ politicisation of Europe following the financial crisis", venue:"Dept. of Social Science Work-in-Progress Seminar", institution:"Universidad Carlos III",           city:"Madrid", country:"Spain", topic:"" },
+];
+
+// ── Helpers ────────────────────────────────────────────────────────────────
+function esc(s) {
+  return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+function typeLabel(t) {
+  return t === 'conference_presentation' ? 'Conference'
+       : t === 'invited_talk'            ? 'Invited talk'
+       : t === 'workshop'                ? 'Workshop'
+       : t;
+}
+function badgeClass(t) {
+  if (t.future) return 'badge-future';
+  if (t.type === 'conference_presentation') return 'badge-conf';
+  if (t.type === 'invited_talk')            return 'badge-invited';
+  return 'badge-workshop';
+}
+function cardHTML(t) {
+  const loc = [t.institution, t.city, t.country].filter(Boolean).join(', ');
+  const titleHtml = t.title
+    ? `<p class="talk-title">${esc(t.title)}</p>`
+    : `<p class="talk-title-empty">Talk title not recorded</p>`;
+  const futureBadge = t.future ? `<span class="talk-badge badge-future">Upcoming</span>` : '';
+  const dateStr = t.date ? `<span class="talk-loc"> · ${esc(t.date)}</span>` : '';
+  return `
+    <div class="talk-card">
+      <div>
+        <span class="talk-badge ${badgeClass(t)}">${typeLabel(t.type)}</span>
+        ${futureBadge}
+      </div>
+      <div class="talk-body">
+        ${titleHtml}
+        <div class="talk-meta">
+          <span class="talk-venue">${esc(t.venue)}</span>
+          ${loc ? `<span class="talk-loc"> · ${esc(loc)}</span>` : ''}
+          ${dateStr}
+        </div>
+      </div>
+    </div>`;
+}
+
+// ── State & filter ──────────────────────────────────────────────────────────
+let state = { search:'', type:'all', time:'future', year:'all' };
+
+function filtered() {
+  const q = state.search.toLowerCase();
+  return TALKS.filter(t => {
+    if (state.type  !== 'all' && t.type !== state.type)            return false;
+    if (state.time === 'past'   && t.future)                       return false;
+    if (state.time === 'future' && !t.future)                      return false;
+    if (state.year  !== 'all'  && String(t.year) !== state.year)   return false;
+    if (q) {
+      const hay = [t.title,t.venue,t.institution,t.country,t.city,t.topic].join(' ').toLowerCase();
+      if (!hay.includes(q)) return false;
+    }
+    return true;
+  });
+}
+
+function render() {
+  const data = filtered();
+  const list  = document.getElementById('talks-list');
+  const noRes = document.getElementById('no-results');
+  const meta  = document.getElementById('results-meta');
+
+  if (!data.length) {
+    list.innerHTML = '';
+    noRes.classList.remove('dn');
+    meta.textContent = '';
+    return;
+  }
+  noRes.classList.add('dn');
+  meta.textContent = `Showing ${data.length} event${data.length !== 1 ? 's' : ''}`;
+
+  // Group by year, newest first
+  const byYear = {};
+  data.forEach(t => { (byYear[t.year] = byYear[t.year] || []).push(t); });
+
+  let html = '';
+  Object.keys(byYear).sort((a,b) => b-a).forEach(yr => {
+    html += `<div class="year-group"><h3 class="year-heading">${yr}</h3>`;
+    byYear[yr].forEach(t => { html += cardHTML(t); });
+    html += '</div>';
+  });
+  list.innerHTML = html;
+}
+
+// ── Populate dropdowns ──────────────────────────────────────────────────────
+(function () {
+  const years  = [...new Set(TALKS.map(t => t.year))].sort((a,b) => b-a);
+  const ySel   = document.getElementById('year-filter');
+  years.forEach(y => { const o = document.createElement('option'); o.value = y; o.textContent = y; ySel.appendChild(o); });
+
+})();
+
+// ── Stats ────────────────────────────────────────────────────────────────────
+document.getElementById('stat-total').textContent   = TALKS.length;
+document.getElementById('stat-conf').textContent    = TALKS.filter(t => t.type === 'conference_presentation').length;
+document.getElementById('stat-invited').textContent = TALKS.filter(t => t.type === 'invited_talk').length;
+
+// ── Event listeners ──────────────────────────────────────────────────────────
+document.getElementById('search-input').addEventListener('input', e => { state.search = e.target.value; render(); });
+
+document.getElementById('type-filter').addEventListener('click', e => {
+  if (!e.target.matches('.flt-btn')) return;
+  document.querySelectorAll('#type-filter .flt-btn').forEach(b => b.classList.remove('active'));
+  e.target.classList.add('active');
+  state.type = e.target.dataset.value;
+  render();
+});
+document.getElementById('time-filter').addEventListener('click', e => {
+  if (!e.target.matches('.flt-btn')) return;
+  document.querySelectorAll('#time-filter .flt-btn').forEach(b => b.classList.remove('active'));
+  e.target.classList.add('active');
+  state.time = e.target.dataset.value;
+  render();
+});
+document.getElementById('year-filter').addEventListener('change', e => { state.year = e.target.value; render(); });
+document.getElementById('reset-btn').addEventListener('click', function () {
+  state = { search:'', type:'all', time:'future', year:'all' };
+  document.getElementById('search-input').value = '';
+  document.getElementById('year-filter').value  = 'all';
+  document.querySelectorAll('#type-filter .flt-btn').forEach((b,i) => b.classList.toggle('active', i===0));
+  document.querySelectorAll('#time-filter .flt-btn').forEach((b,i) => b.classList.toggle('active', i===2));
+  render();
+});
+
+// ── Init ─────────────────────────────────────────────────────────────────────
+render();
+</script>
+
+</body>
+</html>
