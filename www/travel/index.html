@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Travel — Stuart J. Turnbull-Dugarte</title>
+    <meta name="description" content="Travel map — Stuart J. Turnbull-Dugarte">
+    <link rel="stylesheet" href="../css/site.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <script>(function(){const t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);})();</script>
+    <script data-goatcounter="https://turnbulldugarte.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+    <style>
+      :root {
+        --navy: #1e3a5f;
+        --blue: #12436d;
+        --berry: #801650;
+        --blue-lt: #1a5a8f;
+        --blue-pale: #cce0f0;
+        --bg: #ffffff;
+        --bg-soft: #f8fafc;
+        --panel: rgba(255, 255, 255, 0.92);
+        --panel-border: rgba(226, 232, 240, 0.95);
+        --text: #1e293b;
+        --muted: #475569;
+        --ocean: #e9f3fb;
+        --country: #eef4f8;
+        --country-stroke: #bfd1e0;
+        --visited: var(--blue);
+        --visited-stroke: #0d2f4f;
+        --lived: var(--berry);
+        --lived-stroke: #5f0f3b;
+        --born: #28a197;
+        --born-stroke: #1d7b73;
+        --shadow: 0 24px 60px rgba(30, 58, 95, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        min-height: 100vh;
+        background:
+          radial-gradient(circle at top left, rgba(204, 224, 240, 0.55), transparent 34%),
+          radial-gradient(circle at bottom right, rgba(128, 22, 80, 0.12), transparent 30%),
+          linear-gradient(135deg, #ffffff 0%, #f8fafc 55%, #edf5fb 100%);
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        opacity: 0.2;
+        background-image:
+          linear-gradient(rgba(18, 67, 109, 0.03) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(18, 67, 109, 0.03) 1px, transparent 1px);
+        background-size: 28px 28px;
+      }
+
+      .page {
+        position: relative;
+        display: grid;
+        grid-template-columns: minmax(0, 1.8fr) minmax(300px, 420px);
+        gap: 24px;
+        padding: 24px;
+      }
+
+      .panel {
+        border: 1px solid var(--panel-border);
+        border-radius: 28px;
+        background: var(--panel);
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(16px);
+      }
+
+      .map-panel {
+        overflow: hidden;
+        position: relative;
+      }
+
+      .map-shell {
+        position: relative;
+        width: 100%;
+        min-height: calc(100vh - 110px);
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.45), transparent 25%),
+          linear-gradient(180deg, #f5fafe 0%, #deebf6 100%);
+      }
+
+      .headline {
+        position: absolute;
+        top: 24px;
+        left: 24px;
+        right: 24px;
+        z-index: 2;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 24px;
+      }
+
+      .eyebrow {
+        margin: 0 0 8px;
+        font-size: 0.78rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      h1 {
+        margin: 0;
+        font-family: Georgia, "Times New Roman", Times, serif;
+        font-size: clamp(2rem, 3vw, 3.4rem);
+        line-height: 0.95;
+        max-width: none;
+        white-space: nowrap;
+        color: var(--berry);
+      }
+
+      .subcopy {
+        max-width: 38ch;
+        margin: 12px 0 0;
+        color: var(--muted);
+        font-size: 0.98rem;
+      }
+
+      .stat-chip {
+        min-width: 130px;
+        padding: 16px 18px;
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.94);
+        border: 1px solid rgba(204, 224, 240, 0.95);
+      }
+
+      .stat-chip strong {
+        display: block;
+        font-size: 1.8rem;
+        line-height: 1;
+      }
+
+      .stat-chip span {
+        display: block;
+        margin-top: 6px;
+        font-size: 0.86rem;
+        color: var(--muted);
+      }
+
+      #map {
+        width: 100%;
+        min-height: calc(100vh - 110px);
+      }
+
+      .photo-ribbon {
+        position: relative;
+        overflow: hidden;
+        padding: 14px 0 18px;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.65), rgba(248, 250, 252, 0.96)),
+          linear-gradient(90deg, rgba(18, 67, 109, 0.05), rgba(128, 22, 80, 0.05));
+        border-top: 1px solid rgba(226, 232, 240, 0.95);
+      }
+
+      .photo-ribbon::before,
+      .photo-ribbon::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 84px;
+        z-index: 2;
+        pointer-events: none;
+      }
+
+      .photo-ribbon::before {
+        left: 0;
+        background: linear-gradient(90deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+      }
+
+      .photo-ribbon::after {
+        right: 0;
+        background: linear-gradient(270deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+      }
+
+      .ribbon-scroller {
+        overflow: hidden;
+        width: 100%;
+      }
+
+      .ribbon-track {
+        display: flex;
+        width: max-content;
+      }
+
+      .ribbon-sequence {
+        display: flex;
+        gap: 12px;
+        padding: 0 12px;
+        flex: 0 0 auto;
+      }
+
+      .ribbon-item {
+        flex: 0 0 auto;
+        width: 148px;
+        height: 104px;
+        border-radius: 18px;
+        overflow: hidden;
+        box-shadow: 0 12px 28px rgba(39, 29, 23, 0.14);
+        background: rgba(255, 255, 255, 0.7);
+      }
+
+      .ribbon-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .ribbon-item.empty {
+        display: grid;
+        place-items: center;
+        padding: 0 16px;
+        color: var(--muted);
+        font-size: 0.9rem;
+        text-align: center;
+      }
+
+      svg {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+
+      .country {
+        fill: var(--country);
+        stroke: var(--country-stroke);
+        stroke-width: 0.7;
+        transition: fill 150ms ease, transform 150ms ease;
+      }
+
+      .country.visited {
+        fill: var(--visited);
+        stroke: var(--visited-stroke);
+      }
+
+      .country.lived {
+        fill: var(--lived);
+        stroke: var(--lived-stroke);
+      }
+
+      .country.born {
+        fill: var(--born);
+        stroke: var(--born-stroke);
+      }
+
+      .country.active {
+        filter: brightness(1.04);
+      }
+
+      .info-panel {
+        padding: 26px;
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+      }
+
+      .legend {
+        display: grid;
+        gap: 10px;
+      }
+
+      .legend-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      .swatch {
+        width: 14px;
+        height: 14px;
+        border-radius: 999px;
+        border: 1px solid rgba(39, 29, 23, 0.18);
+      }
+
+      .selection {
+        padding: 18px;
+        border-radius: 22px;
+        background: rgba(248, 250, 252, 0.92);
+        border: 1px solid rgba(226, 232, 240, 0.95);
+      }
+
+      .selection h2 {
+        margin: 0;
+        font-family: Georgia, "Times New Roman", Times, serif;
+        font-size: 1.8rem;
+      }
+
+      .selection p {
+        margin: 10px 0 0;
+        color: var(--muted);
+        line-height: 1.5;
+      }
+
+      .selection.lead-copy {
+        padding: 20px 22px;
+      }
+
+      .photo-grid {
+        margin-top: 16px;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .photo-grid img {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        border-radius: 16px;
+        display: block;
+        box-shadow: 0 10px 24px rgba(30, 58, 95, 0.14);
+      }
+
+      .country-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .country-pill {
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: rgba(248, 250, 252, 0.95);
+        border: 1px solid rgba(226, 232, 240, 0.95);
+        font-size: 0.84rem;
+      }
+
+      .tooltip {
+        position: fixed;
+        z-index: 30;
+        width: min(340px, calc(100vw - 24px));
+        padding: 14px;
+        border-radius: 18px;
+        background: rgba(30, 58, 95, 0.96);
+        color: #f8fafc;
+        box-shadow: 0 22px 44px rgba(18, 67, 109, 0.22);
+        pointer-events: none;
+        opacity: 0;
+        transform: translate3d(0, 12px, 0);
+        transition: opacity 160ms ease, transform 160ms ease;
+      }
+
+      .tooltip.visible {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+      }
+
+      .tooltip h3 {
+        margin: 0;
+        font-family: Georgia, "Times New Roman", Times, serif;
+        font-size: 1.35rem;
+      }
+
+      .tooltip p {
+        margin: 6px 0 0;
+        color: rgba(248, 250, 252, 0.82);
+        font-size: 0.92rem;
+      }
+
+      .tooltip .photo-grid {
+        margin-top: 14px;
+      }
+
+      @media (max-width: 1080px) {
+        .page {
+          grid-template-columns: 1fr;
+        }
+
+        .map-panel {
+          min-height: calc(72vh - 62px);
+        }
+
+        .map-shell,
+        #map {
+          min-height: calc(72vh - 62px);
+        }
+
+        .ribbon-item {
+          width: 132px;
+          height: 94px;
+        }
+      }
+
+      @media (max-width: 720px) {
+        .page {
+          padding: 14px;
+          gap: 14px;
+        }
+
+        .headline {
+          position: static;
+          padding: 20px 20px 0;
+          flex-direction: column;
+        }
+
+        .map-panel {
+          min-height: 64vh;
+        }
+
+        .map-shell,
+        #map {
+          min-height: 64vh;
+        }
+
+        .photo-ribbon {
+          padding-bottom: 14px;
+        }
+
+        .ribbon-item {
+          width: 118px;
+          height: 86px;
+          border-radius: 16px;
+        }
+
+        .selection h2 {
+          font-size: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+<!-- NAV -->
+<header class="site-header">
+  <div class="nav-inner">
+    <a class="nav-brand" href="../index.html">
+      <img src="../img/avatar.jpg" alt="Stuart Turnbull-Dugarte">
+      Stuart J. Turnbull-Dugarte
+    </a>
+    <nav class="nav-links">
+      <a href="../index.html">About</a>
+      <a href="../publications/index.html">Publications</a>
+      <a href="../projects/index.html">Projects</a>
+      <a href="../talks/index.html">Events &amp; Talks</a>
+      <a href="../supervision/index.html">Supervision</a>
+      <a href="../peer-review/index.html">Peer Review</a>
+      <a href="index.html" class="active">Travel</a>
+    </nav>
+  </div>
+</header>
+
+    <div class="page">
+      <section class="panel map-panel">
+        <div class="map-shell">
+          <div class="headline">
+            <div>
+              <p class="eyebrow">Travel Atlas</p>
+              <h1>Where I’ve been</h1>
+              <p class="subcopy">
+                Many places yet to go!
+              </p>
+            </div>
+            <div class="stat-chip">
+              <strong id="visited-count">0</strong>
+              <span>countries visited</span>
+            </div>
+          </div>
+          <div id="map"></div>
+        </div>
+        <div class="photo-ribbon">
+          <div class="ribbon-scroller" id="photo-ribbon-scroller">
+            <div class="ribbon-track" id="photo-ribbon-track"></div>
+          </div>
+        </div>
+      </section>
+
+      <aside class="panel info-panel">
+        <section class="legend">
+          <div id="legend-items"></div>
+        </section>
+
+        <section class="selection" id="selection-panel">
+          <p>
+            Whenever I can, I like to escape the world of Editorial Manager and Manuscript Central,
+            spending most of my time away from work to see what's out there!
+          </p>
+        </section>
+
+        <section>
+          <p class="eyebrow">Visited List</p>
+          <div class="country-list" id="country-list"></div>
+        </section>
+      </aside>
+    </div>
+
+    <div class="tooltip" id="tooltip"></div>
+
+<footer>
+  <p>&copy; 2026 Stuart J. Turnbull-Dugarte · Madrid · s.turnbull-dugarte[at]soton.ac.uk</p>
+</footer>
+
+<!-- Dark mode toggle -->
+<button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">
+  <svg class="moon-icon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  <svg class="sun-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+
+    <script>
+    document.getElementById('darkModeToggle').addEventListener('click', function() {
+      const cur = document.documentElement.getAttribute('data-theme');
+      const next = cur === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    });
+    </script>
+
+    <script src="./vendor/d3.v7.min.js"></script>
+    <script src="./generated/travel-data.js"></script>
+    <script src="./data/world-geojson.js"></script>
+    <script>
+      const travelData = window.TRAVEL_DATA;
+      const countries = travelData.countries;
+      const visitedCountries = countries.filter((country) => country.visited);
+      const visitedLookup = new Map();
+
+      const normalize = (value) => (value || "").toLowerCase().replace(/[^a-z0-9]+/g, "");
+
+      for (const country of visitedCountries) {
+        for (const key of country.matchKeys) {
+          visitedLookup.set(key, country);
+        }
+      }
+
+      document.getElementById("visited-count").textContent = travelData.visitedCount;
+
+      const legendItems = document.getElementById("legend-items");
+      for (const item of travelData.statusLegend) {
+        const node = document.createElement("div");
+        node.className = "legend-item";
+        node.innerHTML = `<span class="swatch" style="background: var(--${item.key})"></span>${item.label}`;
+        legendItems.appendChild(node);
+      }
+      const unvisitedNode = document.createElement("div");
+      unvisitedNode.className = "legend-item";
+      unvisitedNode.innerHTML = `<span class="swatch" style="background: var(--country)"></span>Yet to visit`;
+      legendItems.appendChild(unvisitedNode);
+
+      const countryList = document.getElementById("country-list");
+      for (const country of visitedCountries.sort((a, b) => a.name.localeCompare(b.name))) {
+        const pill = document.createElement("span");
+        pill.className = "country-pill";
+        pill.textContent = country.name;
+        countryList.appendChild(pill);
+      }
+
+      const tooltip = document.getElementById("tooltip");
+      const selectionPanel = document.getElementById("selection-panel");
+      const photoRibbonScroller = document.getElementById("photo-ribbon-scroller");
+      const photoRibbonTrack = document.getElementById("photo-ribbon-track");
+      let ribbonAnimationFrame = null;
+      let ribbonSequenceWidth = 0;
+      let ribbonOffset = 0;
+      let lastRibbonTimestamp = 0;
+
+      const shuffle = (items) => {
+        const copy = [...items];
+        for (let index = copy.length - 1; index > 0; index -= 1) {
+          const swapIndex = Math.floor(Math.random() * (index + 1));
+          [copy[index], copy[swapIndex]] = [copy[swapIndex], copy[index]];
+        }
+        return copy;
+      };
+
+      const renderPhotoGrid = (photos) => {
+        if (!photos.length) {
+          return `<p>No linked photos were found for this country.</p>`;
+        }
+        return `
+          <div class="photo-grid">
+            ${photos.map((src) => `<img src="${src}" alt="Trip photo" loading="lazy" />`).join("")}
+          </div>
+        `;
+      };
+
+      const renderCountryCard = (country) => {
+        if (!country) {
+          return `
+            <p>
+              Whenever I can, I like to escape the world of Editorial Manager and Manuscript Central,
+              spending most of my time away from work to see what's out there!
+            </p>
+          `;
+        }
+
+        const statusLabel = country.primaryStatus
+          ? travelData.statusLegend.find((item) => item.key === country.primaryStatus)?.label || country.primaryStatus
+          : "Visited";
+        const description = country.photos.length
+          ? `${statusLabel}. ${country.photos.length} photo${country.photos.length === 1 ? "" : "s"} linked in the current build.`
+          : `${statusLabel}.`;
+
+        return `
+          <h2>${country.name}</h2>
+          <p>${description}</p>
+          ${country.photos.length ? renderPhotoGrid(country.photos) : ""}
+        `;
+      };
+
+      const showTooltip = (event, country) => {
+        if (!country.photos.length) {
+          return;
+        }
+        tooltip.innerHTML = `
+          <h3>${country.name}</h3>
+          <p>Hover preview from the trip</p>
+          ${renderPhotoGrid(country.photos)}
+        `;
+        tooltip.classList.add("visible");
+        moveTooltip(event);
+      };
+
+      const hideTooltip = () => {
+        tooltip.classList.remove("visible");
+      };
+
+      const moveTooltip = (event) => {
+        const offset = 18;
+        const maxLeft = window.innerWidth - tooltip.offsetWidth - 12;
+        const maxTop = window.innerHeight - tooltip.offsetHeight - 12;
+        const left = Math.min(event.clientX + offset, maxLeft);
+        const top = Math.min(event.clientY + offset, maxTop);
+        tooltip.style.left = `${Math.max(12, left)}px`;
+        tooltip.style.top = `${Math.max(12, top)}px`;
+      };
+
+      const ribbonPhotos = shuffle(
+        visitedCountries.flatMap((country) =>
+          country.photos.map((src) => ({ src, alt: `${country.name} trip photo` }))
+        )
+      );
+
+      const renderPhotoRibbon = () => {
+        if (ribbonAnimationFrame) {
+          cancelAnimationFrame(ribbonAnimationFrame);
+          ribbonAnimationFrame = null;
+        }
+        ribbonOffset = 0;
+        lastRibbonTimestamp = 0;
+
+        if (!ribbonPhotos.length) {
+          photoRibbonTrack.innerHTML = `
+            <div class="ribbon-sequence">
+              <div class="ribbon-item empty">Add trip photos to see the rolling gallery.</div>
+            </div>
+          `;
+          photoRibbonScroller.scrollLeft = 0;
+          return;
+        }
+
+        const renderSequence = () =>
+          ribbonPhotos
+            .map(
+              (photo) => `
+                <div class="ribbon-item">
+                  <img src="${photo.src}" alt="${photo.alt}" />
+                </div>
+              `
+            )
+            .join("");
+
+        photoRibbonTrack.innerHTML = `
+          <div class="ribbon-sequence">${renderSequence()}</div>
+          <div class="ribbon-sequence" aria-hidden="true">${renderSequence()}</div>
+        `;
+
+        requestAnimationFrame(() => {
+          const firstSequence = photoRibbonTrack.querySelector(".ribbon-sequence");
+          ribbonSequenceWidth = firstSequence ? firstSequence.offsetWidth : 0;
+          photoRibbonScroller.scrollLeft = 0;
+
+          const stepRibbon = (timestamp) => {
+            if (!ribbonSequenceWidth) {
+              ribbonAnimationFrame = requestAnimationFrame(stepRibbon);
+              return;
+            }
+
+            if (!lastRibbonTimestamp) {
+              lastRibbonTimestamp = timestamp;
+            }
+
+            const delta = timestamp - lastRibbonTimestamp;
+            lastRibbonTimestamp = timestamp;
+            ribbonOffset += delta * 0.04;
+
+            if (ribbonOffset >= ribbonSequenceWidth) {
+              ribbonOffset -= ribbonSequenceWidth;
+            }
+
+            photoRibbonScroller.scrollLeft = ribbonOffset;
+            ribbonAnimationFrame = requestAnimationFrame(stepRibbon);
+          };
+
+          ribbonAnimationFrame = requestAnimationFrame(stepRibbon);
+        });
+      };
+
+      selectionPanel.classList.add("lead-copy");
+      selectionPanel.innerHTML = renderCountryCard(null);
+      renderPhotoRibbon();
+
+      function drawMap() {
+        const world = window.WORLD_GEOJSON;
+        const mapElement = document.getElementById("map");
+        const { width, height } = mapElement.getBoundingClientRect();
+
+        const svg = d3
+          .select("#map")
+          .append("svg")
+          .attr("viewBox", `0 0 ${width} ${height}`)
+          .attr("preserveAspectRatio", "xMidYMid meet");
+
+        const projection = d3.geoNaturalEarth1().fitExtent(
+          [
+            [18, 90],
+            [width - 18, height - 24],
+          ],
+          world
+        );
+        const path = d3.geoPath(projection);
+
+        const features = world.features;
+
+        svg
+          .append("g")
+          .selectAll("path")
+          .data(features)
+          .join("path")
+          .attr("class", (feature) => {
+            const name = feature.properties.name || "";
+            const country = visitedLookup.get(normalize(name));
+            return `country${country ? ` ${country.primaryStatus || "visited"}` : ""}`;
+          })
+          .attr("d", path)
+          .on("mouseenter", function (event, feature) {
+            const country = visitedLookup.get(normalize(feature.properties.name || ""));
+            d3.select(this).classed("active", true);
+            if (!country) {
+              return;
+            }
+            selectionPanel.classList.remove("lead-copy");
+            selectionPanel.innerHTML = renderCountryCard(country);
+            if (country.photos.length) {
+              showTooltip(event, country);
+            }
+          })
+          .on("mousemove", function (event, feature) {
+            const country = visitedLookup.get(normalize(feature.properties.name || ""));
+            if (country?.photos.length) {
+              moveTooltip(event);
+            }
+          })
+          .on("mouseleave", function () {
+            d3.select(this).classed("active", false);
+            hideTooltip();
+          })
+          .on("click", function (event, feature) {
+            const country = visitedLookup.get(normalize(feature.properties.name || ""));
+            if (country) {
+              selectionPanel.classList.remove("lead-copy");
+              selectionPanel.innerHTML = renderCountryCard(country);
+            }
+          });
+      }
+
+      try {
+        drawMap();
+      } catch (error) {
+        selectionPanel.classList.remove("lead-copy");
+        selectionPanel.innerHTML = `
+          <h2>Map failed to load</h2>
+          <p>${error.message}</p>
+        `;
+      }
+    </script>
+  </body>
+</html>
