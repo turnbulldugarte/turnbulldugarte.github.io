@@ -597,9 +597,7 @@
         const statusLabel = country.primaryStatus
           ? travelData.statusLegend.find((item) => item.key === country.primaryStatus)?.label || country.primaryStatus
           : "Visited";
-        const description = country.photos.length
-          ? `${statusLabel}. ${country.photos.length} photo${country.photos.length === 1 ? "" : "s"} linked in the current build.`
-          : `${statusLabel}.`;
+        const description = `${statusLabel}.`;
 
         return `
           <h2>${country.name}</h2>
