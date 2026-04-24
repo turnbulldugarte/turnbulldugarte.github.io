@@ -1,5 +1,5 @@
 window.TRAVEL_DATA = {
-  "generatedAt": "2026-04-15T13:47:41",
+  "generatedAt": "2026-04-24T14:27:09",
   "totalCountries": 201,
   "visitedCount": 41,
   "statusLegend": [
@@ -1742,7 +1742,9 @@ window.TRAVEL_DATA = {
       "matchKeys": [
         "singapore"
       ],
-      "photos": []
+      "photos": [
+        "./generated/photos/singapore-1.jpg"
+      ]
     },
     {
       "name": "Slovakia",
@@ -1835,7 +1837,12 @@ window.TRAVEL_DATA = {
       "matchKeys": [
         "spain"
       ],
-      "photos": []
+      "photos": [
+        "./generated/photos/spain-1.png",
+        "./generated/photos/spain-2.jpg",
+        "./generated/photos/spain-3.png",
+        "./generated/photos/spain-4.png"
+      ]
     },
     {
       "name": "Sri Lanka",
@@ -1884,7 +1891,12 @@ window.TRAVEL_DATA = {
       "matchKeys": [
         "sweden"
       ],
-      "photos": []
+      "photos": [
+        "./generated/photos/sweden-1.png",
+        "./generated/photos/sweden-2.jpg",
+        "./generated/photos/sweden-3.png",
+        "./generated/photos/sweden-4.png"
+      ]
     },
     {
       "name": "Switzerland",
@@ -2087,7 +2099,8 @@ window.TRAVEL_DATA = {
       "photos": [
         "./generated/photos/unitedstatesofamericausa-1.jpg",
         "./generated/photos/unitedstatesofamericausa-2.jpg",
-        "./generated/photos/unitedstatesofamericausa-3.jpg"
+        "./generated/photos/unitedstatesofamericausa-3.jpg",
+        "./generated/photos/unitedstatesofamericausa-4.jpg"
       ]
     },
     {
