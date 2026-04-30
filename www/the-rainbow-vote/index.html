@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Rainbow Vote | Coming Soon</title>
+  <meta name="description" content="The Rainbow Vote is coming soon.">
+  <style>
+    :root {
+      --bg1: #fff7ed;
+      --bg2: #ffedd5;
+      --text: #172554;
+      --muted: #475569;
+      --card: rgba(255,255,255,0.86);
+      --border: rgba(15,23,42,0.08);
+      --shadow: 0 18px 45px rgba(15,23,42,0.12);
+      --accent1: #dc2626;
+      --accent2: #ea580c;
+      --accent3: #ca8a04;
+      --accent4: #16a34a;
+      --accent5: #2563eb;
+      --accent6: #9333ea;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.9), transparent 36%),
+        linear-gradient(135deg, var(--bg1), var(--bg2));
+    }
+
+    .card {
+      width: min(760px, 100%);
+      padding: 48px 36px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      text-align: center;
+      backdrop-filter: blur(6px);
+    }
+
+    .eyebrow {
+      margin: 0 0 16px;
+      font: 700 0.82rem/1.2 Arial, Helvetica, sans-serif;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.8rem, 7vw, 5.8rem);
+      line-height: 0.96;
+      letter-spacing: -0.04em;
+    }
+
+    .rainbow {
+      display: inline-block;
+      background: linear-gradient(
+        90deg,
+        var(--accent1),
+        var(--accent2),
+        var(--accent3),
+        var(--accent4),
+        var(--accent5),
+        var(--accent6)
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .subhead {
+      margin: 22px auto 0;
+      max-width: 40rem;
+      font: 400 1.12rem/1.7 Arial, Helvetica, sans-serif;
+      color: var(--muted);
+    }
+
+    .link {
+      display: inline-block;
+      margin-top: 28px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      font: 700 0.95rem/1 Arial, Helvetica, sans-serif;
+      text-decoration: none;
+      color: #fff;
+      background: var(--text);
+    }
+
+    .link:hover { opacity: 0.9; }
+
+    @media (max-width: 640px) {
+      .card { padding: 34px 22px; }
+      .subhead { font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <p class="eyebrow">Princeton University Press</p>
+    <h1>The <span class="rainbow">Rainbow Vote</span></h1>
+    <p class="subhead">
+      Coming soon. For now, you can visit Stuart J. Turnbull-Dugarte's main website.
+    </p>
+    <a class="link" href="https://www.turnbulldugarte.com/">Visit main site</a>
+  </main>
+</body>
+</html>
