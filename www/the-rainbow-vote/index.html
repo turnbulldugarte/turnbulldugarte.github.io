@@ -99,9 +99,37 @@
 
     .link:hover { opacity: 0.9; }
 
+    .portrait-wrap {
+      width: 220px;
+      height: 264px;
+      margin: 32px auto 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #801650;
+      overflow: hidden;
+      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+      -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+      box-shadow: 0 20px 42px rgba(128, 22, 80, 0.24);
+    }
+
+    .portrait {
+      width: calc(100% - 10px);
+      height: calc(100% - 14px);
+      object-fit: cover;
+      object-position: center 18%;
+      display: block;
+      position: relative;
+      z-index: 1;
+    }
+
     @media (max-width: 640px) {
       .card { padding: 34px 22px; }
       .subhead { font-size: 1rem; }
+      .portrait-wrap {
+        width: 180px;
+        height: 216px;
+      }
     }
   </style>
 </head>
@@ -113,6 +141,9 @@
       Coming soon. For now, you can visit Stuart J. Turnbull-Dugarte's main website.
     </p>
     <a class="link" href="https://www.turnbulldugarte.com/">Visit main site</a>
+    <div class="portrait-wrap">
+      <img class="portrait" src="../img/logo.png" onerror="this.onerror=null;this.src='/img/logo.png';" alt="Stuart J. Turnbull-Dugarte">
+    </div>
   </main>
 </body>
 </html>
