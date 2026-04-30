@@ -1,18 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Rainbow Vote | Coming Soon</title>
   <meta name="description" content="The Rainbow Vote is coming soon.">
+  <link rel="stylesheet" href="../css/site.css">
   <style>
     :root {
-      --bg1: #fff7ed;
-      --bg2: #ffedd5;
       --text: #172554;
       --muted: #475569;
-      --card: rgba(255,255,255,0.86);
-      --border: rgba(15,23,42,0.08);
+      --card: linear-gradient(135deg, #eff6ff, #f5f3ff);
+      --border: #c7d2fe;
       --shadow: 0 18px 45px rgba(15,23,42,0.12);
       --accent1: #dc2626;
       --accent2: #ea580c;
@@ -30,11 +29,7 @@
       display: grid;
       place-items: center;
       padding: 24px;
-      font-family: Georgia, "Times New Roman", serif;
       color: var(--text);
-      background:
-        radial-gradient(circle at top left, rgba(255,255,255,0.9), transparent 36%),
-        linear-gradient(135deg, var(--bg1), var(--bg2));
     }
 
     .card {
@@ -99,37 +94,17 @@
 
     .link:hover { opacity: 0.9; }
 
-    .portrait-wrap {
-      width: 220px;
-      height: 264px;
+    .rainbow-video {
+      width: min(420px, 100%);
       margin: 32px auto 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #801650;
-      overflow: hidden;
-      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-      -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-      box-shadow: 0 20px 42px rgba(128, 22, 80, 0.24);
-    }
-
-    .portrait {
-      width: calc(100% - 10px);
-      height: calc(100% - 14px);
-      object-fit: cover;
-      object-position: center 18%;
       display: block;
-      position: relative;
-      z-index: 1;
+      border-radius: 0.4rem;
+      box-shadow: 0 18px 36px rgba(15,23,42,0.16);
     }
 
     @media (max-width: 640px) {
       .card { padding: 34px 22px; }
       .subhead { font-size: 1rem; }
-      .portrait-wrap {
-        width: 180px;
-        height: 216px;
-      }
     }
   </style>
 </head>
@@ -141,9 +116,9 @@
       Coming soon. For now, you can visit Stuart J. Turnbull-Dugarte's main website.
     </p>
     <a class="link" href="https://www.turnbulldugarte.com/">Visit main site</a>
-    <div class="portrait-wrap">
-      <img class="portrait" src="../img/logo.png" onerror="this.onerror=null;this.src='/img/logo.png';" alt="Stuart J. Turnbull-Dugarte">
-    </div>
+    <video class="rainbow-video" autoplay loop muted playsinline>
+      <source src="../rainbow.mp4" type="video/mp4">
+    </video>
   </main>
 </body>
 </html>
