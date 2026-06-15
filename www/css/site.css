@@ -256,6 +256,11 @@ hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
 [data-theme="dark"] .home-bio h1 { color: var(--text); }
 .hero-accent { color: var(--berry) !important; }
 
+.journal-summary-title {
+  color: var(--berry);
+  font-style: italic;
+}
+
 /* Typewriter */
 .typewriter-wrap {
   font-family: 'Courier New', Courier, monospace;
@@ -477,6 +482,26 @@ details.topic-block > div { padding: 1rem; background: var(--bg); border-radius:
   transition: all 0.2s; margin-bottom: 1rem;
 }
 .fulllist-btn:hover { background: var(--blue); border-color: var(--blue); color: #fff; }
+
+.header-full-list-btn {
+  display: inline-block;
+  margin-left: 0.25rem;
+  padding: 0.28rem 0.7rem;
+  border: 1px solid var(--blue-pale);
+  border-radius: 0.3rem;
+  background: var(--blue-pale);
+  color: var(--blue);
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+  transition: all 0.15s;
+}
+.header-full-list-btn:hover {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: #fff;
+}
 
 /* Abstract box */
 .abstract-box {

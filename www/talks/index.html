@@ -16,7 +16,8 @@
   ║    city        – city (optional)                                 ║
   ║    country     – country (optional)                              ║
   ║    topic       – research topic tag (optional)                   ║
-  ║    future      – true if the event is upcoming, else false       ║
+  ║    date        – event date, e.g. "12 May 2026" or "June 2026"   ║
+  ║                  Upcoming status is calculated from today's date ║
   ║                                                                  ║
   ║  Stylesheet: ../css/site.css  (shared across all pages)         ║
   ╚══════════════════════════════════════════════════════════════════╝
@@ -285,7 +286,8 @@ document.getElementById('darkModeToggle').addEventListener('click', function() {
 
 <script>
 // ── Event data ─────────────────────────────────────────────────────────────
-// To add an event: copy one object, update the fields, set future:true if upcoming.
+// To add an event: copy one object and update the fields. Upcoming status is
+// calculated automatically from the event date and today's date.
 const TALKS = [
 
   // ── Upcoming ─────────────────────────────────────────────────────────────
@@ -367,6 +369,58 @@ function typeLabel(t) {
        : t === 'workshop'                ? 'Workshop'
        : t;
 }
+
+const MONTHS = {
+  january:0, jan:0,
+  february:1, feb:1,
+  march:2, mar:2,
+  april:3, apr:3,
+  may:4,
+  june:5, jun:5,
+  july:6, jul:6,
+  august:7, aug:7,
+  september:8, sep:8, sept:8,
+  october:9, oct:9,
+  november:10, nov:10,
+  december:11, dec:11
+};
+
+function startOfToday() {
+  const now = new Date();
+  return new Date(now.getFullYear(), now.getMonth(), now.getDate());
+}
+
+function comparableEventDate(t) {
+  const rawDate = String(t.date || '').trim().toLowerCase();
+  const rawYear = Number(t.year);
+
+  if (rawDate) {
+    const cleanDate = rawDate.replace(/\b(\d{1,2})(st|nd|rd|th)\b/g, '$1');
+    const exact = cleanDate.match(/\b(\d{1,2})\s+([a-z]+)\s+(\d{4})\b/);
+    if (exact && MONTHS[exact[2]] !== undefined) {
+      return new Date(Number(exact[3]), MONTHS[exact[2]], Number(exact[1]));
+    }
+
+    const monthYear = cleanDate.match(/\b([a-z]+)\s+(\d{4})\b/);
+    if (monthYear && MONTHS[monthYear[1]] !== undefined) {
+      return new Date(Number(monthYear[2]), MONTHS[monthYear[1]] + 1, 0);
+    }
+  }
+
+  if (Number.isInteger(rawYear) && rawYear > startOfToday().getFullYear()) {
+    return new Date(rawYear, 11, 31);
+  }
+
+  return null;
+}
+
+function isUpcoming(t) {
+  const eventDate = comparableEventDate(t);
+  return eventDate ? eventDate >= startOfToday() : false;
+}
+
+TALKS.forEach(t => { t.future = isUpcoming(t); });
+
 function badgeClass(t) {
   if (t.future) return 'badge-future';
   if (t.type === 'conference_presentation') return 'badge-conf';

@@ -58,7 +58,8 @@
 <div class="page-wrap">
   <div class="page-header">
     <h1>Publications</h1>
-    <p>Selected peer-reviewed publications by research area. <a href="full-list.html">Full list of all published work →</a></p>
+    <p>My research has been published in several political science outlets, including the <span class="journal-summary-title">American Political Science Review</span> (<span data-journal-count="American Political Science Review">x1</span>), the <span class="journal-summary-title">British Journal of Political Science</span> (<span data-journal-count="British Journal of Political Science">x1</span>), the <span class="journal-summary-title">Journal of European Public Policy</span> (<span data-journal-count="Journal of European Public Policy">x5</span>), the <span class="journal-summary-title">Journal of Politics</span> (<span data-journal-count="Journal of Politics">x5</span>), and <span class="journal-summary-title">Political Science Research and Methods</span> (<span data-journal-count="Political Science Research and Methods">x4</span>).</p>
+    <p><strong>This is a selected list of my peer-reviewed publications by research area.</strong> <a href="full-list.html" class="header-full-list-btn">Full list of all published work →</a></p>
     <p style="margin-top:0.4rem;"><a href="https://dataverse.harvard.edu/dataverse/turnbull-dugarte" target="_blank" rel="noopener"><i class="fas fa-database"></i> View replication materials on Harvard Dataverse →</a></p>
     <p style="margin-top:0.3rem;font-size:0.82rem;color:var(--text-3);">If you are unable to access a paper, email me and I will happily provide an ungated copy.</p>
   </div>
@@ -257,6 +258,8 @@
             </div>
             <div class="pub-title">Heroes and Villains: Motivated projection of political identities</div>
             <div class="pub-authors">Turnbull-Dugarte, S.J. &amp; Wagner, M.</div>
+            <div class="pub-award"><span>🏆</span> Vera E. Troeger Best Article Prize (2026), PSRM</div>
+
             <div class="pub-actions">
               <a href="https://doi.org/10.1017/psrm.2025.10" target="_blank" rel="noopener" class="btn-doi">DOI ↗</a>
               <button class="btn-abstract" onclick="toggleAbstract(this)">Abstract</button>
@@ -392,6 +395,31 @@ function toggleAbstract(btn) {
   box.classList.toggle('dn');
   btn.textContent = box.classList.contains('dn') ? 'Abstract' : 'Hide';
 }
+
+(function updateJournalCounts() {
+  const aliases = {
+    'Political Science Research and Methods': 'Political Science Research & Methods'
+  };
+
+  function normalizeVenue(text) {
+    return text.replace(/\s+/g, ' ').split(',')[0].trim();
+  }
+
+  fetch('full-list.html')
+    .then(response => response.ok ? response.text() : Promise.reject())
+    .then(html => {
+      const doc = new DOMParser().parseFromString(html, 'text/html');
+      const venues = [...doc.querySelectorAll('.full-venue')].map(el => normalizeVenue(el.textContent));
+
+      document.querySelectorAll('[data-journal-count]').forEach(el => {
+        const journal = el.dataset.journalCount;
+        const venueName = aliases[journal] || journal;
+        const count = venues.filter(venue => venue === venueName).length;
+        el.textContent = `x${count}`;
+      });
+    })
+    .catch(() => {});
+})();
 </script>
 </body>
 </html>
