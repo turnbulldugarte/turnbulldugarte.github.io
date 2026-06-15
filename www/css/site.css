@@ -301,8 +301,14 @@ hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
 .book-callout h3 { font-size: 0.88rem; font-weight: 700; color: var(--navy); margin-bottom: 0.2rem; }
 [data-theme="dark"] .book-callout h3 { color: var(--text); }
 .book-callout p { font-size: 0.95rem; color: var(--text-2); margin: 0; }
+.book-callout .book-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.5rem;
+}
 .book-callout .btn-pup {
-  display: inline-block; margin-top: 0.5rem;
+  display: inline-block;
   font-size: 0.74rem; font-weight: 600;
   padding: 0.28rem 0.75rem; border-radius: 0.3rem;
   background: var(--blue); color: #fff;
