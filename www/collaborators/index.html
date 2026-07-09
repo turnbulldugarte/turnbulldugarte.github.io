@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<!--
+  ╔══════════════════════════════════════════════════════════════════╗
+  ║  COLLABORATORS PAGE  —  www/collaborators/index.html            ║
+  ╠══════════════════════════════════════════════════════════════════╣
+  ║  HOW THIS PAGE WORKS                                             ║
+  ║                                                                  ║
+  ║  There is nothing to edit here. On load, this page fetches       ║
+  ║  ../publications/full-list.html, reads every .full-item entry,   ║
+  ║  and counts co-authors from each .full-authors line. The         ║
+  ║  circular bar chart, badges and hover pop-ups are generated      ║
+  ║  entirely from that data.                                        ║
+  ║                                                                  ║
+  ║  To add a new collaborator: just add the article/book/chapter    ║
+  ║  to full-list.html as normal (see the instructions at the top    ║
+  ║  of that file). This page updates itself automatically — no      ║
+  ║  changes are needed here.                                        ║
+  ║                                                                  ║
+  ║  Stylesheet: ../css/site.css  (shared across all pages)         ║
+  ╚══════════════════════════════════════════════════════════════════╝
+-->
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Collaborators — Stuart J. Turnbull-Dugarte</title>
+  <link rel="stylesheet" href="../css/site.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <script>(function(){const t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);})();</script>
+  <style>
+    .collab-intro { font-size: 0.85rem; color: var(--text-2); max-width: 62ch; }
+    .collab-chart-wrap {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      margin: 1.5rem auto 0.5rem;
+    }
+    #collab-svg {
+      width: 100%;
+      max-width: 760px;
+      height: auto;
+      overflow: visible;
+    }
+    .collab-status {
+      text-align: center;
+      color: var(--text-3);
+      font-size: 0.85rem;
+      padding: 3rem 0;
+    }
+
+    /* Chart elements */
+    .collab-bar {
+      fill: var(--blue);
+      stroke: var(--bg);
+      stroke-width: 1px;
+      transition: fill 0.15s;
+      cursor: pointer;
+    }
+    .collab-group:hover .collab-bar,
+    .collab-group.pinned .collab-bar,
+    .collab-group:focus .collab-bar { fill: var(--berry); }
+
+    .collab-dot {
+      fill: var(--card-bg);
+      stroke: var(--blue);
+      stroke-width: 2px;
+      transition: fill 0.15s, stroke 0.15s;
+    }
+    .collab-group:hover .collab-dot,
+    .collab-group.pinned .collab-dot,
+    .collab-group:focus .collab-dot { stroke: var(--berry); fill: var(--berry); }
+
+    .collab-label {
+      font-size: 12.5px;
+      font-weight: 600;
+      fill: var(--text-2);
+      transition: fill 0.15s;
+      pointer-events: none;
+    }
+    .collab-group:hover .collab-label,
+    .collab-group.pinned .collab-label,
+    .collab-group:focus .collab-label { fill: var(--berry); }
+
+    .collab-group { outline: none; }
+    .collab-group:focus .collab-bar { stroke: var(--berry); stroke-width: 2px; }
+
+    .center-count { font-size: 42px; font-weight: 800; fill: var(--navy); }
+    [data-theme="dark"] .center-count { fill: var(--text); }
+    .center-label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      fill: var(--text-3);
+    }
+
+    /* Tooltip / popup */
+    .collab-tooltip {
+      position: fixed;
+      z-index: 2000;
+      max-width: 300px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-md);
+      padding: 0.75rem 0.9rem;
+      font-size: 0.8rem;
+      opacity: 0;
+      transform: translateY(4px);
+      pointer-events: none;
+      transition: opacity 0.12s, transform 0.12s;
+    }
+    .collab-tooltip.visible { opacity: 1; transform: translateY(0); }
+    .collab-tooltip.pinned { pointer-events: auto; }
+    .collab-tooltip-header { font-weight: 700; color: var(--text); font-size: 0.88rem; }
+    .collab-tooltip-count { color: var(--blue); font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; margin: 0.15rem 0 0.55rem; }
+    .collab-tooltip-papers { display: flex; flex-direction: column; gap: 0.5rem; max-height: 260px; overflow-y: auto; }
+    .collab-paper { border-top: 1px solid var(--border); padding-top: 0.4rem; }
+    .collab-paper:first-child { border-top: none; padding-top: 0; }
+    .collab-paper-title { font-size: 0.78rem; font-weight: 600; line-height: 1.35; color: var(--text); }
+    .collab-paper-title a { color: var(--text); }
+    .collab-paper-title a:hover { color: var(--blue); }
+    .collab-paper-meta { font-size: 0.7rem; color: var(--text-3); font-style: italic; margin-top: 0.1rem; }
+
+    .collab-legend {
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--text-3);
+      margin-top: 1rem;
+    }
+  </style>
+  <script data-goatcounter="https://turnbulldugarte.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="nav-inner">
+    <a class="nav-brand" href="../index.html">
+      <img src="../img/avatar.jpg" alt="Stuart Turnbull-Dugarte">
+      Stuart J. Turnbull-Dugarte
+    </a>
+    <nav class="nav-links">
+      <a href="../index.html">About</a>
+      <a href="../publications/index.html">Publications</a>
+      <a href="../projects/index.html">Projects</a>
+      <a href="../supervision/index.html">Supervision</a>
+      <a href="../peer-review/index.html">Peer Review</a>
+      <a href="index.html" class="active">Collaborators</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-wrap">
+  <div class="page-header">
+    <h1>Collaborators</h1>
+    <p class="collab-intro">I have been very priviledged to collaborate and published with several exceptional peers. This list includes all of those co-authors I have worked with based on <a href="../publications/full-list.html">full publication list</a> and does not include working papers. Hover or tap a name to see the shared publications.</p>
+  </div>
+
+  <div class="collab-chart-wrap">
+    <div id="collab-status" class="collab-status">Loading collaborator network…</div>
+    <svg id="collab-svg" viewBox="0 0 760 760" style="display:none;"></svg>
+  </div>
+  <p id="collab-legend" class="collab-legend"></p>
+</div>
+
+<div id="collab-tooltip" class="collab-tooltip" role="tooltip"></div>
+
+<footer>
+  <p>&copy; 2026 Stuart J. Turnbull-Dugarte · University of Southampton · s.turnbull-dugarte[at]soton.ac.uk</p>
+</footer>
+
+<button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">
+  <svg class="moon-icon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  <svg class="sun-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script>
+document.getElementById('darkModeToggle').addEventListener('click', function() {
+  const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
+});
+</script>
+
+<script>
+(function () {
+  const ME_KEY = normKey('Turnbull-Dugarte', 'S.J.');
+
+  function normKey(surname, initials) {
+    return surname.toLowerCase().replace(/[-\s]+/g, ' ').trim() + '|' + initials.toLowerCase().replace(/\s+/g, '');
+  }
+
+  // "Surname, Initials, Surname2, Initials2 & Surname3, Initials3" -> pairs of {surname, initials}
+  function parseAuthors(raw) {
+    const normalized = raw.replace(/,?\s*&\s*/g, ', ');
+    const parts = normalized.split(',').map(s => s.trim()).filter(Boolean);
+    const people = [];
+    for (let i = 0; i < parts.length; i += 2) {
+      if (parts[i + 1]) people.push({ surname: parts[i], initials: parts[i + 1] });
+    }
+    return people;
+  }
+
+  async function loadCollaborators() {
+    const res = await fetch('../publications/full-list.html', { cache: 'no-store' });
+    if (!res.ok) throw new Error('Could not load full-list.html (' + res.status + ')');
+    const html = await res.text();
+    const doc = new DOMParser().parseFromString(html, 'text/html');
+    const items = [...doc.querySelectorAll('.full-item')];
+
+    const collaborators = new Map();
+    let coAuthoredCount = 0;
+
+    items.forEach(item => {
+      const authorsRaw = item.querySelector('.full-authors')?.textContent?.trim();
+      if (!authorsRaw) return;
+
+      const title = item.querySelector('.full-title')?.textContent?.trim() || '(untitled)';
+      const year = item.querySelector('.full-year')?.textContent?.trim() || '';
+      const venue = item.querySelector('.full-venue')?.textContent?.trim() || '';
+      const doiLink = item.querySelector('.full-doi a');
+      const doiHref = doiLink ? doiLink.getAttribute('href') : null;
+
+      const people = parseAuthors(authorsRaw).filter(p => normKey(p.surname, p.initials) !== ME_KEY);
+      if (people.length > 0) coAuthoredCount += 1;
+
+      people.forEach(p => {
+        const key = normKey(p.surname, p.initials);
+        if (!collaborators.has(key)) {
+          collaborators.set(key, { key, surname: p.surname, initials: p.initials, count: 0, papers: [] });
+        }
+        const c = collaborators.get(key);
+        c.count += 1;
+        c.papers.push({ title, year, venue, doiHref });
+      });
+    });
+
+    const list = [...collaborators.values()].sort((a, b) => b.count - a.count || a.surname.localeCompare(b.surname));
+    return { collaborators: list, coAuthoredCount };
+  }
+
+  function renderChart(collaborators) {
+    const W = 760, H = 760, cx = W / 2, cy = H / 2;
+    const innerR = 60, outerR = 250;
+    const maxCount = d3.max(collaborators, d => d.count) || 1;
+
+    const svg = d3.select('#collab-svg');
+    const root = svg.append('g').attr('transform', `translate(${cx},${cy})`);
+
+    const angleScale = d3.scaleBand()
+      .domain(collaborators.map(d => d.key))
+      .range([0, 2 * Math.PI])
+      .paddingInner(0.32);
+
+    const radiusScale = d3.scaleLinear().domain([0, maxCount]).range([innerR, outerR]);
+
+    const arcGen = d3.arc()
+      .innerRadius(innerR)
+      .outerRadius(d => radiusScale(d.count))
+      .startAngle(d => angleScale(d.key))
+      .endAngle(d => angleScale(d.key) + angleScale.bandwidth())
+      .cornerRadius(3);
+
+    root.append('text').attr('class', 'center-count').attr('text-anchor', 'middle').attr('dy', '-0.15em').text(collaborators.length);
+    root.append('text').attr('class', 'center-label').attr('text-anchor', 'middle').attr('dy', '1.6em').text(collaborators.length === 1 ? 'collaborator' : 'collaborators');
+
+    const groups = root.selectAll('g.collab-group')
+      .data(collaborators)
+      .join('g')
+      .attr('class', 'collab-group')
+      .attr('tabindex', 0)
+      .attr('aria-label', d => `${d.surname}, ${d.initials}: ${d.count} co-authored work${d.count > 1 ? 's' : ''}`);
+
+    groups.append('path')
+      .attr('class', 'collab-bar')
+      .attr('d', arcGen);
+
+    groups.each(function (d) {
+      const start = angleScale(d.key);
+      const mid = start + angleScale.bandwidth() / 2; // 0 = top, clockwise
+      const barR = radiusScale(d.count);
+      const dotR = barR + 12;
+      const labelR = barR + 22;
+
+      const dotX = Math.sin(mid) * dotR, dotY = -Math.cos(mid) * dotR;
+      const labelX = Math.sin(mid) * labelR, labelY = -Math.cos(mid) * labelR;
+
+      const degFromTop = mid * 180 / Math.PI; // 0 = top, clockwise
+      let rotateDeg = degFromTop - 90;
+      let anchor = 'start';
+      if (degFromTop >= 180) {
+        rotateDeg += 180;
+        anchor = 'end';
+      }
+
+      const g = d3.select(this);
+      g.append('circle').attr('class', 'collab-dot').attr('cx', dotX).attr('cy', dotY).attr('r', 5);
+      g.append('text')
+        .attr('class', 'collab-label')
+        .attr('x', labelX).attr('y', labelY)
+        .attr('text-anchor', anchor)
+        .attr('dominant-baseline', 'middle')
+        .attr('transform', `rotate(${rotateDeg}, ${labelX}, ${labelY})`)
+        .text(`${d.initials} ${d.surname}`);
+    });
+
+    // interaction
+    const tooltip = document.getElementById('collab-tooltip');
+    let pinnedKey = null;
+
+    function tooltipHTML(d) {
+      const papers = d.papers.map(p => `
+        <div class="collab-paper">
+          <div class="collab-paper-title">${p.doiHref ? `<a href="${p.doiHref}" target="_blank" rel="noopener">${escapeHTML(p.title)}</a>` : escapeHTML(p.title)}</div>
+          <div class="collab-paper-meta">${escapeHTML(p.venue)}${p.year ? ' · ' + escapeHTML(p.year) : ''}</div>
+        </div>`).join('');
+      return `
+        <div class="collab-tooltip-header">${escapeHTML(d.surname)}, ${escapeHTML(d.initials)}</div>
+        <div class="collab-tooltip-count">${d.count} co-authored work${d.count > 1 ? 's' : ''}</div>
+        <div class="collab-tooltip-papers">${papers}</div>`;
+    }
+
+    function escapeHTML(s) {
+      return String(s).replace(/[&<>"']/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]));
+    }
+
+    function positionTooltip(event) {
+      const pad = 14;
+      const vw = window.innerWidth, vh = window.innerHeight;
+      const rect = tooltip.getBoundingClientRect();
+      let x = event.clientX + pad;
+      let y = event.clientY + pad;
+      if (x + rect.width + pad > vw) x = event.clientX - rect.width - pad;
+      if (y + rect.height + pad > vh) y = event.clientY - rect.height - pad;
+      tooltip.style.left = Math.max(pad, x) + 'px';
+      tooltip.style.top = Math.max(pad, y) + 'px';
+    }
+
+    function showTooltip(event, d) {
+      tooltip.innerHTML = tooltipHTML(d);
+      tooltip.classList.add('visible');
+      positionTooltip(event);
+    }
+
+    function hideTooltip() {
+      if (pinnedKey) return;
+      tooltip.classList.remove('visible');
+    }
+
+    groups
+      .on('mouseenter', function (event, d) { if (!pinnedKey) showTooltip(event, d); })
+      .on('mousemove', function (event) { if (!pinnedKey) positionTooltip(event); })
+      .on('mouseleave', hideTooltip)
+      .on('focus', function (event, d) { showTooltip(event, d); })
+      .on('blur', hideTooltip)
+      .on('click', function (event, d) {
+        event.stopPropagation();
+        groups.classed('pinned', false);
+        if (pinnedKey === d.key) {
+          pinnedKey = null;
+          tooltip.classList.remove('visible', 'pinned');
+          return;
+        }
+        pinnedKey = d.key;
+        d3.select(this).classed('pinned', true);
+        tooltip.classList.add('pinned');
+        showTooltip(event, d);
+      });
+
+    document.addEventListener('click', () => {
+      pinnedKey = null;
+      groups.classed('pinned', false);
+      tooltip.classList.remove('visible', 'pinned');
+    });
+  }
+
+  loadCollaborators()
+    .then(({ collaborators, coAuthoredCount }) => {
+      document.getElementById('collab-status').style.display = 'none';
+      document.getElementById('collab-svg').style.display = 'block';
+      renderChart(collaborators);
+      document.getElementById('collab-legend').textContent =
+        `${collaborators.length} collaborators across ${coAuthoredCount} co-authored publications.`;
+    })
+    .catch(err => {
+      const status = document.getElementById('collab-status');
+      if (location.protocol === 'file:') {
+        status.textContent = 'This chart loads publication data over the web, so it can’t run from a file opened directly on disk. View it through the live site (or a local web server) instead.';
+      } else {
+        status.textContent = 'Unable to load collaborator data right now — please try refreshing the page.';
+      }
+      console.error(err);
+    });
+})();
+</script>
+</body>
+</html>
