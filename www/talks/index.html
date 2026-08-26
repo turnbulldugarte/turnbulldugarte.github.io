@@ -291,23 +291,21 @@ document.getElementById('darkModeToggle').addEventListener('click', function() {
 const TALKS = [
 
   // ── Upcoming ─────────────────────────────────────────────────────────────
-  { year:2026, type:"workshop",                title:"Small Men", venue:"Public Opinion Research Southampton",       institution:"University of Southampton", city:"Southampton", country:"UK", topic:"", date:"5 May 2026", future:false },
-  { year:2026, type:"invited_talk",            title:"Costly Inclusion: Electoral Asymmetries on Transgender Issues",            venue:"MZES Research Seminar",                    institution:"",                       city:"Mannheim", country:"Germany", topic:"", date:"12 May 2026", future:false },
-  { year:2026, type:"invited_talk",  title:"Can selectively liberal frames increase support for anti-immigrant governments? No, but liberal policies can.", venue:"Aarhus Political Science Seminar",  institution:"", city:"", country:"Denmark", topic:"", date:"15th May 2026", future:false  },
-  { year:2026, type:"invited_talk",            title:"Coalition Negotiation Breakdown and Electoral Returns. Who Benefits When the Center-Right Refuse the Far Right",            venue:"CEPC Seminar",                    institution:"Centro de Estudios Políticos y Constitucionales",  city:"Madrid", country:"Spain", topic:"", date:"3 June 2026", future:true },
-  { year:2026, type:"conference_presentation", title:"Do women make the far-right more acceptable (and therefore electable)? Evidence from the United States", venue:"EPSS Annual Conference",  institution:"", city:"Belfast", country:"", topic:"", date:"June 2026", future:true  },
-  { year:2026, type:"conference_presentation", title:"Do women make the far-right more acceptable (and therefore electable)? Evidence from the United States", venue:"EPOP Annual Conference",  institution:"", city:"Liverpool", country:"", topic:"", date:"September 2026", future:true },
- { year:2026, type:"conference_presentation", title:"Small Men: symbolic masculinity threats increase gender conservatism", venue:"APSA Annual Conference",  institution:"", city:"Boston", country:"", topic:"", date:"September 2026", future:true  },
-  { year:2026, type:"conference_presentation", title:"Small Men: symbolic masculinity threats increase gender conservatism", venue:"EPOP Annual Conference",  institution:"", city:"Liverpool", country:"", topic:"", date:"September 2026", future:true  },
+  { year:2026, type:"invited_talk",            title:"Facts against femonationalism: how to stop far-right normalisation",            venue:"Hamburg Political Science Seminar Series",                    institution:"",                       city:"Hamburg", country:"Germany", topic:"", date:"25 November 2026", future:true},
+  { year:2026, type:"conference_presentation", title:"Small Men: symbolic masculinity threats increase gender conservatism", venue:"EPOP Annual Conference",  institution:"", city:"Liverpool", country:"", topic:"", date:"18 September 2026", future:true  },
+  { year:2026, type:"conference_presentation", title:"Do women make the far-right more acceptable (and therefore electable)? Evidence from the United States", venue:"EPOP Annual Conference",  institution:"", city:"Liverpool", country:"", topic:"", date:"18 September 2026", future:true },
+  { year:2026, type:"conference_presentation", title:"Small Men: symbolic masculinity threats increase gender conservatism", venue:"APSA Annual Conference",  institution:"", city:"Boston", country:"", topic:"", date:" 4 September 2026", future:true  },
 
 
   // ── WORKSHOPS ────────────────────────────────────────────
 
+  { year:2026, type:"workshop",                title:"Small Men", venue:"Public Opinion Research Southampton",       institution:"University of Southampton", city:"Southampton", country:"UK", topic:"", date:"5 May 2026", future:false },
   { year:2025, type:"workshop", title:"Coalition Negotiation Breakdown and Electoral Returns. Who Benefits When the Center-Right Refuse the Far Right", venue:"Political Inequality Workshop",            institution:"Uppsala Universitet", city:"", country:"Sweden", topic:"" },
   { year:2025, type:"workshop", title:"Coalition Negotiation Breakdown and Electoral Returns. Who Benefits When the Center-Right Refuse the Far Right", venue:"LSE-BI Political Economy Workshop",            institution:"London School of Economics", city:"", country:"UK", topic:"" },
   { year:2025, type:"workshop", title:"The Political Costs of Transphobia", venue:"PPRNet Annual Meeting",            institution:"Humboldt-Universität zu Berlin", city:"", country:"Berlin", topic:"" },
 
   // ── Conference Presentations ────────────────────────────────────────────
+  { year:2026, type:"conference_presentation", title:"Do women make the far-right more acceptable (and therefore electable)? Evidence from the United States", venue:"EPSS Annual Conference",  institution:"", city:"Belfast", country:"", topic:"", date:"June 2026", future:false  },
   { year:2025, type:"conference_presentation", title:"Facts against femonationalism: how to stop far-right normalisation", venue:"APSA Annual Conference",  institution:"", city:"Vancouver", country:"", topic:"" },
   { year:2025, type:"conference_presentation", title:"Voting like their rights depended on it? Why more LGBTQ+ citizens are also voters", venue:"APSA Annual Conference",  institution:"", city:"Vancouver", country:"", topic:"" },
   { year:2025, type:"conference_presentation", title:"Contagious hate? Partisans cues and attitudes to minority rights", venue:"EPSA Annual Conference",  institution:"", city:"Madrid", country:"", topic:"" },
@@ -332,6 +330,9 @@ const TALKS = [
   // ── Invited Talks ───────────────────────────────────────────────────────
   { year:2026, type:"invited_talk", title:"Does Accommodating Radical Right Positions Help Social Democratic Parties?", venue:"Centre on Migration, Policy and Society (COMPAS) Seminar",               institution:"University of Oxford",                  city:"", country:"UK", topic:"" },
   { year:2026, type:"invited_talk", title:"The Rainbow Vote (book talk)", venue:"REPRESENT Seminar",               institution:"University of Nottingham",                  city:"", country:"UK", topic:"" },
+  { year:2026, type:"invited_talk",            title:"Costly Inclusion: Electoral Asymmetries on Transgender Issues",            venue:"MZES Research Seminar",                    institution:"",                       city:"Mannheim", country:"Germany", topic:"", date:"12 May 2026", future:false },
+  { year:2026, type:"invited_talk",  title:"Can selectively liberal frames increase support for anti-immigrant governments? No, but liberal policies can.", venue:"Aarhus Political Science Seminar",  institution:"", city:"", country:"Denmark", topic:"", date:"15th May 2026", future:false  },
+  { year:2026, type:"invited_talk",            title:"Coalition Negotiation Breakdown and Electoral Returns. Who Benefits When the Center-Right Refuse the Far Right",            venue:"CEPC Seminar",                    institution:"Centro de Estudios Políticos y Constitucionales",  city:"Madrid", country:"Spain", topic:"", date:"3 June 2026", future:false },
   { year:2025, type:"invited_talk", title:"The Rainbow Vote (book talk)", venue:"Comparative Politics Seminar",               institution:"University of Reading",                  city:"", country:"UK", topic:"" },
   { year:2025, type:"invited_talk", title:"Keynote: What to do (and not to do) about a problem like the far right", venue:"Madrid Empirical Social Science (MESS) Conference", institution:"", city:"Madrid", country:"Spain", topic:"" },
   { year:2025, type:"invited_talk", title:"The Rainbow Vote (book talk)", venue:"Research Seminar",                           institution:"Zentrum Marc Bloch",                     city:"Berlin", country:"Germany", topic:"" },
