@@ -110,7 +110,7 @@ hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
   -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
 }
 
-.nav-links { display: flex; gap: 0.15rem; align-items: center; }
+.nav-links { display: flex; gap: 0.15rem; align-items: center; flex-wrap: wrap; justify-content: flex-end; }
 .nav-links a {
   font-size: 0.85rem;
   font-weight: 500;
@@ -609,6 +609,8 @@ footer a:hover { color: #fff; }
 
 /* ── Responsive ───────────────────────────────────────────── */
 @media (max-width: 860px) {
+  .nav-inner { height: auto; min-height: 62px; padding-top: 0.6rem; padding-bottom: 0.6rem; flex-wrap: wrap; gap: 0.4rem 1rem; }
+  .nav-links { justify-content: flex-start; }
   .home-hero { grid-template-columns: 1fr; gap: 1.5rem; }
   .home-profile { position: static; flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 1rem; align-items: flex-start; }
   .profile-stats { width: 200px; }
