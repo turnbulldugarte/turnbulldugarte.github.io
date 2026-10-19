@@ -344,6 +344,7 @@ hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
 .highlight-title a:hover { color: var(--blue); }
 .highlight-authors { font-size: 0.78rem; color: var(--text-2); }
 .highlight-footer {
+  flex-wrap: wrap;
   display: flex; align-items: center; gap: 0.6rem;
   padding-top: 0.5rem; border-top: 1px solid var(--border);
   margin-top: auto;
@@ -358,6 +359,9 @@ hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
   transition: all 0.15s;
 }
 .playground-btn-sm:hover { background: var(--purple); color: #fff; border-color: var(--purple); }
+
+.media-collage { margin: 1.5rem 0 0; }
+.media-collage img { display: block; width: 100%; height: auto; }
 
 /* ── Impact strip ─────────────────────────────────────────── */
 .impact-strip {
@@ -473,7 +477,8 @@ details.topic-block > div { padding: 1rem; background: var(--bg); border-radius:
 .btn-preprint { background: #ede9fe; color: #5b21b6; border-color: #a78bfa; }
 
 /* View publications CTA */
-.pubs-cta {
+.pubs-cta,
+.bio-body a.pubs-cta {
   display: inline-block;
   margin-top: 1.5rem;
   padding: 0.6rem 1.5rem;
@@ -481,7 +486,8 @@ details.topic-block > div { padding: 1rem; background: var(--bg); border-radius:
   border-radius: var(--radius); font-size: 0.875rem; font-weight: 600;
   transition: background 0.15s;
 }
-.pubs-cta:hover { background: var(--navy); color: #fff; }
+.pubs-cta:hover,
+.bio-body a.pubs-cta:hover { background: var(--navy); color: #fff; }
 
 /* Full list button */
 .fulllist-btn {
