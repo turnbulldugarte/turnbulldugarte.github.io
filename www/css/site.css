@@ -292,20 +292,20 @@ hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
   display: flex; gap: 0.9rem; align-items: flex-start;
   padding: 1rem 1.1rem;
   border-radius: var(--radius);
-  background: linear-gradient(135deg, #eff6ff, #f5f3ff);
-  border: 1px solid #c7d2fe;
+  background: #f5ac01; /* Sampled from website_hero.mp4. */
+  border: 1px solid #f5ac01;
   margin: 1rem 0 1.5rem;
 }
-[data-theme="dark"] .book-callout { background: rgba(79,70,229,0.12); border-color: rgba(199,210,254,0.2); }
+[data-theme="dark"] .book-callout { background: #f5ac01; border-color: #f5ac01; }
 .book-callout .bi { font-size: 1.8rem; flex-shrink: 0; }
 .book-callout h3 { font-size: 0.88rem; font-weight: 700; color: var(--navy); margin-bottom: 0.2rem; }
 [data-theme="dark"] .book-callout h3 { color: var(--text); }
 .book-callout h3.rainbow-vote-title {
   font-size: 1.15rem;
-  color: #e9b404;
+  color: var(--navy);
 }
-[data-theme="dark"] .book-callout h3.rainbow-vote-title { color: #e9b404; }
-.book-callout p { font-size: 0.95rem; color: var(--text-2); margin: 0; }
+[data-theme="dark"] .book-callout h3.rainbow-vote-title { color: var(--navy); }
+.book-callout p { font-size: 0.95rem; color: var(--navy); margin: 0; }
 .book-callout .book-links {
   display: flex;
   flex-wrap: wrap;
