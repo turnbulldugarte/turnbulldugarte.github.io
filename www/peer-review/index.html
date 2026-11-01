@@ -6,6 +6,28 @@
   <title>Peer Review Data — Stuart J. Turnbull-Dugarte</title>
   <link rel="stylesheet" href="../css/site.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <style>
+    .review-section + .review-section { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+    .review-section h2 { font-size: 1.35rem; line-height: 1.3; margin-bottom: 0.75rem; }
+    .review-section p { max-width: none; margin-bottom: 1.25rem; }
+    .review-desk { color: #ff9e26; }
+    .review-reject { color: #d83b8d; }
+    .review-rr { color: #6600cc; }
+    .review-mean { color: #a00000; }
+    .review-submissions { color: #4682b4; }
+    .review-section p span { font-weight: 600; }
+    [data-theme="dark"] .review-desk { color: #ffb34d; }
+    [data-theme="dark"] .review-reject { color: #f075b3; }
+    [data-theme="dark"] .review-rr { color: #b88aff; }
+    [data-theme="dark"] .review-mean { color: #ff8585; }
+    [data-theme="dark"] .review-submissions { color: #82b7e1; }
+    .review-section figure { margin: 0; }
+    .review-section figure a { display: block; }
+    .review-section figure a:focus-visible { outline: 3px solid var(--link); outline-offset: 4px; }
+    .review-section img { display: block; width: 100%; height: auto; background: #fff; }
+    .review-section figcaption { margin-top: 0.65rem; font-size: 0.875rem; color: var(--text-2); }
+    .review-section figcaption a { display: inline; text-decoration: underline; text-underline-offset: 0.2em; }
+  </style>
   <script>(function(){const t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);})();</script>
   <script data-goatcounter="https://turnbulldugarte.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head>
@@ -29,18 +51,45 @@
   </div>
 </header>
 
-<div class="page-wrap">
+<main class="page-wrap">
   <div class="page-header">
     <h1>Peer Review Data</h1>
-    <p>Interactive visualisations of peer review activities and statistics.</p>
+    <p>My experience of peer review as an author and reviewer: decision times, annual trends, and the path to revise and resubmit (R&amp;R).</p>
   </div>
 
-  <iframe
-    src="reviewgraphs.html"
-    style="width:100%;min-height:80vh;border:1px solid var(--border);border-radius:0.5rem;"
-    title="Peer review data visualisations">
-  </iframe>
-</div>
+  <section class="review-section" aria-labelledby="decision-times">
+    <h2 id="decision-times">How long do review decisions take?</h2>
+    <p>This figure compares decision times for my submissions with the time I take to provide reviews. Median first-decision times are <span class="review-desk">11 days for desk rejections</span>, <span class="review-reject">73 days for rejections after review</span>, and <span class="review-rr">70 days for R&amp;R</span>. My median review times are <span class="review-reject">28 days when recommending rejection</span> and <span class="review-rr">25 days when recommending R&amp;R</span>. Received decisions cover papers that reached R&amp;R or later; second-decision times run from revised submission.</p>
+    <figure>
+      <a href="combined.png" aria-label="View decision times figure at full size">
+        <img src="combined.png" width="4500" height="2100" alt="Box plots of first and second decision times received and review times provided, grouped by outcome.">
+      </a>
+      <figcaption>Decision times in days; summaries are medians. <a href="combined.png">View full-size figure</a>.</figcaption>
+    </figure>
+  </section>
+
+  <section class="review-section" aria-labelledby="annual-times">
+    <h2 id="annual-times">How have review times changed?</h2>
+    <p>Annual averages show how long my papers spend in review and how quickly I return reviews. <span class="review-desk">Desk decisions</span> are shown but excluded from the received-review averages. In 2026, the averages are <span class="review-mean">80.3 days for reviews received</span> and <span class="review-mean">22.6 days for reviews provided</span>; individual cases show substantial variation.</p>
+    <figure>
+      <a href="combined_time.png" aria-label="View annual review times figure at full size">
+        <img src="combined_time.png" width="3000" height="2700" loading="lazy" alt="Annual review times: received-review averages range from 63.8 to 102.2 days during 2018–2026; provided-review averages range from 17.7 to 27.2 days during 2019–2026.">
+      </a>
+      <figcaption>Points show individual cases; red lines show annual means. <a href="combined_time.png">View full-size figure</a>.</figcaption>
+    </figure>
+  </section>
+
+  <section class="review-section" aria-labelledby="submission-attempts">
+    <h2 id="submission-attempts">How many submissions does it take to reach R&amp;R?</h2>
+    <p>My papers take an average of 2.2 journal submissions to reach R&amp;R, rising to <span class="review-mean">3.2 for the 2026 submission cohort</span>. The figure also marks my <span class="review-mean">new rejection record in 2026: six submissions to reach R&amp;R</span>. Apparently, my papers are taking the scenic route to publication. The lower panel tracks the <span class="review-submissions">annual percentage change in papers submitted for the first time</span>. Dashed lines mark completing my PhD in March 2020 and promotion to Associate Professor in May 2023.</p>
+    <figure>
+      <a href="attempts.png" aria-label="View submission attempts figure at full size">
+        <img src="attempts.png" width="2700" height="2700" loading="lazy" alt="Journal submission attempts to reach R&amp;R by year, with annual means from 1.3 to 3.2 and a maximum of six attempts, above annual changes in new paper submissions.">
+      </a>
+      <figcaption>Annual means are grouped by submission year; changes in new submissions use 2018 as the baseline. <a href="attempts.png">View full-size figure</a>.</figcaption>
+    </figure>
+  </section>
+</main>
 
 <footer>
   <p>&copy; 2026 Stuart J. Turnbull-Dugarte · University of Southampton · s.turnbull-dugarte[at]soton.ac.uk</p>
